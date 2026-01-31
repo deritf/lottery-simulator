@@ -1,0 +1,49 @@
+/* assets/css/components/millon.css */
+
+.millon-toggle {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem;
+}
+
+.millon-btn {
+  height: 4.2rem;
+  border-radius: var(--radius-10);
+  border: 1px solid var(--color-borde-1);
+  background: var(--color-tarjeta);
+
+  font-weight: 800;
+  font-size: var(--texto-14);
+  letter-spacing: 0.02em;
+
+  color: var(--color-texto-principal);
+  cursor: pointer;
+  user-select: none;
+
+  transition:
+    background-color 160ms ease,
+    color 160ms ease,
+    border-color 160ms ease,
+    transform 120ms ease;
+}
+
+.millon-btn:hover {
+  background: var(--color-hover-suave);
+}
+
+.millon-btn:active {
+  transform: scale(0.99);
+}
+
+.millon-btn.is-active {
+  background: var(--color-acento);
+  border-color: var(--color-acento);
+  color: var(--color-acento-text, var(--color-texto-invertido));
+}
+
+.millon-hint {
+  margin-top: 1rem;
+  color: var(--color-texto-secundario);
+  font-size: 1.35rem;
+  line-height: 1.4;
+}

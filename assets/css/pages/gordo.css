@@ -1,0 +1,135 @@
+/* assets/css/pages/gordo.css */
+
+body[data-game="gordo"] {
+  --color-acento: var(--color-gordo);
+}
+
+body[data-game="gordo"] .clave-btn {
+  position: relative;
+
+  width: clamp(var(--reintegro-size-min), 6vw, var(--reintegro-size-max));
+  height: clamp(var(--reintegro-size-min), 6vw, var(--reintegro-size-max));
+
+  border-radius: var(--radius-10);
+  border: 1px solid var(--color-borde-1);
+
+  background: color-mix(
+    in srgb,
+    var(--color-tarjeta) 86%,
+    var(--color-texto-principal) 4%
+  );
+
+  color: color-mix(
+    in srgb,
+    var(--color-texto-principal) 70%,
+    var(--color-texto-secundario)
+  );
+
+  display: grid;
+  place-items: center;
+
+  font-size: 1.6rem;
+  font-weight: 900;
+
+  cursor: pointer;
+  user-select: none;
+
+  transition:
+    transform 120ms ease,
+    background-color 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease,
+    box-shadow 160ms ease;
+
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+body[data-game="gordo"] .clave-btn:hover {
+  background: color-mix(in srgb, var(--color-acento) 18%, var(--color-tarjeta));
+  border-color: color-mix(
+    in srgb,
+    var(--color-acento) 45%,
+    var(--color-borde-1)
+  );
+  color: var(--color-texto-principal);
+  transform: scale(1.045);
+  box-shadow: var(--shadow-sm);
+}
+
+body[data-game="gordo"] .clave-btn:active {
+  transform: scale(1.02);
+}
+
+body[data-game="gordo"] .clave-btn.is-selected {
+  background: var(--color-acento);
+  border-color: var(--color-acento);
+  color: var(--color-acento-text);
+  box-shadow: var(--shadow-sm);
+}
+
+body[data-game="gordo"] .clave-btn.is-selected:hover {
+  background: var(--color-acento);
+  border-color: var(--color-acento);
+  transform: scale(1.03);
+}
+
+body[data-game="gordo"] #clave-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  justify-content: flex-start;
+  align-content: flex-start;
+}
+
+body[data-game="gordo"] .slot--clave {
+  position: relative;
+  overflow: visible;
+}
+
+@media (max-width: 768px) {
+  body[data-game="gordo"] .game-hero {
+    margin: 1.8rem 0 2.4rem;
+  }
+
+  body[data-game="gordo"] .clave-btn {
+    font-size: 1.5rem;
+  }
+
+  body[data-game="gordo"] #clave-grid {
+    gap: 0.7rem;
+  }
+}
+
+@media (max-width: 560px) {
+  body[data-game="gordo"] .game-hero {
+    margin: 1.6rem 0 2rem;
+  }
+
+  body[data-game="gordo"] .game-hero__explain {
+    padding: 0;
+  }
+
+  body[data-game="gordo"] .clave-btn {
+    font-size: 1.4rem;
+  }
+
+  body[data-game="gordo"] #clave-grid {
+    gap: 0.6rem;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 420px) {
+  body[data-game="gordo"] .game-hero {
+    margin: 1.4rem 0 1.8rem;
+  }
+
+  body[data-game="gordo"] .clave-btn {
+    font-size: 1.35rem;
+  }
+
+  body[data-game="gordo"] #clave-grid {
+    gap: 0.5rem;
+  }
+}

@@ -1,0 +1,206 @@
+/* assets/css/pages/eurodreams.css */
+
+body[data-game="eurodreams"] {
+  --color-acento: var(--color-eurodreams);
+}
+
+body[data-game="eurodreams"] .dream-btn {
+  position: relative;
+
+  width: clamp(var(--reintegro-size-min), 6vw, var(--reintegro-size-max));
+  height: clamp(var(--reintegro-size-min), 6vw, var(--reintegro-size-max));
+
+  border-radius: var(--radius-10);
+  border: 1px solid var(--color-borde-1);
+
+  background: color-mix(
+    in srgb,
+    var(--color-tarjeta) 86%,
+    var(--color-texto-principal) 4%
+  );
+
+  color: color-mix(
+    in srgb,
+    var(--color-texto-principal) 70%,
+    var(--color-texto-secundario)
+  );
+
+  display: grid;
+  place-items: center;
+
+  font-size: 1.6rem;
+  font-weight: 900;
+
+  cursor: pointer;
+  user-select: none;
+
+  transition:
+    transform 120ms ease,
+    background-color 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease,
+    box-shadow 160ms ease;
+
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+body[data-game="eurodreams"] .dream-btn:hover {
+  background: color-mix(in srgb, var(--color-acento) 18%, var(--color-tarjeta));
+  border-color: color-mix(
+    in srgb,
+    var(--color-acento) 45%,
+    var(--color-borde-1)
+  );
+  color: var(--color-texto-principal);
+  transform: scale(1.045);
+  box-shadow: var(--shadow-sm);
+}
+
+body[data-game="eurodreams"] .dream-btn:active {
+  transform: scale(1.02);
+}
+
+body[data-game="eurodreams"] .dream-btn.is-selected {
+  background: var(--color-acento);
+  border-color: var(--color-acento);
+  color: var(--color-acento-text);
+  box-shadow: var(--shadow-sm);
+}
+
+body[data-game="eurodreams"] .dream-btn::before {
+  content: "";
+  position: absolute;
+
+  top: 0;
+  left: 0;
+  transform: translate(-55%, -55%);
+
+  width: 26px;
+  height: 26px;
+
+  background: url("../../icons/eurodreams-icon.png") no-repeat center / contain;
+
+  opacity: 0.96;
+  pointer-events: none;
+}
+
+body[data-game="eurodreams"] .dream-btn.is-selected::before {
+  filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.9))
+    drop-shadow(0 0 6px rgba(255, 255, 255, 0.55));
+}
+
+body[data-game="eurodreams"] #dream-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  justify-content: flex-start;
+  align-content: flex-start;
+}
+
+body[data-game="eurodreams"] .slot--dream {
+  position: relative;
+  overflow: visible;
+}
+
+body[data-game="eurodreams"] .slot--dream::before {
+  content: "";
+  position: absolute;
+
+  top: 0;
+  left: 0;
+  transform: translate(-55%, -55%);
+
+  width: 22px;
+  height: 22px;
+
+  background: url("../../icons/eurodreams-icon.png") no-repeat center / contain;
+
+  opacity: 0.95;
+  pointer-events: none;
+  filter: none;
+}
+
+body[data-game="eurodreams"] .slot--dream.is-filled::before {
+  filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.9))
+    drop-shadow(0 0 6px rgba(255, 255, 255, 0.55));
+}
+
+@media (max-width: 768px) {
+  body[data-game="eurodreams"] .game-hero {
+    margin: 1.8rem 0 2.4rem;
+  }
+
+  body[data-game="eurodreams"] .dream-btn {
+    font-size: 1.5rem;
+  }
+
+  body[data-game="eurodreams"] .dream-btn::before {
+    width: 24px;
+    height: 24px;
+  }
+
+  body[data-game="eurodreams"] #dream-grid {
+    gap: 0.7rem;
+  }
+}
+
+@media (max-width: 560px) {
+  body[data-game="eurodreams"] .game-hero {
+    margin: 1.6rem 0 2rem;
+  }
+
+  body[data-game="eurodreams"] .game-hero__explain {
+    padding: 0;
+  }
+
+  body[data-game="eurodreams"] .dream-btn {
+    font-size: 1.4rem;
+  }
+
+  body[data-game="eurodreams"] .dream-btn::before {
+    width: 22px;
+    height: 22px;
+  }
+
+  body[data-game="eurodreams"] .slot--dream::before {
+    width: 20px;
+    height: 20px;
+  }
+
+  body[data-game="eurodreams"] #dream-grid {
+    gap: 0.6rem;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 420px) {
+  body[data-game="eurodreams"] .game-hero {
+    margin: 1.4rem 0 1.8rem;
+  }
+
+  body[data-game="eurodreams"] .dream-btn {
+    font-size: 1.35rem;
+  }
+
+  body[data-game="eurodreams"] .dream-btn::before {
+    width: 20px;
+    height: 20px;
+  }
+
+  body[data-game="eurodreams"] #dream-grid {
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 360px) {
+  body[data-game="eurodreams"] .dream-btn::before {
+    width: 18px;
+    height: 18px;
+  }
+
+  body[data-game="eurodreams"] .slot--dream::before {
+    width: 18px;
+    height: 18px;
+  }
+}

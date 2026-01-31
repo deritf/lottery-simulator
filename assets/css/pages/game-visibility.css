@@ -1,0 +1,82 @@
+/* assets/css/pages/game-visibility.css */
+
+[data-game-only] {
+  display: none;
+}
+
+body[data-game="primitiva"] [data-game-only="primitiva"] {
+  display: block;
+}
+
+body[data-game="euromillones"] [data-game-only="euromillones"] {
+  display: block;
+}
+
+body[data-game="bonoloto"] [data-game-only="bonoloto"] {
+  display: block;
+}
+
+body[data-game="gordo"] [data-game-only="gordo"] {
+  display: block;
+}
+
+body[data-game="eurodreams"] [data-game-only="eurodreams"] {
+  display: block;
+}
+
+body[data-game="loteria-nacional"] [data-game-only="loteria-nacional"] {
+  display: block;
+}
+
+body[data-game="lototurf"] [data-game-only="lototurf"] {
+  display: block;
+}
+
+body[data-game="quiniela"] [data-game-only="quiniela"] {
+  display: block;
+}
+
+body[data-game="quinigol"] [data-game-only="quinigol"] {
+  display: block;
+}
+
+body[data-game="primitiva"] .selection-row[data-game-only="primitiva"] {
+  display: grid;
+}
+
+body[data-game="euromillones"] .selection-row[data-game-only="euromillones"] {
+  display: grid;
+}
+
+body[data-game="bonoloto"] .selection-row[data-game-only="bonoloto"] {
+  display: grid;
+}
+
+body[data-game="gordo"] .selection-row[data-game-only="gordo"] {
+  display: grid;
+}
+
+body[data-game="eurodreams"] .selection-row[data-game-only="eurodreams"] {
+  display: grid;
+}
+
+body[data-game="loteria-nacional"]
+  .selection-row[data-game-only="loteria-nacional"] {
+  display: grid;
+}
+
+body[data-game="lototurf"] .selection-row[data-game-only="lototurf"] {
+  display: grid;
+}
+
+body[data-game="quiniela"] .selection-row[data-game-only="quiniela"] {
+  display: grid;
+}
+
+body[data-game="quinigol"] .selection-row[data-game-only="quinigol"] {
+  display: grid;
+}
+
+.number-grid--stars .star-btn {
+  border-radius: 12px;
+}

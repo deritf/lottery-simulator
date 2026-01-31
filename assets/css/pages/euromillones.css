@@ -1,0 +1,158 @@
+/* assets/css/pages/euromillones.css */
+
+body[data-game="euromillones"] {
+  --color-acento: var(--color-euromillones);
+}
+
+body[data-game="euromillones"] .star-btn {
+  position: relative;
+
+  width: clamp(var(--reintegro-size-min), 6vw, var(--reintegro-size-max));
+  height: clamp(var(--reintegro-size-min), 6vw, var(--reintegro-size-max));
+
+  border-radius: var(--radius-10);
+  border: 1px solid var(--color-borde-1);
+
+  background: color-mix(
+    in srgb,
+    var(--color-tarjeta) 86%,
+    var(--color-texto-principal) 4%
+  );
+  color: color-mix(
+    in srgb,
+    var(--color-texto-principal) 70%,
+    var(--color-texto-secundario)
+  );
+
+  display: grid;
+  place-items: center;
+
+  font-size: 1.4rem;
+  font-weight: 800;
+
+  cursor: pointer;
+  user-select: none;
+
+  transition:
+    transform 120ms ease,
+    background-color 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease,
+    box-shadow 160ms ease;
+
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+body[data-game="euromillones"] .star-btn:hover {
+  background: color-mix(in srgb, var(--color-acento) 18%, var(--color-tarjeta));
+  border-color: color-mix(
+    in srgb,
+    var(--color-acento) 45%,
+    var(--color-borde-1)
+  );
+  color: var(--color-texto-principal);
+  transform: scale(1.045);
+  box-shadow: var(--shadow-sm);
+}
+
+body[data-game="euromillones"] .star-btn:active {
+  transform: scale(1.02);
+}
+
+body[data-game="euromillones"] .star-btn.is-selected {
+  background: var(--color-acento);
+  border-color: var(--color-acento);
+  color: var(--color-acento-text);
+  box-shadow: var(--shadow-sm);
+}
+
+body[data-game="euromillones"] .star-btn.is-selected:hover {
+  background: var(--color-acento);
+  border-color: var(--color-acento);
+  transform: scale(1.03);
+}
+
+body[data-game="euromillones"] .star-btn::before {
+  content: "";
+  position: absolute;
+
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+
+  width: 20px;
+  height: 20px;
+
+  background: url("../../icons/euromill-star.png") no-repeat center / contain;
+
+  opacity: 0.95;
+  pointer-events: none;
+}
+
+body[data-game="euromillones"] #stars-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  justify-content: flex-start;
+  align-content: flex-start;
+}
+
+@media (max-width: 768px) {
+  body[data-game="euromillones"] .game-hero {
+    margin: 1.8rem 0 2.4rem;
+  }
+
+  body[data-game="euromillones"] .star-btn {
+    font-size: 1.35rem;
+  }
+
+  body[data-game="euromillones"] #stars-grid {
+    gap: 0.7rem;
+  }
+}
+
+@media (max-width: 560px) {
+  body[data-game="euromillones"] .game-hero {
+    margin: 1.6rem 0 2rem;
+  }
+
+  body[data-game="euromillones"] .game-hero__explain {
+    padding: 0;
+  }
+
+  body[data-game="euromillones"] .star-btn {
+    font-size: 1.3rem;
+  }
+
+  body[data-game="euromillones"] .star-btn::before {
+    width: 18px;
+    height: 18px;
+  }
+
+  body[data-game="euromillones"] #stars-grid {
+    gap: 0.6rem;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 420px) {
+  body[data-game="euromillones"] .game-hero {
+    margin: 1.4rem 0 1.8rem;
+  }
+
+  body[data-game="euromillones"] .star-btn {
+    font-size: 1.25rem;
+  }
+
+  body[data-game="euromillones"] #stars-grid {
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 360px) {
+  body[data-game="euromillones"] .star-btn::before {
+    width: 16px;
+    height: 16px;
+  }
+}

@@ -1,0 +1,200 @@
+/* assets/css/components/results-charts-modal.css */
+
+.rcm {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+}
+
+.rcm[hidden] {
+  display: none !important;
+}
+
+.rcm__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.rcm__panel {
+  position: relative;
+  width: min(1140px, calc(100vw - 1.2rem));
+  max-height: calc(100vh - 1.2rem);
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  margin: 0.6rem auto;
+  border-radius: var(--radius-12);
+  border: 1px solid var(--color-borde-1);
+  background: var(--color-tarjeta);
+  box-shadow: var(--shadow-md);
+
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-borde-2) transparent;
+}
+
+.rcm__panel::-webkit-scrollbar {
+  width: 10px;
+}
+.rcm__panel::-webkit-scrollbar-track {
+  background: transparent;
+}
+.rcm__panel::-webkit-scrollbar-thumb {
+  background: var(--color-borde-2);
+  border-radius: 999px;
+}
+.rcm__panel::-webkit-scrollbar-thumb:hover {
+  background: var(--color-texto-terciario);
+}
+
+.rcm__head {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+
+  background: inherit;
+  border-bottom: 1px solid var(--color-borde-1);
+
+  padding: 1.2rem 1.2rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.rcm__title {
+  font-weight: 800;
+  font-size: 1.6rem;
+  color: var(--color-texto-principal);
+}
+
+.rcm__close {
+  width: 3.6rem;
+  height: 3.6rem;
+
+  border-radius: var(--radius-10);
+  border: 1px solid var(--color-borde-1);
+
+  background: transparent;
+  color: var(--color-texto-principal);
+
+  cursor: pointer;
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease;
+}
+
+.rcm__close:hover {
+  background: var(--color-hover-suave);
+  border-color: var(--color-borde-2);
+}
+
+.rcm__body {
+  padding: 1.2rem 1.8rem 1.6rem;
+  overflow-x: hidden;
+
+  display: grid;
+  gap: 1.2rem;
+}
+
+.rcm__section {
+  padding: 1.2rem 1.2rem;
+  border-radius: var(--radius-12);
+  border: 1px solid var(--color-borde-1);
+  background: color-mix(in srgb, var(--color-tarjeta) 92%, transparent);
+  box-shadow: var(--shadow-sm);
+}
+
+.rcm__h {
+  margin: 0 0 0.8rem;
+  font-size: 1.55rem;
+  font-weight: 800;
+  color: var(--color-texto-principal);
+}
+
+.rcm__p {
+  margin: 0 0 1.2rem;
+  font-size: 1.35rem;
+  line-height: 1.55;
+  color: var(--color-texto-secundario);
+}
+
+.rcm__chart {
+  width: 100%;
+  min-height: 360px;
+}
+
+.rcm__foot {
+  margin: 1rem 0 0;
+  font-size: 1.25rem;
+  color: var(--color-texto-terciario);
+  line-height: 1.45;
+}
+
+/* ===============================
+   Toggle histograma - Excluir 0€
+   =============================== */
+
+.rcm__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.2rem;
+}
+
+.rcm__toggle {
+  appearance: none;
+  border: 2px solid var(--color-borde-2);
+  background-color: var(--color-fondo);
+  color: var(--color-texto-principal);
+
+  border-radius: 999px;
+  padding: 0.7rem 1.2rem;
+
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    filter 0.2s ease;
+
+  min-height: 38px;
+}
+
+.rcm__toggle:hover {
+  border-color: var(--color-acento);
+  background-color: var(--color-hover-suave);
+}
+
+.rcm__toggle[aria-pressed="true"] {
+  background-color: var(--color-acento);
+  border-color: var(--color-acento);
+  color: var(--color-acento-text, #fff);
+}
+
+.rcm__toggle[aria-pressed="true"]:hover {
+  filter: brightness(1.05);
+}
+
+.rcm__toggle:focus-visible {
+  outline: 2px solid var(--color-acento);
+  outline-offset: 2px;
+}
+
+.rcm__controls {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.rcm__meta {
+  font-weight: 700;
+  opacity: 0.9;
+  white-space: nowrap;
+}

@@ -1,0 +1,243 @@
+/* assets/css/pages/quinigol.css */
+
+body[data-game="quinigol"] #number-grid.number-grid {
+  display: block;
+  gap: 0;
+  padding: 0;
+}
+
+body[data-game="quinigol"] .selection-card {
+  display: none;
+}
+
+body[data-game="quinigol"] .quinigol-header {
+  margin-bottom: 1.2rem;
+}
+
+body[data-game="quinigol"] .game-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+body[data-game="quinigol"] .quinigol {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+body[data-game="quinigol"] .quinigol__title {
+  font-family: var(--fuente-secundaria);
+  font-weight: 900;
+  font-size: var(--texto-20);
+  letter-spacing: -0.02em;
+  color: var(--color-texto-principal);
+}
+
+body[data-game="quinigol"] .quinigol__hint {
+  font-size: var(--texto-14);
+  line-height: 1.45;
+  color: var(--color-texto-secundario);
+  max-width: 90ch;
+}
+
+body[data-game="quinigol"] .quinigol__matches {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.2rem;
+  align-items: start;
+}
+
+body[data-game="quinigol"] .quinigol__card {
+  min-width: 0;
+  border: 1px solid var(--color-borde-1);
+  border-radius: var(--radius-12);
+  background: color-mix(in srgb, var(--color-tarjeta) 96%, #000 2%);
+  padding: 1.1rem;
+  box-shadow: var(--shadow-sm);
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+body[data-game="quinigol"] .quinigol__cardTitle {
+  font-size: var(--texto-12);
+  color: var(--color-texto-terciario);
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+body[data-game="quinigol"] .quinigol__matrix {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.7rem;
+}
+
+body[data-game="quinigol"] .quinigol__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 4rem;
+  padding: 0 0.6rem;
+
+  border-radius: var(--radius-10);
+  border: 1px solid var(--color-borde-1);
+  background: transparent;
+
+  cursor: pointer;
+  user-select: none;
+
+  font-weight: 900;
+  font-size: var(--texto-14);
+  color: var(--color-texto-secundario);
+
+  white-space: nowrap;
+
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease,
+    transform 120ms ease,
+    box-shadow 160ms ease;
+
+  -webkit-tap-highlight-color: transparent;
+}
+
+body[data-game="quinigol"] .quinigol__btn:hover {
+  background: var(--color-hover-suave);
+  border-color: var(--color-borde-2);
+  color: var(--color-texto-principal);
+}
+
+body[data-game="quinigol"] .quinigol__btn.is-selected {
+  background: var(--color-acento);
+  border-color: var(--color-acento);
+  color: var(--color-acento-text, var(--color-texto-invertido));
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-1px);
+}
+
+body[data-game="quinigol"] .quinigol__cardFooter {
+  font-size: var(--texto-12);
+  color: var(--color-texto-terciario);
+  font-weight: 750;
+}
+
+body[data-game="quinigol"] .quinigol__summary {
+  width: 100%;
+  border: 1px solid var(--color-borde-1);
+  border-radius: var(--radius-12);
+  background: color-mix(
+    in srgb,
+    var(--color-tarjeta) 92%,
+    var(--color-acento) 5%
+  );
+  padding: 1rem 1.1rem;
+
+  font-size: var(--texto-14);
+  font-weight: 900;
+  color: var(--color-texto-principal);
+}
+
+@media (max-width: 900px) {
+  body[data-game="quinigol"] .quinigol__matches {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  body[data-game="quinigol"] .game-layout {
+    gap: 1.4rem;
+  }
+
+  body[data-game="quinigol"] .quinigol {
+    gap: 1.3rem;
+  }
+
+  body[data-game="quinigol"] .quinigol__title {
+    font-size: 1.9rem;
+  }
+
+  body[data-game="quinigol"] .quinigol__hint {
+    font-size: 1.35rem;
+  }
+
+  body[data-game="quinigol"] .quinigol__card {
+    padding: 1rem;
+  }
+
+  body[data-game="quinigol"] .quinigol__matrix {
+    gap: 0.65rem;
+  }
+
+  body[data-game="quinigol"] .quinigol__btn {
+    height: 3.8rem;
+  }
+}
+
+@media (max-width: 560px) {
+  body[data-game="quinigol"] .quinigol {
+    gap: 1.2rem;
+  }
+
+  body[data-game="quinigol"] .quinigol__title {
+    font-size: 1.8rem;
+  }
+
+  body[data-game="quinigol"] .quinigol__hint {
+    font-size: 1.3rem;
+  }
+
+  body[data-game="quinigol"] .quinigol__matches {
+    gap: 1rem;
+  }
+
+  body[data-game="quinigol"] .quinigol__card {
+    padding: 0.95rem;
+  }
+
+  body[data-game="quinigol"] .quinigol__matrix {
+    gap: 0.6rem;
+  }
+
+  body[data-game="quinigol"] .quinigol__btn {
+    height: 3.6rem;
+    font-size: 1.3rem;
+  }
+
+  body[data-game="quinigol"] .quinigol__summary {
+    padding: 0.95rem 1rem;
+  }
+}
+
+@media (max-width: 420px) {
+  body[data-game="quinigol"] .quinigol__title {
+    font-size: 1.7rem;
+  }
+
+  body[data-game="quinigol"] .quinigol__matrix {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.5rem;
+  }
+
+  body[data-game="quinigol"] .quinigol__btn {
+    height: 3.8rem;
+    font-size: var(--texto-12);
+    padding: 0 0.5rem;
+  }
+}
+
+@media (max-width: 360px) {
+  body[data-game="quinigol"] .quinigol__matrix {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  body[data-game="quinigol"] .quinigol__btn {
+    height: 4rem;
+  }
+}

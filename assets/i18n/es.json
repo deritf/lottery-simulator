@@ -1,0 +1,690 @@
+{
+  "seo": {
+    "baseUrl": "https://derimantejera.dev/lottery/",
+    "siteName": "Simulador de Lotería",
+    "default": {
+      "title": "Simulador de Loterías — Simulaciones educativas a largo plazo",
+      "description": "Simulador educativo de loterías. Simulaciones a largo plazo basadas en formatos oficiales, probabilidades y modelos realistas de premios. Sin apuestas reales."
+    },
+    "games": {
+      "primitiva": {
+        "title": "Simulador de La Primitiva — Simulación educativa a largo plazo",
+        "description": "Simula La Primitiva durante años con reglas oficiales, probabilidades y un modelo realista de fondo de premios. Controla gasto, premios y balance."
+      },
+      "bonoloto": {
+        "title": "Simulador de Bonoloto — Simulación educativa a largo plazo",
+        "description": "Simula Bonoloto a lo largo del tiempo con calendario realista, estructura de premios y participación estimada. Uso educativo."
+      },
+      "euromillones": {
+        "title": "Simulador de Euromillones — Simulación educativa a largo plazo",
+        "description": "Simula Euromillones (con El Millón en España) durante años con economía y reparto de premios realistas. Uso educativo."
+      },
+      "gordo": {
+        "title": "Simulador de El Gordo — Simulación educativa a largo plazo",
+        "description": "Simula El Gordo de la Primitiva a lo largo del tiempo con formato oficial y reparto realista por categorías. Uso educativo."
+      },
+      "eurodreams": {
+        "title": "Simulador de EuroDreams — Simulación educativa a largo plazo",
+        "description": "Simula EuroDreams durante años con formato oficial y un modelo consistente de premios. Uso educativo."
+      },
+      "loteria-nacional": {
+        "title": "Simulador de Lotería Nacional — Simulación educativa",
+        "description": "Simula sorteos de Lotería Nacional (jueves, sábado, Navidad, Niño). Uso educativo, sin compra real de décimos."
+      },
+      "quiniela": {
+        "title": "Simulador de La Quiniela — Simulación educativa",
+        "description": "Simula La Quiniela a lo largo del tiempo con participación estimada y lógica de fondo de premios. Uso educativo."
+      },
+      "lototurf": {
+        "title": "Simulador de Lototurf — Simulación educativa",
+        "description": "Simula Lototurf (números + caballo) con categorías realistas y modelo de participación. Uso educativo."
+      },
+      "quinigol": {
+        "title": "Simulador de El Quinigol — Simulación educativa",
+        "description": "Simula El Quinigol a lo largo del tiempo con un modelo consistente de fondo de premios. Uso educativo."
+      }
+    }
+  },
+  "games": {
+    "primitiva": {
+      "label": "La Primitiva",
+      "hero": {
+        "title": "Simulador de La Primitiva",
+        "subtitle": "Simulación a largo plazo basada en reglas oficiales, probabilidades y un comportamiento económico realista.",
+        "explainTitle": "¿En qué consiste La Primitiva?",
+        "moreBtn": "Saber más",
+        "closeBtn": "Cerrar",
+        "explain": [
+          "En La Primitiva juegas una apuesta formada por 6 números distintos (1–49) y un Reintegro (0–9).",
+          "En cada sorteo se obtiene una combinación ganadora (6 números + Reintegro). Tu apuesta se compara con esa combinación ganadora.",
+          "La categoría del premio depende de cuántos números principales aciertas y de si aciertas el Reintegro. El premio máximo es el bote (6 números + Reintegro).",
+          "En cada sorteo el simulador estima la participación mundial (número de apuestas) y calcula el fondo de premios como un porcentaje de la recaudación, imitando el funcionamiento económico del juego.",
+          "Si en un sorteo no hay ganadores en determinadas categorías, el dinero de esas categorías se traslada según reglas de arrastre/roll-down, lo que afecta a botes futuros. Por eso el bote puede crecer con el tiempo.",
+          "La simulación avanza sorteo a sorteo siguiendo el calendario real (lunes/jueves/sábado), registrando tu gasto, tus premios y tu balance neto."
+        ],
+        "joker": {
+          "title": "Joker (opcional)",
+          "explain": [
+            "El Joker es un juego adicional opcional. Se basa en un número de 7 dígitos (0000000–9999999).",
+            "Si activas Joker, el simulador genera un número Joker para ti en cada sorteo y también genera el Joker del sorteo.",
+            "Los premios dependen de cuántos dígitos coinciden desde el inicio (coincidencia por prefijo). Por ejemplo, si coinciden los 4 primeros dígitos en el mismo orden, cobras el premio de 4 aciertos.",
+            "Los premios del Joker son importes fijos según el número de aciertos (2–7). Puedes ganar a la vez un premio del sorteo principal y un premio Joker en el mismo sorteo.",
+            "En este modelo, la recaudación del Joker se contabiliza por separado y no alimenta el bote principal; se trata como un sistema de premios independiente."
+          ]
+        }
+      }
+    },
+    "bonoloto": {
+      "label": "Bonoloto",
+      "hero": {
+        "title": "Simulador de Bonoloto",
+        "subtitle": "Simulación a largo plazo basada en reglas oficiales y comportamiento económico realista.",
+        "explainTitle": "¿En qué consiste Bonoloto?",
+        "moreBtn": "Saber más",
+        "closeBtn": "Cerrar",
+        "explain": [
+          "En Bonoloto juegas una apuesta formada por 6 números distintos (1–49). En cada sorteo se extraen 6 números ganadores, además de un número Complementario y un Reintegro (0–9).",
+          "Puedes seleccionar tus números manualmente o usar la selección automática aleatoria.",
+          "El precio de una apuesta es de 0,50 €, pero los boletos deben ser de al menos 1,00 €. Esto implica: si participas en un único sorteo, el boleto debe incluir al menos dos apuestas; si participas en varios sorteos, puedes incluir una única apuesta y jugar la misma combinación en varios sorteos.",
+          "Tienes dos formas de jugar: Apuestas simples (eliges exactamente 6 números) y Apuestas múltiples (eliges más de 6 números, hasta 11). En las múltiples, el importe depende del número de combinaciones generadas.",
+          "Se celebran sorteos todos los días a las 21:30 (hora de España). Puedes participar solo en el próximo sorteo o en varios sorteos pendientes de la semana con la misma combinación.",
+          "Tendrás premio si aciertas al menos 3 números. El Complementario sirve para subir el premio cuando aciertas exactamente 5 números, y el Reintegro devuelve lo jugado si coincide.",
+          "Probabilidades aproximadas: 1ª (6 aciertos) 1 entre 13.983.816; 2ª (5 aciertos + C) 1 entre 2.330.636; 3ª (5 aciertos) 1 entre 55.491; 4ª (4 aciertos) 1 entre 1.032; 5ª (3 aciertos) 1 entre 57; Reintegro 1 entre 10."
+        ]
+      }
+    },
+    "euromillones": {
+      "label": "Euromillones",
+      "hero": {
+        "title": "Simulador de Euromillones",
+        "subtitle": "Simulación a largo plazo basada en reglas oficiales, probabilidades y un comportamiento económico realista.",
+        "explainTitle": "¿En qué consiste Euromillones?",
+        "moreBtn": "Saber más",
+        "closeBtn": "Cerrar",
+        "explain": [
+          "En Euromillones juegas una apuesta formada por 5 números distintos (1–50) y 2 estrellas (1–12).",
+          "En cada sorteo se obtiene una combinación ganadora (5 números + 2 estrellas). Tu apuesta se compara con esa combinación ganadora.",
+          "La categoría del premio depende de cuántos números principales aciertas y cuántas estrellas aciertas. El premio máximo es el bote (5 números + 2 estrellas).",
+          "En cada sorteo el simulador estima la participación mundial (número de apuestas) y calcula el fondo de premios como un porcentaje de la recaudación, imitando el funcionamiento económico del juego.",
+          "Si en un sorteo no hay ganadores en determinadas categorías, parte del dinero puede trasladarse a otras categorías (y/o acumularse según el modelo), lo que afecta a premios y botes futuros. Por eso el bote puede crecer con el tiempo.",
+          "La simulación avanza sorteo a sorteo siguiendo el calendario real (martes/viernes), registrando tu gasto, tus premios y tu balance neto."
+        ],
+        "millon": {
+          "title": "El Millón",
+          "explain": [
+            "En España, Euromillones lleva asociado un sorteo adicional llamado “El Millón”: por cada apuesta sencilla (cada línea jugada) se asigna automáticamente un código único de 3 letras y 5 números para ese sorteo.",
+            "En el sorteo se extrae un único código ganador y, si tu código coincide exactamente (sin premios por coincidencias parciales), ganas un premio fijo de 1.000.000 €.",
+            "En España, El Millón va incluido automáticamente con cada apuesta de Euromillones (sin coste extra y sin posibilidad de activarlo o desactivarlo). Es un premio independiente que puede ganarse además de cualquier premio del sorteo principal."
+          ]
+        }
+      }
+    },
+    "gordo": {
+      "label": "El Gordo",
+      "hero": {
+        "title": "Simulador de El Gordo",
+        "subtitle": "Simulación a largo plazo basada en reglas oficiales, probabilidades y un comportamiento económico realista.",
+        "explainTitle": "¿En qué consiste El Gordo?",
+        "moreBtn": "Saber más",
+        "closeBtn": "Cerrar",
+        "explain": [
+          "En El Gordo juegas una apuesta formada por 5 números distintos (1–54) y un número clave (0–9).",
+          "En cada sorteo se obtiene una combinación ganadora (5 números + clave). Tu apuesta se compara con esa combinación ganadora.",
+          "Las categorías de premio dependen de cuántos números principales aciertas y de si aciertas la clave. El premio máximo es el bote (5 + clave).",
+          "En este sorteo, el simulador modela la participación y un fondo de premios derivado de la recaudación, y reparte premios por categoría según la configuración.",
+          "La simulación avanza sorteo a sorteo siguiendo el calendario real, registrando tu gasto, tus premios y tu balance neto."
+        ]
+      }
+    },
+    "eurodreams": {
+      "label": "EuroDreams",
+      "hero": {
+        "title": "Simulador de EuroDreams",
+        "subtitle": "Simulación a largo plazo basada en reglas oficiales, probabilidades y un comportamiento económico realista.",
+        "explainTitle": "¿En qué consiste EuroDreams?",
+        "moreBtn": "Saber más",
+        "closeBtn": "Cerrar",
+        "explain": [
+          "En EuroDreams juegas una apuesta formada por 6 números distintos (1–40) y un número Sueño (1–5).",
+          "En cada sorteo se obtiene una combinación ganadora (6 números + Sueño). Tu apuesta se compara con esa combinación ganadora.",
+          "La categoría del premio depende de cuántos números principales aciertas y de si aciertas el Sueño. La categoría máxima es 6 números + Sueño.",
+          "En cada sorteo el simulador estima la participación mundial (número de apuestas) y calcula la recaudación. Un porcentaje de esa recaudación se destina al fondo de premios, imitando el funcionamiento económico del juego.",
+          "Según las normas oficiales, los premios de 1ª (6+Sueño) y 2ª (6) categoría se pagan como mensualidades durante varios años. Para poder simular cientos de años y comparar resultados de forma simple, este simulador muestra esos premios como un importe equivalente pagado de una sola vez (la suma total de las mensualidades), sin modelar el calendario real de cobros.",
+          "EuroDreams no usa un bote acumulado clásico en este simulador. En su lugar, el fondo de premios se reparte por categorías según las reglas y porcentajes configurados. Como referencia, el simulador puede mostrar el importe asignado a la categoría top (6+Sueño) como “en juego”.",
+          "La simulación avanza sorteo a sorteo siguiendo el calendario (lunes/jueves), registrando tu gasto, tus premios y tu balance neto."
+        ]
+      }
+    },
+    "loteria-nacional": {
+      "label": "Lotería Nacional",
+      "hero": {
+        "title": "Simulador de Lotería Nacional",
+        "subtitle": "Simulación educativa basada en formatos oficiales y una estructura de premios realista.",
+        "explainTitle": "¿Cómo funciona la Lotería Nacional?",
+        "moreBtn": "Saber más",
+        "closeBtn": "Cerrar",
+        "explain": [
+          "En Lotería Nacional juegas un número de 5 cifras (00000–99999). El boleto se llama “décimo”.",
+          "De forma habitual hay sorteos los jueves y los sábados, y además existen sorteos especiales y extraordinarios con precios y repartos de premios distintos.",
+          "Un sorteo no genera un único número premiado: los resultados oficiales suelen incluir 1º premio, 2º premio y también múltiples terminaciones premiadas (últimas 4/3/2 cifras) y cifras de reintegro (última cifra), según el sorteo.",
+          "En algunos sorteos también existen categorías como aproximaciones (el número anterior y posterior a un premio mayor) y premios por centena u otras coincidencias, según el formato oficial.",
+          "En este simulador eliges tu número de 5 cifras (o lo genera el sistema) y cuántos décimos compras (1–10). Cada décimo es un boleto independiente con el mismo número.",
+          "Tras cada sorteo, tu número se evalúa contra las categorías publicadas y el simulador suma tu premio total de ese sorteo (multiplicado por el número de décimos).",
+          "La simulación avanza sorteo a sorteo registrando tu gasto, tus premios y tu balance neto."
+        ],
+        "draws": {
+          "navidad": {
+            "title": "Sorteo de Navidad",
+            "explain": [
+              "El Sorteo de Navidad es el más famoso y se celebra cada año el 22 de diciembre.",
+              "Juegas un número de 5 cifras (00000–99999). Se reparten muchos premios: 1º premio (“El Gordo”), 2º, 3º, dos 4º premios, varios 5º premios y multitud de premios pequeños como la “pedrea” (muchos números ganan un importe fijo).",
+              "También existen reintegros por la última cifra; en el sorteo real de Navidad se extraen varias cifras de reintegro.",
+              "Los importes se pagan por décimo. Si compras varios décimos del mismo número, el premio se multiplica por la cantidad de décimos.",
+              "Este simulador modela el Sorteo de Navidad con su estructura característica (premios grandes + premios fijos por terminación + reintegros) y evalúa tu número contra los resultados publicados."
+            ]
+          },
+          "nino": {
+            "title": "Sorteo del Niño",
+            "explain": [
+              "El Sorteo del Niño es el segundo sorteo extraordinario más popular y se celebra cada año el 6 de enero.",
+              "Juegas un número de 5 cifras (00000–99999). Se reparten 1º, 2º y 3º premios y categorías menores como reintegros (última cifra) y premios por terminaciones (últimas 2, 3 o 4 cifras).",
+              "Los importes se pagan por décimo y se multiplican por el número de décimos comprados.",
+              "Este simulador reproduce la estructura principal del Sorteo del Niño para que tu número pueda ganar un premio mayor o uno de los premios por terminación."
+            ]
+          },
+          "jueves": {
+            "title": "Sorteo ordinario de jueves",
+            "explain": [
+              "El sorteo ordinario de jueves es el formato semanal regular con un precio de décimo más bajo que el del sábado.",
+              "Juegas un número de 5 cifras (00000–99999). Los resultados oficiales suelen incluir 1º premio, 2º premio, varias terminaciones de 4/3/2 cifras y reintegros por la última cifra.",
+              "En algunos sorteos de jueves también hay aproximaciones al 1º/2º premio y premios a la centena, según el formato oficial.",
+              "Este simulador evalúa tu número contra esas categorías y calcula el premio total por décimo."
+            ]
+          },
+          "sabado": {
+            "title": "Sorteo ordinario de sábado",
+            "explain": [
+              "El sorteo ordinario de sábado es el formato semanal regular con un precio de décimo superior al del jueves.",
+              "Juegas un número de 5 cifras (00000–99999). Los resultados oficiales suelen incluir 1º premio, 2º premio, varias terminaciones de 4/3/2 cifras y reintegros por la última cifra.",
+              "Según el tipo de sábado (ordinario vs especial/extraordinario), puede haber más categorías y/o importes distintos, además de aproximaciones y otras coincidencias.",
+              "Este simulador compara tu número con el resultado del sorteo y aplica las categorías correspondientes para calcular tu premio por décimo."
+            ]
+          }
+        }
+      }
+    },
+    "quiniela": {
+      "label": "La Quiniela",
+      "hero": {
+        "title": "Simulador de La Quiniela",
+        "subtitle": "Simulación a largo plazo basada en reglas oficiales, probabilidades y un comportamiento económico realista.",
+        "explainTitle": "¿En qué consiste La Quiniela?",
+        "moreBtn": "Saber más",
+        "closeBtn": "Cerrar",
+        "explain": [
+          "En La Quiniela pronosticas el resultado de 14 partidos usando: “1” (gana el equipo local), “X” (empate) o “2” (gana el visitante).",
+          "Además juegas el “Pleno al 15”, donde pronosticas el resultado exacto de un partido. En este modelo, 3 o más goles se representan con “M”.",
+          "La categoría del premio depende de cuántos aciertos consigues en los 14 partidos y de si aciertas también el Pleno al 15.",
+          "En cada jornada el simulador estima la participación y aplica un fondo de premios derivado de la recaudación, imitando el funcionamiento del sorteo.",
+          "Probabilidades aproximadas (una apuesta): Pleno al 15: 1 entre 76.527.504; 1ª (14 aciertos): 1 entre 4.782.969; 2ª (13 aciertos): 1 entre 170.820; 3ª (12 aciertos): 1 entre 13.140; 4ª (11 aciertos): 1 entre 1.643; 5ª (10 aciertos): 1 entre 299.",
+          "Extra: en el juego real existe Elige8 como opción adicional de pago. El simulador puede tratarlo aparte si se habilita en la configuración."
+        ]
+      }
+    },
+    "lototurf": {
+      "label": "Lototurf",
+      "hero": {
+        "title": "Simulador de Lototurf",
+        "subtitle": "Simulación a largo plazo basada en reglas oficiales, probabilidades y un comportamiento económico realista.",
+        "explainTitle": "¿En qué consiste Lototurf?",
+        "moreBtn": "Saber más",
+        "closeBtn": "Cerrar",
+        "explain": [
+          "En Lototurf juegas una apuesta formada por 6 números distintos (1–31) y un Caballo (1–12) asociado al ganador de la 4ª carrera de la jornada de Turf vinculada.",
+          "Puedes elegir manualmente los 6 números y el Caballo, o dejar que el sistema los genere de forma aleatoria.",
+          "Las categorías de premio dependen de cuántos números principales aciertas y de si aciertas también el Caballo. La categoría máxima es 6 aciertos + Caballo ganador.",
+          "En cada sorteo el simulador estima la participación (número de apuestas) y calcula un fondo de premios como un porcentaje de la recaudación, imitando el funcionamiento económico del juego.",
+          "Si en un sorteo no hay ganadores en determinadas categorías, parte del dinero puede acumularse o trasladarse según el modelo, afectando a premios y botes futuros.",
+          "Probabilidades aproximadas: 1ª (6 aciertos + caballo) 1 entre 8.835.372; 2ª (6 aciertos) 1 entre 803.216; 3ª (5 + caballo) 1 entre 58.902; 4ª (5) 1 entre 5.355; 5ª (4 + caballo) 1 entre 1.963; 6ª (4) 1 entre 178; 7ª (3 + caballo) 1 entre 192; Reintegro 1 entre 10."
+        ]
+      }
+    },
+    "quinigol": {
+      "label": "El Quinigol",
+      "hero": {
+        "title": "Simulador de El Quinigol",
+        "subtitle": "Simulación a largo plazo basada en reglas oficiales, probabilidades y un comportamiento económico realista.",
+        "explainTitle": "¿En qué consiste El Quinigol?",
+        "moreBtn": "Saber más",
+        "closeBtn": "Cerrar",
+        "explain": [
+          "En El Quinigol pronosticas el resultado exacto de 6 partidos de fútbol.",
+          "Para cada equipo puedes elegir 0, 1, 2 o M, donde M significa 3 o más goles.",
+          "La categoría del premio depende de cuántos partidos aciertas exactamente: 6, 5, 4, 3 o 2.",
+          "En cada sorteo el simulador estima la participación total y destina el 55% de la recaudación íntegra a premios, imitando la lógica real del juego.",
+          "Si no hay acertantes en la primera categoría, el fondo se ofrece como bote para el sorteo siguiente; el resto de categorías puede arrastrarse según las normas oficiales."
+        ]
+      }
+    }
+  },
+  "meta": {
+    "labels": {
+      "mainNumbers": "Números principales",
+      "reintegro": "Reintegro",
+      "stars": "Estrellas",
+      "clave": "Número clave",
+      "dream": "Sueño",
+      "drawDays": "Días de sorteo",
+      "pricePerDraw": "Precio por sorteo",
+      "joker": "Joker (opcional)",
+      "millon": "El Millón",
+      "prizePoolPercent": "Porcentaje a premios"
+    },
+    "days": {
+      "monday": "Lunes",
+      "tuesday": "Martes",
+      "wednesday": "Miércoles",
+      "thursday": "Jueves",
+      "friday": "Viernes",
+      "saturday": "Sábado",
+      "sunday": "Domingo"
+    }
+  },
+  "app": {
+    "title": "Simulador de Lotería"
+  },
+  "ui": {
+    "projectInfo": {
+      "title": "Sobre este proyecto",
+      "body": "Este sitio web es un simulador de loterías con fines educativos e informativos. Las simulaciones se basan en las reglas oficiales, formatos y estructuras de premios reales de los sorteos representados.\n\nNo se utiliza dinero real, no se realizan apuestas reales ni se ofrece ningún servicio de juego. Los resultados mostrados son simulados y no garantizan ni predicen resultados reales.\n\nEste proyecto no fomenta el juego y no debe considerarse asesoramiento financiero ni de apuestas.",
+      "accept": "Lo entiendo"
+    },
+    "topbar": {
+      "skipToMain": "Saltar al contenido principal",
+      "navAria": "Selector de sorteos",
+      "prefsAria": "Preferencias",
+      "langMenuAria": "Idioma",
+      "langEs": "Español",
+      "langEn": "Inglés",
+      "themeToggleAria": "Cambiar tema"
+    },
+    "sections": {
+      "yourSelection": "Tu selección",
+      "selectNumbers": "Elige números",
+      "reintegro": "Reintegro",
+      "joker": "Joker",
+      "millon": "El Millón",
+      "clave": "Número clave",
+      "runSimulation": "Ejecutar simulación"
+    },
+    "labels": {
+      "numbers": "Números:",
+      "reintegro": "Reintegro:",
+      "key": "Clave:",
+      "stars": "Estrellas:"
+    },
+    "millon": {
+      "hint": "Sorteo adicional asociado a Euromillones (España). Premio fijo: 1.000.000 €."
+    },
+    "investment": {
+      "title": "Inversión alternativa (índices)",
+      "hint": "Se invierte el mismo dinero que gastas en sorteos, mes a mes, en varios índices simulados.",
+      "note": "Nota: esta gráfica es una simulación educativa basada en datos históricos y modelos estadísticos. No constituye asesoramiento financiero y no predice ni garantiza resultados futuros.",
+      "howToReadTitle": "Cómo leer esta gráfica",
+      "howToReadBody": "Las cantidades no se invierten de golpe. El “total gastado” ({totalSpent}) se reparte en aportaciones periódicas: cada mes se suma lo gastado en sorteos durante ese mes y se invierte como aportación. Por eso, al principio el capital invertido es bajo y va creciendo con el tiempo. Además, el tramo histórico usa retornos reales del índice y el tramo futuro es una simulación basada en ese histórico: no es una predicción ni garantiza resultados.",
+      "series": {
+        "lotteryNet": "Lotería (neto)",
+        "msciWorld": "MSCI World (EUR)",
+        "sp500HedgedEur": "S&P 500 (EUR cubierto)",
+        "stoxx600": "STOXX Europe 600 (EUR)",
+        "euroStoxx50": "Euro Stoxx 50",
+        "ibex35TR": "IBEX 35 TR"
+      },
+      "seriesStatus": {
+        "historical": "histórico",
+        "simulated": "simulado",
+        "historicalThenSimulated": "histórico → simulado",
+        "loading": "cargando datos…",
+        "error": "error de datos",
+        "synthetic": "sintético"
+      }
+    },
+    "buttons": {
+      "start": "Iniciar",
+      "autoPick": "Elección automática",
+      "clear": "Limpiar",
+      "yes": "SÍ",
+      "no": "NO",
+      "year1": "1 año",
+      "year2": "2 años",
+      "year5": "5 años",
+      "year10": "10 años",
+      "untilJackpot": "Simular hasta el premio gordo"
+    },
+    "hints": {
+      "selectToStart": "Selecciona los números y un reintegro para empezar",
+      "noscript": "Esta simulación necesita JavaScript para generar la cuadrícula y ejecutar la lógica."
+    },
+    "footer": {
+      "bmcButtonText": "Apoya el proyecto",
+      "rights": "© {year} Todos los derechos reservados.",
+      "disclaimer": "Simulación educativa. Este proyecto no fomenta el juego.",
+      "aboutProject": "Sobre este proyecto",
+      "iconsBy": "Iconos de",
+      "and": "y",
+      "projectCreatedBy": "Proyecto creado por",
+      "authorName": "Derimán Tejera Fumero"
+    },
+    "cookies": {
+      "title": "Cookies",
+      "desc": "Este sitio solo utiliza cookies técnicas estrictamente necesarias para su funcionamiento. No usamos cookies publicitarias ni de seguimiento de terceros.",
+      "accept": "Aceptar",
+      "reject": "Rechazar"
+    },
+    "results": {
+      "filters": {
+        "all": "Mostrar todos",
+        "wins": "Solo premios",
+        "jackpots": "Solo botes",
+        "joker": "Solo Joker"
+      },
+      "addSim": {
+        "title": "Añadir años a la simulación actual",
+        "hint": "Amplía la simulación actual usando la misma selección.",
+        "plus1": "+1 año",
+        "plus2": "+2 años",
+        "plus5": "+5 años",
+        "plus10": "+10 años"
+      }
+    },
+    "quiniela": {
+      "pleno15": "Pleno al 15",
+      "vs": "vs",
+      "home": "Local",
+      "away": "Visitante"
+    },
+    "lototurf": {
+      "numbersN": "Números ({n})",
+      "horseRace": "Caballo (ganador de la carrera)",
+      "horseLabel": "Caballo:",
+      "reintegro": "Reintegro",
+      "reintegroLabel": "Reintegro:",
+      "horseSubstitutionHint": "Si en la carrera participan menos de 12 caballos, los que faltan se consideran retirados y tu pronóstico se sustituye por el número anterior disponible."
+    },
+    "quinigol": {
+      "title": "El Quinigol",
+      "hint": "Elige el resultado exacto de cada partido. Para cada equipo puedes marcar 0, 1, 2 o M (3 o más).",
+      "matchLabel": "Partido {n}",
+      "multipleAllowed": "Puedes seleccionar varios resultados.",
+      "betsCount": "Apuestas: {n}",
+      "betsRange": "Rango: {min}–{max}"
+    }
+  },
+  "results": {
+    "title": "Resumen financiero",
+    "biggestPrizeTitle": "Mayor premio obtenido",
+    "lastDrawTitle": "Último sorteo",
+    "distributionTitle": "Distribución de ganancias/pérdidas",
+    "disclaimer": "Esta simulación muestra que, en general, las loterías no son una forma sostenible de invertir dinero. A largo plazo, las estrategias diversificadas suelen ofrecer resultados más estables.",
+    "units": {
+      "yearOne": "año",
+      "yearOther": "años"
+    },
+    "kpis": {
+      "totalDraws": "Total de sorteos",
+      "timeElapsed": "Tiempo transcurrido",
+      "currentDate": "Fecha actual",
+      "totalSpent": "Total gastado",
+      "totalWon": "Total ganado",
+      "netBalance": "Balance neto",
+      "profitPerEuro": "Ganancia / pérdida por € invertido",
+      "biggestPrize": "Mayor premio obtenido",
+      "highlightDraw": "Sorteo destacado",
+      "distribution": "Distribución de ganancias/pérdidas",
+      "distributionPlaceholder": "Aquí se mostrará la gráfica.",
+      "openHighlightDraw": "Ver sorteo",
+      "openCharts": "Ver gráficas"
+    },
+    "charts": {
+      "modalTitle": "Gráficas",
+      "common": {
+        "year": "Año",
+        "draws": "Sorteos",
+        "net": "Neto",
+        "netBalance": "Balance neto",
+        "spentCum": "Gastado (acum.)",
+        "wonCum": "Ganado (acum.)",
+        "positive": "Positivo",
+        "negative": "Negativo",
+        "distribution": "Distribución"
+      },
+      "donut": {
+        "labelSpent": "Gastado (€)",
+        "labelWon": "Ganado (€)"
+      },
+      "sections": {
+        "balanceTime": {
+          "title": "1) Evolución del balance neto (acumulado)",
+          "desc": "Muestra cómo va cambiando tu balance acumulado (ganado menos gastado) a lo largo de la simulación. Si la línea está por encima de 0€, vas en positivo; si está por debajo, vas en pérdida. Sirve para ver rachas, saltos por premios grandes y si la tendencia se recupera o se hunde."
+        },
+        "cashflow": {
+          "title": "2) Gastado vs ganado (acumulado)",
+          "desc": "Compara el total gastado y el total ganado acumulados con el paso del tiempo. Si la curva de ganado se queda por debajo de la de gastado, estás en negativo. Si la alcanza o la supera, estás en positivo. Es ideal para ver si los premios compensan el gasto."
+        },
+        "hist": {
+          "title": "3) Histograma de premios por sorteo",
+          "desc": "Cuenta cuántos sorteos han dado un premio en cada rango. Es útil para entender la frecuencia de premios pequeños (los más comunes) frente a premios medianos o grandes (mucho más raros).",
+          "toggleExclude": "Excluir 0€",
+          "toggleInclude": "Incluir 0€",
+          "zeroHidden": "0€: {n} sorteos ocultos",
+          "noData": "No hay datos con el filtro actual.",
+          "maxPrizeObserved": "Máximo premio observado: {v}."
+        },
+        "annualNet": {
+          "title": "4) Balance anual (neto)",
+          "desc": "Suma el resultado neto de cada año (premios del año menos gasto estimado de ese año). Barras hacia arriba: años “verdes”. Barras hacia abajo: años “rojos”. Sirve para detectar si hubo algún año excepcional o si la pérdida es constante.",
+          "foot": "Consejo: un premio muy grande puede dominar la escala y hacer que el resto de años parezcan pequeños."
+        }
+      }
+    },
+    "drawlog": {
+      "title": "Registro de sorteos",
+      "headers": {
+        "draw": "#",
+        "date": "Fecha",
+        "yours": "Tus números",
+        "drawn": "Ganadores",
+        "category": "Categoría",
+        "prize": "Premio"
+      },
+      "your": "Tu",
+      "drawn": "Sorteo",
+      "category": "Categoría",
+      "joker": "Joker",
+      "bets": "Apuestas",
+      "jackpot": "Bote",
+      "prize": "Premio",
+      "empty": "No hay sorteos para mostrar"
+    },
+    "drawDetail": {
+      "prizeMain": "Premio principal",
+      "netMain": "Balance principal",
+      "prizeJoker": "Premio Joker",
+      "netJoker": "Balance Joker",
+
+      "totalPrizeMainJoker": "Premio total (principal+Joker)",
+      "totalPrizeMainMillon": "Premio total (principal+El Millón)",
+      "totalPrizeMain": "Premio total (principal)",
+      "totalNetMainJoker": "Balance total (principal+Joker)",
+      "totalNetMainMillon": "Balance total (principal+El Millón)",
+      "totalNetMain": "Balance total (principal)",
+
+      "titlePrefix": "Sorteo",
+      "principal": "Principal (apuestas normales)",
+      "jokerWorld": "Joker (mundo)",
+      "totalRevenue": "Total ingresos del sorteo",
+      "jackpotBalance": "Bote (balance)",
+      "combinations": "Combinaciones",
+      "yourCombination": "Tu combinación",
+      "winningCombination": "Combinación ganadora",
+      "hits": "Aciertos",
+      "category": "Categoría",
+      "totalPrize": "Premio total (principal+joker)",
+      "totalPrizeEuro": "Premio total (principal+El Millón)",
+      "keyNumber": "Número clave",
+      "jokerPlayer": "Joker (jugador)",
+      "jokerNotPlayed": "No jugaste Joker en este sorteo.",
+      "yourJoker": "Tu Joker",
+      "drawJoker": "Joker sorteo",
+      "jokerHitsPrefix": "Aciertos (prefijo)",
+      "jokerPrize": "Premio Joker",
+      "betsTotal": "Apuestas totales",
+      "mainRevenue": "Ingresos principal",
+      "prizePoolPercent": "% a premios",
+      "prizePool": "Pool de premios",
+      "jokerEnabled": "Joker habilitado",
+      "jokerBets": "Apuestas con Joker",
+      "jokerRevenue": "Ingresos Joker",
+      "jokerShare": "Share aprox",
+      "noteJokerNoJackpot": "Nota: en este modelo, la recaudación del Joker no alimenta el bote principal.",
+      "totalGenerated": "Total generado",
+      "jackpotInPlay": "Bote en juego HOY",
+      "jackpotPrev": "Bote anterior",
+      "jackpotBaseContribution": "Aportación base (este sorteo)",
+      "jackpotRollover": "Arrastre al bote (categorías sin ganadores)",
+      "jackpotPaid": "Pagado en bote (si hay ganador/es)",
+      "jackpotNext": "Bote siguiente sorteo",
+      "jackpotWinnersWorld": "Ganadores bote (mundo)",
+      "jackpotWinnersWorldPlusYou": "Ganadores bote (mundo+tú)",
+      "didacticWithWinner": "Como hubo ganador(es) de 6R, el bote en juego HOY se paga y el siguiente sorteo arranca con el arrastre.",
+      "didacticNoWinner": "Como NO hubo ganador(es) de 6R, el bote en juego HOY se acumula y además se suma el arrastre.",
+      "worldSuffix": "(mundo)",
+      "millonAlwaysOneWinner": "Ganadores (España)",
+      "millonWinningCode": "Código ganador",
+      "millonFixedPrize": "Premio fijo",
+      "millonYourCode": "Tu código",
+      "millonPrize": "Premio",
+      "millonNotPlayed": "No jugaste El Millón en este sorteo.",
+      "millonWorldTitle": "El Millón (mundo)",
+      "millonCodesSpain": "Códigos (España, aprox.)",
+      "millonWinnersSpain": "Ganadores (España)",
+      "millonWinnersSpainPlusYou": "Ganadores (España+tú)",
+      "millonWorldNote": "En España, en El Millón siempre se extrae un código ganador.",
+      "tableHeaders": {
+        "category": "Categoría",
+        "winnersWorld": "Ganadores (mundo)",
+        "winners": "Ganadores (mundo+tú)",
+        "prizePerWinner": "Premio/ganador",
+        "totalPaid": "Pagado total"
+      },
+      "categories": {
+        "6R": "Bote (6+R)",
+        "6": "1ª (6)",
+        "5C": "2ª (5+R)",
+        "5": "3ª (5)",
+        "4": "4ª (4)",
+        "3": "5ª (3)",
+        "R": "Reintegro"
+      },
+      "categoriesEuro": {
+        "5+2": "Bote (5+2)",
+        "5+1": "2ª (5+1)",
+        "5+0": "3ª (5+0)",
+        "4+2": "4ª (4+2)",
+        "4+1": "5ª (4+1)",
+        "3+2": "6ª (3+2)",
+        "4+0": "7ª (4+0)",
+        "2+2": "8ª (2+2)",
+        "3+1": "9ª (3+1)",
+        "3+0": "10ª (3+0)",
+        "1+2": "11ª (1+2)",
+        "2+1": "12ª (2+1)",
+        "2+0": "13ª (2+0)"
+      },
+      "categoriesGordo": {
+        "5+1": "Bote (5+Clave)",
+        "5+0": "2ª (5)",
+        "4+1": "3ª (4+Clave)",
+        "4+0": "4ª (4)",
+        "3+1": "5ª (3+Clave)",
+        "3+0": "6ª (3)",
+        "2+1": "7ª (2+Clave)",
+        "2+0": "8ª (2)",
+        "R": "Reintegro (Clave)"
+      },
+      "help": {
+        "modalTitle": "Cómo leer este sorteo",
+        "sections": {
+          "prizePool": {
+            "title": "Pool de premios",
+            "body": [
+              "El simulador estima la recaudación total (apuestas) del sorteo.",
+              "Un porcentaje configurado se destina al pool de premios y luego se reparte por categorías.",
+              "Si hay categorías sin ganadores, parte del dinero puede acumularse o trasladarse según el modelo de cada sorteo."
+            ]
+          },
+          "winners": {
+            "title": "Ganadores y premios",
+            "body": [
+              "“Ganadores (mundo)” son estimaciones simuladas para todos los jugadores.",
+              "“Ganadores (mundo+tú)” te incluye a ti además de los ganadores simulados.",
+              "“Premio/ganador” se calcula repartiendo el pool de la categoría entre los ganadores (cuando aplica en el modelo)."
+            ]
+          },
+          "jackpot": {
+            "title": "Lógica del bote",
+            "body": [
+              "Si hay ganador(es) en la categoría máxima, el bote se paga y el siguiente sorteo suele arrancar con el arrastre.",
+              "Si no hay ganador(es) en la categoría máxima, el bote se acumula y puede crecer según las reglas de arrastre.",
+              "Este simulador aplica un modelo simplificado pero consistente por sorteo según su configuración."
+            ]
+          },
+          "millon": {
+            "title": "El Millón (España)",
+            "body": [
+              "En España, Euromillones incluye “El Millón”: cada apuesta sencilla recibe un código asignado automáticamente (3 letras + 5 cifras).",
+              "En España se extrae un único código ganador; si el tuyo coincide, ganas un premio fijo de 1.000.000 €.",
+              "No hay premios por coincidencias parciales en El Millón."
+            ]
+          },
+          "joker": {
+            "title": "Joker (opcional)",
+            "body": [
+              "El Joker se basa en un número de 7 dígitos.",
+              "Los premios dependen de cuántos dígitos coinciden desde el inicio (prefijo).",
+              "En este simulador, la recaudación del Joker se registra aparte y no alimenta el bote principal."
+            ]
+          }
+        }
+      },
+      "categoriesLoteriaNacional": {
+        "gordo": "Primer premio",
+        "segundo": "Segundo premio",
+        "tercero": "Tercer premio",
+        "cuartos": "Cuartos premios (×2)",
+        "quintos": "Quintos premios (×8)",
+        "pedreas": "Pedrea",
+        "approx_gordo": "Aprox. 1º (±1)",
+        "approx_gordo_nino": "Aprox. 1º (±1)",
+        "approx_2": "Aprox. 2º (±1)",
+        "approx_3": "Aprox. 3º (±1)",
+        "centenas": "Mismas centenas",
+
+        "last_4": "Últimas 4 cifras",
+        "last_3": "Últimas 3 cifras",
+        "last_2": "2 últimas cifras (1º)",
+
+        "ln_last_4": "Últimas 4 cifras",
+        "ln_last_3": "Últimas 3 cifras",
+        "ln_last_2": "Últimas 2 cifras",
+        "ln_extract_4": "Extracción 4 cifras",
+        "ln_extract_3": "Extracción 3 cifras",
+        "ln_extract_2": "Extracción 2 cifras",
+        "last_2_1st": "2 últimas cifras (1º)",
+        "last_2_segundo": "2 últimas cifras (2º)",
+        "last_2_tercero": "2 últimas cifras (3º)",
+        "last_1": "Reintegro"
+      }
+    }
+  }
+}

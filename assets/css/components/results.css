@@ -1,0 +1,384 @@
+/* assets/css/components/results.css */
+
+/* ==========
+   WRAPPER 
+   ========== */
+
+.results {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  padding: 0;
+  border-radius: 0;
+}
+
+.results.card--padded {
+  padding: 0;
+}
+
+/* =======
+   TÍTULO
+   ======= */
+
+.results__title {
+  margin: 2.4rem 0 1.2rem;
+  padding: 0;
+}
+
+.results__title.card-title {
+  margin-bottom: 1.2rem;
+}
+
+/* ======
+   GRIDS
+   ====== */
+
+.results__grid {
+  display: grid;
+  gap: 1.2rem;
+  align-items: stretch;
+}
+
+.results__grid--row1 {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  margin-bottom: 1.2rem;
+}
+
+.results__grid--row2 {
+  grid-template-columns: 1.6fr 1fr 1.2fr;
+  margin-bottom: 1.2rem;
+}
+
+/* =========
+   KPI CARD
+   ========= */
+
+.kpi {
+  background: var(--color-tarjeta);
+  border: 1px solid var(--color-borde-1);
+  border-radius: var(--radius-12, var(--border-radius-12));
+  box-shadow: var(--sombra-base);
+
+  padding: 1.55rem 1.55rem 1.45rem;
+  min-height: 108px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.kpi__icon {
+  display: none;
+}
+
+.kpi__k {
+  font-size: 1.25rem;
+  font-weight: 650;
+  color: var(--color-texto-secundario);
+  text-transform: none;
+  letter-spacing: normal;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.kpi__v {
+  font-size: clamp(2rem, 1.35vw, 2.35rem);
+  font-weight: 900;
+  line-height: 1.15;
+  color: var(--color-texto-principal);
+  margin: 0;
+}
+
+.kpi__hint {
+  margin-top: 0.15rem;
+  font-size: 1.25rem;
+  font-weight: 650;
+  color: var(--color-texto-secundario);
+  min-height: 1.2em;
+}
+
+.kpi__v--neutral {
+  color: var(--color-texto-principal);
+}
+.kpi__v--positive {
+  color: var(--color-exito, #16a34a);
+}
+.kpi__v--negative {
+  color: var(--color-error, #dc2626);
+}
+
+.kpi--chart .kpi__v,
+.kpi--chart .kpi__hint {
+  display: none;
+}
+
+/* ==========
+   FILA FULL
+   ========== */
+
+.results__full {
+  width: 100%;
+  margin-bottom: 1.2rem;
+}
+
+.results__full:last-child {
+  margin-bottom: 0;
+}
+
+/* ===================
+   CARD: ANADIR ANIOS
+   =================== */
+
+.results-add {
+  margin: 0;
+}
+
+#results-title {
+  scroll-margin-top: calc(var(--topbar-h, 72px) + 12px);
+}
+
+/* ====================
+   FILA 3: DISCLAIMER
+   ==================== */
+
+.results__disclaimer {
+  background: var(--color-tarjeta);
+  border: 1px solid var(--color-borde-1);
+  border-radius: var(--radius-12, var(--border-radius-12));
+  box-shadow: var(--sombra-base);
+
+  padding: 1.2rem 1.2rem;
+
+  margin: 0;
+
+  color: var(--color-texto-secundario);
+  font-size: 1.35rem;
+  line-height: 1.55;
+}
+
+.results__disclaimerRow {
+  display: grid;
+  grid-template-columns: 22px 1fr;
+  gap: 0.9rem;
+  align-items: start;
+}
+
+.results__infoIcon {
+  width: 18px;
+  height: 18px;
+  margin-top: 0.2rem;
+
+  display: inline-block;
+
+  background-color: currentColor;
+
+  -webkit-mask: url("../../icons/info.svg") no-repeat center / contain;
+  mask: url("../../icons/info.svg") no-repeat center / contain;
+}
+
+/* =============================
+   COLOR ICONO INFO SEGÚN TEMA
+   ============================= */
+
+[data-theme="light"] .results__infoIcon {
+  color: #000000;
+}
+
+[data-theme="dark"] .results__infoIcon {
+  color: #ffffff;
+}
+
+.results__disclaimerText {
+  margin: 0;
+}
+
+.results-chart {
+  width: 100%;
+  min-height: 220px;
+  flex: 1;
+}
+
+.kpi--chart {
+  min-height: 320px;
+  gap: 1.2rem;
+}
+
+/* ===================
+   ESPACIADO MÓDULOS
+   =================== */
+
+.results .results-add {
+  margin-bottom: 2.4rem;
+}
+
+.results #drawlog.results__full {
+  margin-top: 6rem;
+}
+
+#total-won {
+  color: var(--color-exito, #16a34a);
+}
+
+.kpi__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.kpi__action {
+  height: 3.2rem;
+  padding: 0 1rem;
+  border-radius: var(--radius-10);
+  border: 1px solid var(--color-borde-1);
+  background: transparent;
+  color: var(--color-texto-secundario);
+  font-weight: 650;
+  font-size: var(--texto-12);
+  cursor: pointer;
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease;
+  white-space: nowrap;
+}
+
+.kpi__action:hover {
+  background: var(--color-hover-suave);
+  border-color: var(--color-borde-2);
+  color: var(--color-texto-principal);
+}
+
+.kpi__action:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* ======================
+   RESPONSIVE - TABLETS
+   ====================== */
+
+@media (max-width: 1024px) {
+  .results__grid--row1 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .results__grid--row2 {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .kpi--chart {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 768px) {
+  .results__title {
+    margin: 1.8rem 0 1rem;
+  }
+
+  .results__grid {
+    gap: 1rem;
+  }
+
+  .results__grid--row1,
+  .results__grid--row2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-bottom: 1rem;
+  }
+
+  .kpi {
+    padding: 1.3rem 1.3rem 1.2rem;
+    min-height: 95px;
+    gap: 2rem;
+  }
+
+  .kpi__k {
+    font-size: 1.2rem;
+  }
+
+  .kpi__v {
+    font-size: clamp(1.8rem, 4vw, 2.2rem);
+  }
+
+  .kpi__hint {
+    font-size: 1.15rem;
+  }
+
+  .results .results-add {
+    margin-bottom: 2rem;
+  }
+
+  .results #drawlog.results__full {
+    margin-top: 4rem;
+  }
+
+  .kpi--chart {
+    min-height: 280px;
+  }
+
+  .results-chart {
+    min-height: 200px;
+  }
+}
+
+@media (max-width: 560px) {
+  .results__grid--row1,
+  .results__grid--row2 {
+    grid-template-columns: 1fr;
+  }
+
+  .kpi {
+    padding: 1.2rem 1.2rem 1.1rem;
+    min-height: 85px;
+    gap: 1.5rem;
+  }
+
+  .kpi__k {
+    font-size: 1.15rem;
+  }
+
+  .kpi__v {
+    font-size: clamp(1.7rem, 5vw, 2rem);
+  }
+
+  .kpi__hint {
+    font-size: 1.1rem;
+  }
+
+  .kpi__row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+  }
+
+  .kpi__action {
+    width: 100%;
+    height: 3.6rem;
+    font-size: var(--texto-14);
+  }
+
+  .results #drawlog.results__full {
+    margin-top: 3rem;
+  }
+
+  .kpi--chart {
+    min-height: 260px;
+  }
+}
+
+@media (max-width: 380px) {
+  .kpi {
+    padding: 1.1rem 1.1rem 1rem;
+    min-height: 80px;
+  }
+
+  .kpi__k {
+    font-size: 1.1rem;
+  }
+
+  .kpi__v {
+    font-size: clamp(1.6rem, 5.5vw, 1.9rem);
+  }
+}

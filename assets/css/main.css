@@ -1,0 +1,25 @@
+/*  ============================
+    LOTTERY SIMULATOR - Main CSS
+    ============================ */
+
+/* ========== BASE ========== */
+@import url("base/normalize.css");
+@import url("base/variables.css");
+@import url("base/global.css");
+
+/* ========== LAYOUT ========== */
+@import url("layout/header.css");
+
+/* ========== COMPONENTS ========== */
+@import url("components/buttons.css");
+@import url("components/number-grid.css");
+@import url("components/reintegro.css");
+@import url("components/joker.css");
+@import url("components/results.css");
+@import url("components/drawlog.css");
+@import url("components/draw-debug-modal.css");
+
+/* ========== PAGES ========== */
+@import url("pages/primitiva.css");
+@import url("pages/euromillones.css");
+@import url("pages/game-visibility.css");

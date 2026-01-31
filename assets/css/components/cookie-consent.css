@@ -1,0 +1,70 @@
+/* assets/css/components/cookie-consent.css */
+
+.cookie-consent[hidden] {
+  display: none !important;
+}
+
+.cookie-consent {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+
+  display: grid;
+  place-items: end center;
+
+  padding: 1.2rem;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.cookie-consent__card {
+  width: min(640px, 100%);
+  border: 1px solid var(--color-borde-1);
+  border-radius: var(--radius-12);
+
+  background: var(--color-tarjeta);
+  color: var(--color-texto-principal);
+
+  padding: 1.2rem 1.2rem 1rem;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.25);
+}
+
+.cookie-consent__title {
+  margin: 0 0 0.6rem;
+  font-size: var(--texto-18);
+}
+
+.cookie-consent__desc {
+  margin: 0 0 1rem;
+  font-size: var(--texto-14);
+  color: var(--color-texto-secundario);
+  line-height: 1.4;
+}
+
+.cookie-consent__actions {
+  display: flex;
+  gap: 0.8rem;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+.cookie-consent__btn {
+  appearance: none;
+  border: 1px solid var(--color-borde-1);
+  background: transparent;
+  color: inherit;
+
+  border-radius: var(--radius-12);
+  padding: 0.75rem 1rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.cookie-consent__btn--primary {
+  background: var(--color-acento);
+  border-color: color-mix(in srgb, var(--color-acento) 70%, #000);
+  color: #000;
+}
+
+body[data-theme="dark"] .cookie-consent__btn--primary {
+  color: #000;
+}

@@ -1,0 +1,27 @@
+/* assets/css/pages/bonoloto.css */
+
+body[data-game="bonoloto"] {
+  --color-acento: var(--color-bonoloto);
+}
+
+@media (max-width: 768px) {
+  body[data-game="bonoloto"] .game-hero {
+    margin: 1.8rem 0 2.4rem;
+  }
+}
+
+@media (max-width: 560px) {
+  body[data-game="bonoloto"] .game-hero {
+    margin: 1.6rem 0 2rem;
+  }
+
+  body[data-game="bonoloto"] .game-hero__explain {
+    padding: 0;
+  }
+}
+
+@media (max-width: 420px) {
+  body[data-game="bonoloto"] .game-hero {
+    margin: 1.4rem 0 1.8rem;
+  }
+}

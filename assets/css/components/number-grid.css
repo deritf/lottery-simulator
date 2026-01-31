@@ -1,0 +1,154 @@
+/* assets/css/components/number-grid.css */
+
+.number-grid {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-cols, 7), 1fr);
+  gap: 0.8rem;
+  max-width: 52rem;
+  margin-inline: auto;
+
+  width: 100%;
+}
+
+.number-btn {
+  aspect-ratio: 1 / 1;
+  width: 100%;
+
+  min-width: 3.6rem;
+  min-height: 3.6rem;
+
+  border-radius: var(--radius-10);
+  border: 1px solid var(--color-borde-1);
+
+  background: color-mix(
+    in srgb,
+    var(--color-tarjeta) 86%,
+    var(--color-texto-principal) 4%
+  );
+  color: color-mix(
+    in srgb,
+    var(--color-texto-principal) 70%,
+    var(--color-texto-secundario)
+  );
+
+  display: grid;
+  place-items: center;
+
+  font-size: clamp(1.2rem, 1.1vw, 1.45rem);
+  font-weight: 750;
+
+  cursor: pointer;
+  user-select: none;
+
+  transition:
+    transform 120ms ease,
+    background-color 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease,
+    box-shadow 160ms ease;
+
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+.number-btn:hover {
+  background: color-mix(in srgb, var(--color-acento) 18%, var(--color-tarjeta));
+  border-color: color-mix(
+    in srgb,
+    var(--color-acento) 45%,
+    var(--color-borde-1)
+  );
+  color: var(--color-texto-principal);
+  transform: scale(1.045);
+  box-shadow: var(--shadow-sm);
+}
+
+.number-btn:active {
+  transform: scale(1.02);
+}
+
+.number-btn.is-selected {
+  background: var(--color-acento);
+  border-color: var(--color-acento);
+  color: var(--color-acento-text);
+  box-shadow: var(--shadow-sm);
+}
+
+.number-btn.is-selected:hover {
+  background: var(--color-acento);
+  border-color: var(--color-acento);
+  transform: scale(1.03);
+}
+
+/* ======================
+   RESPONSIVE - TABLETS
+   ====================== */
+
+@media (max-width: 768px) {
+  .number-grid {
+    gap: 0.7rem;
+    max-width: 100%;
+  }
+
+  .number-btn {
+    min-width: 3.4rem;
+    min-height: 3.4rem;
+    font-size: clamp(1.15rem, 2.5vw, 1.4rem);
+  }
+}
+
+/* ======================
+   RESPONSIVE - MÓVILES
+   ====================== */
+
+@media (max-width: 560px) {
+  .number-grid {
+    gap: 0.6rem;
+  }
+
+  .number-btn {
+    min-width: 3.2rem;
+    min-height: 3.2rem;
+    font-size: clamp(1.1rem, 3vw, 1.35rem);
+    border-radius: 0.8rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .number-grid {
+    gap: 0.5rem;
+  }
+
+  .number-btn {
+    min-width: 2.8rem;
+    min-height: 2.8rem;
+    font-size: clamp(1.05rem, 3.2vw, 1.3rem);
+    font-weight: 800;
+  }
+}
+
+@media (max-width: 360px) {
+  .number-grid {
+    gap: 0.4rem;
+  }
+
+  .number-btn {
+    min-width: 2.6rem;
+    min-height: 2.6rem;
+    font-size: clamp(1rem, 3.5vw, 1.25rem);
+    border-radius: 0.7rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .number-grid {
+    gap: 0.35rem;
+  }
+
+  .number-btn {
+    min-width: 2.4rem;
+    min-height: 2.4rem;
+    font-size: 1rem;
+    font-weight: 800;
+  }
+}

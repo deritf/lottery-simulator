@@ -1,0 +1,198 @@
+/* assets/css/base/variables.css */
+
+/* ============================
+   FONTS
+   ============================ */
+
+/* INTER */
+@font-face {
+  font-family: "Inter";
+  src: url("../../fonts/Inter/Inter-VariableFont_opsz,wght.ttf")
+    format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("../../fonts/Inter/Inter-Italic-VariableFont_opsz,wght.ttf")
+    format("truetype");
+  font-weight: 100 900;
+  font-style: italic;
+}
+
+/* MONTSERRAT */
+@font-face {
+  font-family: "Montserrat";
+  src: url("../../fonts/Montserrat/Montserrat-VariableFont_wght.ttf")
+    format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("../../fonts/Montserrat/Montserrat-Italic-VariableFont_wght.ttf")
+    format("truetype");
+  font-weight: 100 900;
+  font-style: italic;
+}
+
+/* ============================
+   DESIGN TOKENS
+   ============================ */
+
+:root {
+  --fuente-principal:
+    "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  --fuente-secundaria:
+    "Montserrat", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  --fuente-mono:
+    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
+
+  --tamano-texto-base: 1.6rem;
+  --texto-12: 1.2rem;
+  --texto-14: 1.4rem;
+  --texto-16: 1.6rem;
+  --texto-18: 1.8rem;
+  --texto-20: 2rem;
+  --texto-24: 2.4rem;
+  --texto-32: 3.2rem;
+  --texto-48: 4.8rem;
+
+  --container-max: 1400px;
+  --container-width: 66.66%;
+  --container-width-md: 80%;
+  --header-height: 6.4rem;
+
+  --size-number-button: 4.5rem;
+
+  --radius-6: 0.6rem;
+  --radius-10: 1rem;
+  --radius-12: 1.2rem;
+  --radius-20: 2rem;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 6px 16px rgba(0, 0, 0, 0.1);
+
+  /* ============================
+     COLORES POR SORTEO
+     ============================ */
+  --color-primitiva: #008547;
+  --color-euromillones: #153f69;
+  --color-bonoloto: #7a8634;
+  --color-gordo: #dc3f47;
+  --color-eurodreams: #6b3e98;
+
+  --color-loteria-nacional: #2f6fb3;
+
+  --color-quiniela: #de1e1a;
+
+  --color-lototurf: #d16929;
+
+  --color-quinigol: #0a7abf;
+
+  --color-joker: #b52a45;
+
+  --color-acento: var(--color-primitiva);
+
+  /* ============================
+     ESTADOS
+     ============================ */
+  --color-exito: #16a34a;
+  --color-error: #dc2626;
+  --color-warning: #f59e0b;
+  --color-info: #0ea5e9;
+
+  --color-balance-positivo: #15803d;
+  --color-balance-negativo: #b91c1c;
+
+  /* ============================
+     TEMA CLARO (default)
+     ============================ */
+  --color-fondo-body: #f6f7f8;
+  --color-fondo: #ffffff;
+  --color-tarjeta: #ffffff;
+
+  --color-texto-principal: #111827;
+  --color-texto-secundario: #6b7280;
+  --color-texto-terciario: #9ca3af;
+  --color-texto-invertido: #ffffff;
+  --color-acento-text: #ffffff;
+
+  --color-borde-1: #e5e7eb;
+  --color-borde-2: #d1d5db;
+
+  --color-hover-suave: rgba(0, 0, 0, 0.05);
+
+  --log-win-bg: rgba(22, 163, 74, 0.1);
+  --log-win-text: #166534;
+  --log-lose-bg: rgba(220, 38, 38, 0.08);
+  --log-lose-text: #991b1b;
+}
+
+/* ============================
+   TEMA OSCURO
+   ============================ */
+
+body[data-theme="dark"] {
+  --color-fondo-body: #0e0f12;
+  --color-fondo: #12141a;
+  --color-tarjeta: #171a21;
+
+  --color-texto-principal: #e7e7ea;
+  --color-texto-secundario: #a3a3ad;
+  --color-texto-terciario: #7a7a84;
+  --color-texto-invertido: #0e0f12;
+
+  --color-borde-1: rgba(255, 255, 255, 0.1);
+  --color-borde-2: rgba(255, 255, 255, 0.16);
+
+  --color-hover-suave: rgba(255, 255, 255, 0.07);
+
+  --log-win-bg: rgba(22, 163, 74, 0.18);
+  --log-win-text: #9ae6b4;
+  --log-lose-bg: rgba(220, 38, 38, 0.18);
+  --log-lose-text: #feb2b2;
+}
+
+/* ============================
+   ASIGNACIÓN DE ACENTO POR JUEGO
+   ============================ */
+
+body[data-game="primitiva"] {
+  --color-acento: var(--color-primitiva);
+}
+
+body[data-game="euromillones"] {
+  --color-acento: var(--color-euromillones);
+}
+
+body[data-game="bonoloto"] {
+  --color-acento: var(--color-bonoloto);
+}
+
+body[data-game="gordo"] {
+  --color-acento: var(--color-gordo);
+}
+
+body[data-game="eurodreams"] {
+  --color-acento: var(--color-eurodreams);
+}
+
+body[data-game="loteria-nacional"] {
+  --color-acento: var(--color-loteria-nacional);
+}
+
+body[data-game="quiniela"] {
+  --color-acento: var(--color-quiniela);
+}
+
+body[data-game="lototurf"] {
+  --color-acento: var(--color-lototurf);
+}
+
+body[data-game="quinigol"] {
+  --color-acento: var(--color-quinigol);
+}

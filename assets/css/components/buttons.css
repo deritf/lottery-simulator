@@ -1,0 +1,354 @@
+/* ================
+   INICIAR SIMULACION
+   ================ */
+
+.sim-panel {
+  margin-top: 2.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.card-subtitle {
+  font-size: var(--texto-14);
+  font-weight: 650;
+  color: var(--color-texto-secundario);
+}
+
+.sim-buttons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+  gap: 0.8rem;
+}
+
+.sim-btn {
+  height: 4.4rem;
+  padding: 0 1.2rem;
+
+  border-radius: var(--radius-10);
+  border: 1px solid var(--color-borde-1);
+
+  background: var(--color-tarjeta);
+  color: var(--color-texto-principal);
+
+  font-weight: 650;
+  font-size: var(--texto-14);
+
+  cursor: pointer;
+  user-select: none;
+
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease,
+    transform 120ms ease,
+    box-shadow 160ms ease;
+
+  -webkit-tap-highlight-color: transparent;
+}
+
+.sim-btn:hover {
+  background: var(--color-acento);
+  border-color: var(--color-acento);
+  color: var(--color-acento-text, var(--color-texto-invertido));
+
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+
+.sim-btn--wide {
+  grid-column: 1 / -1;
+}
+
+.sim-btn.is-active,
+.sim-btn.is-running {
+  background: var(--color-acento);
+  border-color: var(--color-acento);
+  color: var(--color-acento-text, var(--color-texto-invertido));
+  cursor: default;
+}
+
+.sim-hint {
+  font-size: var(--texto-12);
+  color: var(--color-texto-terciario);
+}
+
+/* ===========
+   DARK MODE
+   =========== */
+
+body[data-theme="dark"] .sim-btn {
+  background: var(--color-tarjeta);
+  color: var(--color-texto-principal);
+}
+
+body[data-theme="dark"] .sim-btn:hover {
+  background: var(--color-acento);
+  color: var(--color-acento-text, var(--color-texto-invertido));
+}
+
+.selection-card__head {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1.2rem;
+  flex-wrap: wrap;
+}
+
+.selection-card__head > .auto-btn {
+  margin-left: auto;
+}
+
+.clear-btn {
+  height: 3.6rem;
+  padding: 0 1.2rem;
+
+  border-radius: var(--radius-10);
+  border: 1px solid var(--color-borde-1);
+
+  background: transparent;
+  color: var(--color-texto-secundario);
+
+  font-weight: 650;
+  font-size: var(--texto-14);
+
+  cursor: pointer;
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease,
+    opacity 160ms ease;
+
+  -webkit-tap-highlight-color: transparent;
+}
+
+.clear-btn:hover:not(:disabled) {
+  background: var(--color-hover-suave);
+  border-color: var(--color-borde-2);
+  color: var(--color-texto-principal);
+}
+
+.clear-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.auto-btn {
+  height: 3.6rem;
+  padding: 0 1.2rem;
+
+  border-radius: var(--radius-10);
+  border: 1px solid var(--color-borde-1);
+
+  background: transparent;
+  color: var(--color-texto-secundario);
+
+  font-weight: 650;
+  font-size: var(--texto-14);
+
+  cursor: pointer;
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease,
+    opacity 160ms ease;
+
+  -webkit-tap-highlight-color: transparent;
+}
+
+.auto-btn:hover {
+  background: var(--color-hover-suave);
+  border-color: var(--color-borde-2);
+  color: var(--color-texto-principal);
+}
+
+/* ============================
+   SIM BUTTONS - DESHABILITADOS
+   ============================ */
+
+.sim-btn:disabled,
+.sim-btn[aria-disabled="true"] {
+  opacity: 0.45;
+  cursor: not-allowed;
+  pointer-events: none;
+
+  background: color-mix(in srgb, var(--color-tarjeta) 92%, transparent);
+  border-color: var(--color-borde-1);
+  color: var(--color-texto-secundario);
+
+  box-shadow: none;
+  transform: none;
+  filter: grayscale(0.15);
+}
+
+.sim-btn:disabled:hover,
+.sim-btn[aria-disabled="true"]:hover {
+  background: color-mix(in srgb, var(--color-tarjeta) 92%, transparent);
+  border-color: var(--color-borde-1);
+  color: var(--color-texto-secundario);
+  box-shadow: none;
+  transform: none;
+}
+
+/* ===========================
+   RESULTADOS - CARDS DE ANIOS
+   =========================== */
+
+.results .results-add {
+  width: 100%;
+}
+
+.results .results-add__title {
+  margin: 0 0 0.6rem;
+  font-size: var(--texto-16);
+  font-weight: 800;
+  color: var(--color-texto-principal);
+}
+
+.results .results-add__hint {
+  margin: 0 0 1.2rem;
+  font-size: var(--texto-12);
+  color: var(--color-texto-terciario);
+}
+
+.results .addsim-buttons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: 0.8rem;
+}
+
+.results .addsim-btn {
+  height: 4rem;
+  padding: 0 1.2rem;
+
+  border-radius: var(--radius-10);
+  border: 1px solid var(--color-borde-1);
+
+  background: color-mix(
+    in srgb,
+    var(--color-tarjeta) 90%,
+    var(--color-acento) 6%
+  );
+  color: var(--color-texto-principal);
+
+  font-weight: 750;
+  font-size: var(--texto-14);
+
+  cursor: pointer;
+  user-select: none;
+
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease,
+    transform 120ms ease,
+    box-shadow 160ms ease;
+
+  -webkit-tap-highlight-color: transparent;
+}
+
+.results .addsim-btn:hover:not(:disabled) {
+  background: var(--color-acento);
+  border-color: var(--color-acento);
+  color: var(--color-acento-text, var(--color-texto-invertido));
+
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+
+.results .addsim-btn:disabled,
+.results .addsim-btn[aria-disabled="true"] {
+  opacity: 0.45;
+  cursor: not-allowed;
+  pointer-events: none;
+
+  background: color-mix(in srgb, var(--color-tarjeta) 92%, transparent);
+  border-color: var(--color-borde-1);
+  color: var(--color-texto-secundario);
+
+  box-shadow: none;
+  transform: none;
+}
+
+/* =========================
+   RESPONSIVE - MÓVIL
+   ========================= */
+
+@media (max-width: 768px) {
+  .sim-panel {
+    margin-top: 2rem;
+    gap: 1rem;
+  }
+
+  .sim-buttons {
+    grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+    gap: 0.7rem;
+  }
+
+  .sim-btn {
+    height: 4.6rem;
+    font-size: var(--texto-14);
+  }
+
+  .clear-btn,
+  .auto-btn {
+    height: 3.8rem;
+    font-size: var(--texto-14);
+  }
+
+  .results .addsim-buttons {
+    grid-template-columns: repeat(auto-fit, minmax(8.5rem, 1fr));
+  }
+
+  .results .addsim-btn {
+    height: 4.2rem;
+  }
+}
+
+@media (max-width: 560px) {
+  .sim-buttons {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .sim-btn {
+    height: 4.8rem;
+    font-size: var(--texto-14);
+  }
+
+  .selection-card__head {
+    gap: 0.8rem;
+  }
+
+  .selection-card__head > .auto-btn {
+    margin-left: 0;
+    order: -1;
+  }
+
+  .clear-btn,
+  .auto-btn {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .results .addsim-buttons {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .results .addsim-btn {
+    height: 4.4rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .sim-buttons {
+    grid-template-columns: 1fr;
+  }
+
+  .sim-btn {
+    height: 5rem;
+  }
+
+  .results .addsim-buttons {
+    grid-template-columns: 1fr;
+  }
+}

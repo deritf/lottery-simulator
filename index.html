@@ -1,0 +1,1110 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title data-i18n="app.title">Lottery Simulator</title>
+
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="assets/favicon/favicon-sim-lot-16x16.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="assets/favicon/favicon-sim-lot-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="48x48"
+      href="assets/favicon/favicon-sim-lot-48x48.png"
+    />
+
+    <!-- Apple Touch -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="assets/favicon/favicon-sim-lot-180x180.png"
+    />
+
+    <!-- Android / PWA -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="assets/favicon/favicon-sim-lot-192x192.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="512x512"
+      href="assets/favicon/favicon-sim-lot-512x512.png"
+    />
+
+    <!-- SEO base -->
+    <meta name="description" content="" id="meta-description" />
+    <link rel="canonical" href="" id="canonical" />
+
+    <!-- Idiomas -->
+    <link rel="alternate" hreflang="es" href="?lang=es" id="hreflang-es" />
+    <link rel="alternate" hreflang="en" href="?lang=en" id="hreflang-en" />
+    <link
+      rel="alternate"
+      hreflang="x-default"
+      href="?lang=es"
+      id="hreflang-xdefault"
+    />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="" id="og-title" />
+    <meta property="og:description" content="" id="og-description" />
+    <meta property="og:url" content="" id="og-url" />
+    <meta property="og:locale" content="es_ES" id="og-locale" />
+    <meta property="og:locale:alternate" content="en_US" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="" id="tw-title" />
+    <meta name="twitter:description" content="" id="tw-description" />
+
+    <!-- Base -->
+    <link rel="stylesheet" href="assets/css/base/normalize.css" />
+    <link rel="stylesheet" href="assets/css/base/variables.css" />
+    <link rel="stylesheet" href="assets/css/base/global.css" />
+
+    <!-- Layout -->
+    <link rel="stylesheet" href="assets/css/layout/header.css" />
+    <link rel="stylesheet" href="assets/css/layout/footer.css" />
+
+    <!-- Components -->
+    <link rel="stylesheet" href="assets/css/components/buttons.css" />
+    <link rel="stylesheet" href="assets/css/components/number-grid.css" />
+    <link rel="stylesheet" href="assets/css/components/reintegro.css" />
+    <link rel="stylesheet" href="assets/css/components/joker.css" />
+    <link rel="stylesheet" href="assets/css/components/results.css" />
+    <link rel="stylesheet" href="assets/css/components/drawlog.css" />
+    <link rel="stylesheet" href="assets/css/components/draw-debug-modal.css" />
+    <link rel="stylesheet" href="assets/css/components/game-meta.css" />
+    <link rel="stylesheet" href="assets/css/components/millon.css" />
+    <link rel="stylesheet" href="assets/css/pages/eurodreams.css" />
+    <link rel="stylesheet" href="assets/css/pages/quiniela.css" />
+    <link rel="stylesheet" href="assets/css/pages/lototurf.css" />
+    <link rel="stylesheet" href="assets/css/pages/quinigol.css" />
+    <link rel="stylesheet" href="assets/css/components/cookie-consent.css" />
+    <link
+      rel="stylesheet"
+      href="assets/css/components/project-info-modal.css"
+    />
+
+    <!-- Card + chart inversión -->
+    <link
+      rel="stylesheet"
+      href="assets/css/components/investment-line-race.css"
+    />
+
+    <link rel="stylesheet" href="assets/css/components/game-hero-modal.css" />
+
+    <link
+      rel="stylesheet"
+      href="assets/css/components/results-charts-modal.css"
+    />
+
+    <!-- Pages -->
+    <link rel="stylesheet" href="assets/css/pages/primitiva.css" />
+    <link rel="stylesheet" href="assets/css/pages/euromillones.css" />
+
+    <!-- Estilos LN -->
+    <link rel="stylesheet" href="assets/css/pages/loteria-nacional.css" />
+
+    <!-- Mostrar/ocultar UI por juego -->
+    <link rel="stylesheet" href="assets/css/pages/game-visibility.css" />
+
+    <!-- ECharts -->
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+  </head>
+
+  <body data-theme="light" data-game="primitiva" data-lang="es">
+    <a href="#main" class="sr-only" data-i18n="ui.topbar.skipToMain"
+      >Saltar al contenido principal</a
+    >
+
+    <header class="topbar" role="banner">
+      <div class="topbar__inner">
+        <button
+          type="button"
+          class="nav-toggle"
+          id="nav-toggle"
+          aria-controls="nav-games"
+          aria-expanded="false"
+          aria-label="Abrir menú"
+        >
+          <span class="nav-toggle__bar" aria-hidden="true"></span>
+          <span class="nav-toggle__bar" aria-hidden="true"></span>
+          <span class="nav-toggle__bar" aria-hidden="true"></span>
+        </button>
+
+        <nav
+          id="nav-games"
+          class="nav-games"
+          data-i18n-aria="ui.topbar.navAria"
+        >
+          <ul class="nav-games__list" role="list">
+            <li>
+              <button
+                type="button"
+                class="nav-games__item is-active"
+                data-game="primitiva"
+                aria-current="page"
+                disabled
+                data-i18n="games.primitiva.label"
+              >
+                La Primitiva
+              </button>
+            </li>
+
+            <li>
+              <button
+                type="button"
+                class="nav-games__item"
+                data-game="euromillones"
+                disabled
+                data-i18n="games.euromillones.label"
+              >
+                Euromillones
+              </button>
+            </li>
+
+            <li>
+              <button
+                type="button"
+                class="nav-games__item"
+                data-game="bonoloto"
+                disabled
+                data-i18n="games.bonoloto.label"
+              >
+                Bonoloto
+              </button>
+            </li>
+
+            <li>
+              <button
+                type="button"
+                class="nav-games__item"
+                data-game="gordo"
+                disabled
+                data-i18n="games.gordo.label"
+              >
+                El Gordo
+              </button>
+            </li>
+
+            <li>
+              <button
+                type="button"
+                class="nav-games__item"
+                data-game="eurodreams"
+                disabled
+                data-i18n="games.eurodreams.label"
+              >
+                EuroDreams
+              </button>
+            </li>
+
+            <li>
+              <button
+                type="button"
+                class="nav-games__item"
+                data-game="loteria-nacional"
+                data-i18n="games.loteria-nacional.label"
+              >
+                Lotería Nacional
+              </button>
+            </li>
+
+            <li>
+              <button
+                type="button"
+                class="nav-games__item"
+                data-game="quiniela"
+                data-i18n="games.quiniela.label"
+              >
+                La Quiniela
+              </button>
+            </li>
+
+            <li>
+              <button
+                type="button"
+                class="nav-games__item"
+                data-game="lototurf"
+                data-i18n="games.lototurf.label"
+              >
+                Lototurf
+              </button>
+            </li>
+
+            <li>
+              <button
+                type="button"
+                class="nav-games__item"
+                data-game="quinigol"
+                disabled
+                data-i18n="games.quinigol.label"
+              >
+                El Quinigol
+              </button>
+            </li>
+          </ul>
+        </nav>
+
+        <div class="topbar__controls" data-i18n-aria="ui.topbar.prefsAria">
+          <div class="lang">
+            <button
+              type="button"
+              class="lang__button"
+              id="lang-button"
+              aria-haspopup="menu"
+              aria-expanded="false"
+              aria-controls="lang-menu"
+              data-i18n-aria="ui.topbar.langMenuAria"
+            >
+              <img
+                class="lang__icon"
+                src="assets/icons/change-lang_black.png"
+                alt=""
+                width="18"
+                height="18"
+              />
+              <span class="lang__text" id="lang-current">ES</span>
+            </button>
+
+            <ul
+              class="lang__menu"
+              id="lang-menu"
+              role="menu"
+              data-i18n-aria="ui.topbar.langMenuAria"
+            >
+              <li role="none">
+                <button
+                  type="button"
+                  class="lang__item"
+                  role="menuitem"
+                  data-lang="es"
+                  data-i18n="ui.topbar.langEs"
+                >
+                  Español
+                </button>
+              </li>
+              <li role="none">
+                <button
+                  type="button"
+                  class="lang__item"
+                  role="menuitem"
+                  data-lang="en"
+                  data-i18n="ui.topbar.langEn"
+                >
+                  English
+                </button>
+              </li>
+            </ul>
+          </div>
+
+          <button
+            type="button"
+            class="theme-button"
+            id="theme-button"
+            data-i18n-aria="ui.topbar.themeToggleAria"
+            aria-label="Cambiar tema"
+          >
+            <img
+              class="theme-button__icon"
+              id="theme-icon"
+              src="assets/icons/dark-theme_black.png"
+              alt=""
+              width="18"
+              height="18"
+            />
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <div class="nav-overlay" id="nav-overlay" hidden></div>
+    <main id="main" class="container" role="main">
+      <noscript>
+        <p class="muted" style="margin: 1.6rem 0" data-i18n="ui.hints.noscript">
+          Esta simulación necesita JavaScript para generar la cuadrícula y
+          ejecutar la lógica.
+        </p>
+      </noscript>
+
+      <section class="game-hero" aria-labelledby="game-title">
+        <h1 id="game-title" class="game-hero__title"></h1>
+        <p class="game-hero__subtitle" id="game-subtitle"></p>
+        <div class="game-hero__accent" aria-hidden="true"></div>
+        <div class="game-hero__explain" id="game-explain"></div>
+        <dl class="game-meta" id="game-meta"></dl>
+      </section>
+
+      <section class="game-layout">
+        <section
+          class="card card--padded selection-card"
+          aria-labelledby="your-selection-title"
+        >
+          <div class="selection-card__head">
+            <h2
+              id="your-selection-title"
+              class="card-title"
+              data-i18n="ui.sections.yourSelection"
+            >
+              Tu selección
+            </h2>
+
+            <button
+              id="auto-pick-btn"
+              class="auto-btn"
+              type="button"
+              data-i18n="ui.buttons.autoPick"
+            >
+              Elección automática
+            </button>
+
+            <button
+              type="button"
+              class="clear-btn"
+              id="clear-btn"
+              disabled
+              aria-disabled="true"
+              data-i18n="ui.buttons.clear"
+            >
+              Limpiar
+            </button>
+          </div>
+
+          <div class="selection-block">
+            <div class="selection-row">
+              <div class="selection-label" data-i18n="ui.labels.numbers">
+                Números:
+              </div>
+
+              <div class="selection-slots" id="slots-main" role="list"></div>
+            </div>
+
+            <div
+              class="selection-row"
+              data-game-only="eurodreams"
+              data-pick="dream"
+            >
+              <div class="selection-label" data-i18n="ui.labels.dream">
+                Sueño:
+              </div>
+
+              <div class="selection-slots" id="slots-dream" role="list"></div>
+            </div>
+
+            <div class="selection-row" data-game-only="gordo" data-pick="clave">
+              <div class="selection-label" data-i18n="ui.labels.clave">
+                Clave:
+              </div>
+              <div class="selection-slots" id="slots-clave" role="list"></div>
+            </div>
+
+            <div
+              class="selection-row"
+              data-game-only="euromillones"
+              data-pick="stars"
+            >
+              <div class="selection-label" data-i18n="ui.labels.stars">
+                Estrellas:
+              </div>
+
+              <div class="selection-slots" id="slots-stars" role="list">
+                <div class="slot slot--star" role="listitem"></div>
+                <div class="slot slot--star" role="listitem"></div>
+              </div>
+            </div>
+
+            <div class="selection-row" data-game-only="primitiva">
+              <div class="selection-label" data-i18n="ui.labels.reintegro">
+                Reintegro:
+              </div>
+
+              <div
+                class="selection-slots"
+                id="slots-reintegro"
+                role="list"
+              ></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="two-col">
+          <div class="col-stack">
+            <section
+              class="card card--padded"
+              aria-labelledby="select-numbers-title"
+            >
+              <h2
+                id="select-numbers-title"
+                class="card-title"
+                data-i18n="ui.sections.selectNumbers"
+              >
+                Elige números
+              </h2>
+
+              <div class="number-grid" id="number-grid" role="grid"></div>
+
+              <div class="ln-panel" data-game-only="loteria-nacional">
+                <div class="ln-panel__row">
+                  <div class="ln-panel__label">Sorteo:</div>
+                  <div class="ln-panel__draws" role="group" aria-label="Sorteo">
+                    <button
+                      type="button"
+                      class="ln-draw-btn is-active"
+                      data-ln-draw="navidad"
+                    >
+                      Navidad
+                    </button>
+                    <button
+                      type="button"
+                      class="ln-draw-btn"
+                      data-ln-draw="nino"
+                    >
+                      El Niño
+                    </button>
+                    <button
+                      type="button"
+                      class="ln-draw-btn"
+                      data-ln-draw="jueves"
+                    >
+                      Jueves
+                    </button>
+                    <button
+                      type="button"
+                      class="ln-draw-btn"
+                      data-ln-draw="sabado"
+                    >
+                      Sábado
+                    </button>
+                  </div>
+                </div>
+
+                <div class="ln-panel__row">
+                  <label class="ln-panel__label" for="ln-decimos"
+                    >Décimos:</label
+                  >
+                  <input
+                    id="ln-decimos"
+                    class="ln-decimos"
+                    type="number"
+                    min="1"
+                    max="10"
+                    step="1"
+                    value="1"
+                    inputmode="numeric"
+                  />
+                </div>
+
+                <p class="ln-subhint" id="ln-subhint"></p>
+              </div>
+            </section>
+
+            <section
+              class="card card--padded"
+              aria-labelledby="stars-title"
+              data-game-only="euromillones"
+            >
+              <h2
+                id="stars-title"
+                class="card-title"
+                data-i18n="ui.sections.stars"
+              >
+                Estrellas
+              </h2>
+
+              <div
+                class="number-grid number-grid--stars"
+                id="stars-grid"
+                role="grid"
+              ></div>
+            </section>
+
+            <section
+              class="card card--padded"
+              aria-labelledby="reintegro-title"
+              data-game-only="primitiva"
+            >
+              <h2
+                id="reintegro-title"
+                class="card-title"
+                data-i18n="ui.sections.reintegro"
+              >
+                Reintegro
+              </h2>
+
+              <div class="reintegro-grid" id="reintegro-grid" role="grid"></div>
+            </section>
+          </div>
+
+          <div class="col-stack">
+            <section
+              class="card card--padded"
+              aria-labelledby="joker-title"
+              data-game-only="primitiva"
+            >
+              <h2
+                id="joker-title"
+                class="card-title"
+                data-i18n="ui.sections.joker"
+              >
+                Joker
+              </h2>
+
+              <div class="joker-toggle" role="group">
+                <button
+                  class="joker-btn"
+                  type="button"
+                  data-joker="yes"
+                  data-i18n="ui.buttons.yes"
+                >
+                  SÍ
+                </button>
+                <button
+                  class="joker-btn is-active"
+                  type="button"
+                  data-joker="no"
+                  data-i18n="ui.buttons.no"
+                >
+                  NO
+                </button>
+              </div>
+            </section>
+
+            <section
+              class="card card--padded"
+              aria-labelledby="millon-title"
+              data-game-only="euromillones"
+            >
+              <h2
+                id="millon-title"
+                class="card-title"
+                data-i18n="ui.sections.millon"
+              >
+                El Millón
+              </h2>
+
+              <div class="millon-toggle" role="group" aria-label="El Millón">
+                <button
+                  class="millon-btn"
+                  type="button"
+                  data-millon="yes"
+                  data-i18n="ui.buttons.yes"
+                >
+                  SÍ
+                </button>
+                <button
+                  class="millon-btn is-active"
+                  type="button"
+                  data-millon="no"
+                  data-i18n="ui.buttons.no"
+                >
+                  NO
+                </button>
+              </div>
+
+              <p class="millon-hint" data-i18n="ui.millon.hint">
+                Participación asociada a Euromillones (España). Premio fijo:
+                1.000.000 €.
+              </p>
+            </section>
+
+            <section class="card card--padded" aria-labelledby="sim-title">
+              <h2
+                id="sim-title"
+                class="card-title"
+                data-i18n="ui.sections.runSimulation"
+              >
+                Ejecutar simulación
+              </h2>
+
+              <div class="sim-buttons" role="group">
+                <button
+                  type="button"
+                  class="sim-btn sim-btn--wide"
+                  data-run="run"
+                  data-i18n="ui.buttons.start"
+                >
+                  Iniciar
+                </button>
+              </div>
+
+              <p
+                class="sim-hint"
+                id="sim-hint"
+                data-i18n="ui.hints.selectToStart"
+              >
+                Selecciona los números y un reintegro para empezar
+              </p>
+            </section>
+          </div>
+        </section>
+
+        <section class="card card--padded results" id="results" hidden>
+          <h2
+            class="card-title results__title"
+            id="results-title"
+            data-i18n="results.title"
+          >
+            Resumen financiero
+          </h2>
+
+          <section class="results__full results-add">
+            <div class="card card--padded">
+              <h3
+                class="results-add__title"
+                data-i18n="ui.results.addSim.title"
+              >
+                Añadir años a la simulación actual
+              </h3>
+
+              <p class="results-add__hint" data-i18n="ui.results.addSim.hint">
+                Amplía la simulación actual usando la misma selección.
+              </p>
+
+              <div class="addsim-buttons" role="group" aria-label="Añadir años">
+                <button
+                  type="button"
+                  class="addsim-btn"
+                  data-add="1y"
+                  data-i18n="ui.results.addSim.plus1"
+                >
+                  +1 año
+                </button>
+                <button
+                  type="button"
+                  class="addsim-btn"
+                  data-add="2y"
+                  data-i18n="ui.results.addSim.plus2"
+                >
+                  +2 años
+                </button>
+                <button
+                  type="button"
+                  class="addsim-btn"
+                  data-add="5y"
+                  data-i18n="ui.results.addSim.plus5"
+                >
+                  +5 años
+                </button>
+                <button
+                  type="button"
+                  class="addsim-btn"
+                  data-add="10y"
+                  data-i18n="ui.results.addSim.plus10"
+                >
+                  +10 años
+                </button>
+              </div>
+            </div>
+          </section>
+
+          <div class="results__grid results__grid--row1">
+            <div class="kpi">
+              <p class="kpi__k" data-i18n="results.kpis.totalDraws">
+                Total de sorteos
+              </p>
+              <p class="kpi__v" id="total-draws">—</p>
+            </div>
+
+            <div class="kpi">
+              <p class="kpi__k" data-i18n="results.kpis.timeElapsed">
+                Tiempo transcurrido
+              </p>
+              <p class="kpi__v" id="time-elapsed">—</p>
+            </div>
+
+            <div class="kpi">
+              <p class="kpi__k" data-i18n="results.kpis.currentDate">
+                Fecha actual
+              </p>
+              <p class="kpi__v" id="current-date">—</p>
+            </div>
+
+            <div class="kpi">
+              <p class="kpi__k" data-i18n="results.kpis.totalSpent">
+                Total gastado
+              </p>
+              <p class="kpi__v" id="total-spent">—</p>
+            </div>
+
+            <div class="kpi">
+              <p class="kpi__k" data-i18n="results.kpis.totalWon">
+                Total ganado
+              </p>
+              <p class="kpi__v kpi__v--positive" id="total-won">—</p>
+            </div>
+
+            <div class="kpi">
+              <p class="kpi__k" data-i18n="results.kpis.netBalance">
+                Balance neto
+              </p>
+              <p class="kpi__v" id="net-balance">—</p>
+            </div>
+          </div>
+
+          <div class="results__grid results__grid--row2">
+            <div class="kpi">
+              <p class="kpi__k" data-i18n="results.kpis.profitPerEuro">
+                Ganancia / pérdida por € invertido
+              </p>
+              <p class="kpi__v" id="profit-per-euro">—</p>
+            </div>
+
+            <div class="kpi">
+              <div class="kpi__row">
+                <p class="kpi__k" data-i18n="results.kpis.biggestPrize">
+                  Mayor premio obtenido
+                </p>
+                <button
+                  type="button"
+                  class="kpi__action"
+                  id="open-highlight-draw"
+                  disabled
+                  aria-disabled="true"
+                  data-i18n="results.kpis.openHighlightDraw"
+                >
+                  Ver sorteo
+                </button>
+              </div>
+
+              <p class="kpi__v kpi__v--positive" id="biggest-prize">—</p>
+              <p class="kpi__hint">
+                <span id="biggest-prize-draw">—</span>
+                <span> · </span>
+                <span id="biggest-prize-date">—</span>
+              </p>
+            </div>
+
+            <div class="kpi kpi--chart">
+              <div class="kpi__row">
+                <p class="kpi__k" data-i18n="results.kpis.distribution">
+                  Distribución de ganancias/pérdidas
+                </p>
+
+                <button
+                  type="button"
+                  class="kpi__action"
+                  id="open-results-charts"
+                  disabled
+                  aria-disabled="true"
+                  data-i18n="results.kpis.openCharts"
+                >
+                  Ver gráficas
+                </button>
+              </div>
+
+              <div
+                id="results-distribution"
+                class="results-chart"
+                aria-label="Win/Loss chart"
+              ></div>
+            </div>
+          </div>
+
+          <section
+            class="results__full drawlog"
+            id="drawlog"
+            aria-labelledby="drawlog-title"
+          >
+            <div class="drawlog__head">
+              <h3
+                class="drawlog__title"
+                id="drawlog-title"
+                data-i18n="results.drawlog.title"
+              >
+                Registro de sorteos
+              </h3>
+            </div>
+
+            <div
+              class="drawlog__filters"
+              role="group"
+              aria-label="Draw log filters"
+            >
+              <button
+                type="button"
+                class="filter-btn is-active"
+                data-log-filter="all"
+                data-i18n="ui.results.filters.all"
+              >
+                Mostrar todos
+              </button>
+              <button
+                type="button"
+                class="filter-btn"
+                data-log-filter="winners"
+                data-i18n="ui.results.filters.wins"
+              >
+                Solo premios
+              </button>
+              <button
+                type="button"
+                class="filter-btn"
+                data-log-filter="jackpots"
+                data-i18n="ui.results.filters.jackpots"
+              >
+                Solo botes
+              </button>
+              <button
+                type="button"
+                class="filter-btn"
+                data-log-filter="joker"
+                data-i18n="ui.results.filters.joker"
+              >
+                Solo Joker
+              </button>
+            </div>
+
+            <div class="drawlog__list" id="draw-log-body"></div>
+          </section>
+
+          <section
+            class="results__full investment"
+            id="investment"
+            aria-labelledby="investment-title"
+          >
+            <div class="card card--padded">
+              <div class="investment__head">
+                <div>
+                  <h3
+                    class="investment__title"
+                    id="investment-title"
+                    data-i18n="ui.investment.title"
+                  >
+                    Inversión alternativa (índices)
+                  </h3>
+
+                  <p class="investment__hint" data-i18n="ui.investment.hint">
+                    Se invierte el mismo dinero que gastas en sorteos, mes a
+                    mes, en varios índices simulados.
+                  </p>
+                </div>
+              </div>
+
+              <div
+                id="investment-fund-toggles"
+                class="investment-fund-toggles"
+              ></div>
+
+              <div class="investment__note investment__note--info" role="note">
+                <p
+                  class="investment__note-title"
+                  data-i18n="ui.investment.howToReadTitle"
+                >
+                  Cómo leer esta gráfica
+                </p>
+
+                <p
+                  class="investment__note-body"
+                  data-i18n="ui.investment.howToReadBody"
+                >
+                  Las cantidades no se invierten de golpe. El “total gastado” se
+                  reparte...
+                </p>
+              </div>
+
+              <div
+                id="investment-line-race"
+                class="investment__chart"
+                aria-label="Gráfica comparativa de inversión"
+              ></div>
+
+              <p
+                class="investment__note investment__note--legal"
+                data-i18n="ui.investment.note"
+              >
+                Nota: esta gráfica es una simulación educativa basada en datos
+                históricos y modelos estadísticos. No constituye asesoramiento
+                financiero ni garantiza resultados futuros.
+              </p>
+            </div>
+          </section>
+        </section>
+      </section>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+      <div class="footer__inner container">
+        <div
+          class="footer__bmc"
+          id="bmc-container"
+          aria-label="Buy Me a Coffee"
+        ></div>
+
+        <p class="footer__disclaimer" data-i18n="ui.footer.disclaimer">
+          Simulación educativa. Este proyecto no fomenta el juego.
+        </p>
+
+        <p class="footer__about">
+          <a
+            href="#"
+            id="open-project-info"
+            class="footer__about-link"
+            data-i18n="ui.footer.aboutProject"
+          >
+            Sobre este proyecto
+          </a>
+        </p>
+
+        <p class="footer__credits">
+          <span data-i18n="ui.footer.iconsBy">Iconos de</span>
+
+          <a
+            href="https://iconmonstr.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >iconmonstr</a
+          >
+          <span data-i18n="ui.footer.and">y</span>
+          <a
+            href="https://icons8.com/icons"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Icons8</a
+          >
+          <span aria-hidden="true"> · </span>
+          <span data-i18n="ui.footer.projectCreatedBy"
+            >Proyecto creado por</span
+          >
+          <a
+            href="https://derimantejera.dev/"
+            class="footer__author"
+            data-i18n="ui.footer.authorName"
+            >Derimán Tejera Fumero</a
+          >
+        </p>
+
+        <p class="footer__rights" data-i18n="ui.footer.rights">
+          © {year} All rights reserved.
+        </p>
+      </div>
+    </footer>
+
+    <script type="module" src="assets/js/shared/ui/results-charts.js"></script>
+    <script
+      type="module"
+      src="assets/js/shared/ui/investment-line-race.js"
+    ></script>
+    <script type="module" src="assets/js/app/app.js"></script>
+    <script
+      type="module"
+      src="assets/js/shared/ui/investment-fund-toggles.js"
+    ></script>
+    <script type="module" src="assets/js/shared/ui/cookie-consent.js"></script>
+    <script type="module" src="assets/js/shared/ui/project-info.js"></script>
+    <script type="module" src="assets/js/shared/ui/footer-bmc.js"></script>
+
+    <div
+      class="cookie-consent"
+      id="cookie-consent"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="cookie-consent-title"
+      aria-describedby="cookie-consent-desc"
+      hidden
+    >
+      <div class="cookie-consent__card">
+        <h2
+          class="cookie-consent__title"
+          id="cookie-consent-title"
+          data-i18n="ui.cookies.title"
+        >
+          Cookies
+        </h2>
+
+        <p
+          class="cookie-consent__desc"
+          id="cookie-consent-desc"
+          data-i18n="ui.cookies.desc"
+        >
+          Este sitio usa cookies...
+        </p>
+
+        <div class="cookie-consent__actions">
+          <button
+            type="button"
+            class="cookie-consent__btn cookie-consent__btn--primary"
+            id="cookie-accept"
+            data-i18n="ui.cookies.accept"
+          >
+            Aceptar
+          </button>
+
+          <button
+            type="button"
+            class="cookie-consent__btn"
+            id="cookie-reject"
+            data-i18n="ui.cookies.reject"
+          >
+            Rechazar
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div
+      id="project-info"
+      class="modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="project-info-title"
+      hidden
+    >
+      <div class="modal__overlay"></div>
+
+      <div class="modal__content" role="document">
+        <h2 id="project-info-title" data-i18n="ui.projectInfo.title">
+          Sobre este proyecto
+        </h2>
+
+        <div class="modal__body" data-i18n="ui.projectInfo.body"></div>
+
+        <div class="modal__actions">
+          <button
+            id="project-info-accept"
+            class="btn btn--primary"
+            data-i18n="ui.projectInfo.accept"
+          >
+            Lo entiendo
+          </button>
+        </div>
+      </div>
+    </div>
+    <script type="application/ld+json" id="ld-website">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Lottery Simulator",
+        "url": ""
+      }
+    </script>
+
+    <script type="application/ld+json" id="ld-app">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Lottery Simulator",
+        "applicationCategory": "EducationalApplication",
+        "operatingSystem": "Web",
+        "isAccessibleForFree": true
+      }
+    </script>
+  </body>
+</html>

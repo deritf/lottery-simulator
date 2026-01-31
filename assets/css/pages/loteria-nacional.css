@@ -1,0 +1,187 @@
+/* assets/css/pages/loteria-nacional.css */
+
+body[data-game="loteria-nacional"] .card .ln-panel {
+  margin-top: 1.6rem !important;
+  padding-top: 1.2rem !important;
+  padding-bottom: 0.4rem !important;
+  border-top: 1px solid var(--color-borde-1) !important;
+
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 1.4rem !important;
+}
+
+body[data-game="loteria-nacional"] .card .ln-panel .ln-panel__row {
+  display: flex !important;
+  align-items: center !important;
+  gap: 1.2rem !important;
+  flex-wrap: wrap !important;
+
+  padding: 0.4rem 0 !important;
+}
+
+body[data-game="loteria-nacional"] .card .ln-panel .ln-panel__label {
+  min-width: 7rem;
+  font-size: var(--texto-14);
+  color: var(--color-texto-secundario);
+}
+
+body[data-game="loteria-nacional"] .card .ln-panel .ln-panel__draws {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 0.9rem !important;
+  row-gap: 0.9rem !important;
+}
+
+body[data-game="loteria-nacional"] .card .ln-panel .ln-draw-btn {
+  padding: 0.7rem 1.2rem;
+  border-radius: var(--radius-10);
+  border: 1px solid var(--color-borde-1);
+  background: var(--color-fondo);
+  color: var(--color-texto-principal);
+  cursor: pointer;
+  font-size: var(--texto-14);
+  line-height: 1.1;
+
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease,
+    transform 120ms ease;
+
+  -webkit-tap-highlight-color: transparent;
+}
+
+body[data-game="loteria-nacional"] .card .ln-panel .ln-draw-btn:hover {
+  background: var(--color-hover-suave);
+  border-color: var(--color-borde-2);
+}
+
+body[data-game="loteria-nacional"] .card .ln-panel .ln-draw-btn.is-active {
+  background: var(--color-acento);
+  color: var(--color-acento-text);
+  border-color: var(--color-acento);
+}
+
+body[data-game="loteria-nacional"] .card .ln-panel .ln-decimos {
+  width: 6.6rem;
+  padding: 0.55rem 0.7rem;
+  font-size: var(--texto-14);
+  border-radius: var(--radius-6);
+  border: 1px solid var(--color-borde-1);
+  background: var(--color-fondo);
+  color: var(--color-texto-principal);
+}
+
+body[data-game="loteria-nacional"] .card .ln-panel .ln-subhint {
+  margin: 0.2rem 0 0 0 !important;
+  padding-top: 0.2rem !important;
+  font-size: var(--texto-14);
+  color: var(--color-texto-terciario);
+  line-height: 1.3;
+}
+
+body[data-game="loteria-nacional"] #slots-main .slot.ln-slot {
+  cursor: pointer;
+  user-select: none;
+  transition:
+    transform 0.12s ease,
+    box-shadow 0.12s ease,
+    outline-color 0.12s ease;
+
+  -webkit-tap-highlight-color: transparent;
+}
+
+body[data-game="loteria-nacional"] #slots-main .slot.ln-slot:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+
+body[data-game="loteria-nacional"] #slots-main .slot.ln-slot.is-active {
+  outline: 2px solid var(--color-acento);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-acento) 25%, transparent);
+}
+
+body[data-game="loteria-nacional"] #slots-main .slot.ln-slot.is-filled {
+  border-color: color-mix(
+    in srgb,
+    var(--color-acento) 35%,
+    var(--color-borde-1)
+  );
+}
+
+body[data-game="loteria-nacional"] #slots-main .slot.ln-slot:focus-visible {
+  outline: 2px solid var(--color-acento);
+  outline-offset: 3px;
+}
+
+@media (max-width: 768px) {
+  body[data-game="loteria-nacional"] .card .ln-panel {
+    gap: 1.3rem !important;
+  }
+
+  body[data-game="loteria-nacional"] .card .ln-panel .ln-panel__row {
+    gap: 1rem !important;
+  }
+
+  body[data-game="loteria-nacional"] .card .ln-panel .ln-panel__label {
+    min-width: 6rem;
+    font-size: 1.35rem;
+  }
+
+  body[data-game="loteria-nacional"] .card .ln-panel .ln-panel__draws {
+    gap: 0.8rem !important;
+  }
+
+  body[data-game="loteria-nacional"] .card .ln-panel .ln-draw-btn {
+    padding: 0.65rem 1.1rem;
+    font-size: 1.35rem;
+  }
+}
+
+@media (max-width: 560px) {
+  body[data-game="loteria-nacional"] .card .ln-panel {
+    gap: 1.2rem !important;
+  }
+
+  body[data-game="loteria-nacional"] .card .ln-panel .ln-panel__row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem !important;
+  }
+
+  body[data-game="loteria-nacional"] .card .ln-panel .ln-panel__label {
+    min-width: 0;
+    width: 100%;
+    font-size: 1.3rem;
+  }
+
+  body[data-game="loteria-nacional"] .card .ln-panel .ln-panel__draws {
+    width: 100%;
+    gap: 0.7rem !important;
+  }
+
+  body[data-game="loteria-nacional"] .card .ln-panel .ln-draw-btn {
+    flex: 1 1 auto;
+    min-width: calc(50% - 0.35rem);
+    padding: 0.6rem 1rem;
+    font-size: 1.3rem;
+  }
+
+  body[data-game="loteria-nacional"] .card .ln-panel .ln-decimos {
+    width: 100%;
+    max-width: 200px;
+  }
+
+  body[data-game="loteria-nacional"] .card .ln-panel .ln-subhint {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 420px) {
+  body[data-game="loteria-nacional"] .card .ln-panel .ln-draw-btn {
+    padding: 0.55rem 0.9rem;
+    font-size: 1.25rem;
+  }
+}

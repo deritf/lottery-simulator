@@ -1,0 +1,322 @@
+/* assets/css/components/investment-line-race.css */
+
+/* ===========
+   INVESTMENT 
+   =========== */
+
+.investment {
+  width: 100%;
+}
+
+.investment .card {
+  background: var(--color-tarjeta);
+  border: 1px solid var(--color-borde-1);
+  border-radius: var(--radius-12, var(--border-radius-12));
+  box-shadow: var(--sombra-base);
+
+  padding: 1.2rem 1.2rem;
+}
+
+/* =====================
+   SEPARACIÓN SUPERIOR 
+   ===================== */
+
+.results #investment.results__full {
+  margin-top: 0 !important;
+  padding-top: 6rem;
+}
+
+.results #investment.results__full > .card {
+  margin-top: 0 !important;
+}
+
+/* ==========
+   CABECERA
+   ========== */
+
+.investment__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+
+  margin-bottom: 0.8rem;
+}
+
+.investment__title {
+  font-size: 2.1rem;
+  font-weight: 900;
+  letter-spacing: -0.01em;
+  margin: 0;
+  color: var(--color-texto-principal);
+}
+
+.investment__hint {
+  margin: 0.35rem 0 0;
+  font-size: 1.35rem;
+  font-weight: 650;
+  color: var(--color-texto-secundario);
+  line-height: 1.55;
+  max-width: 88ch;
+}
+
+/* =========
+   TOGGLES
+   ========= */
+
+.investment-fund-toggles {
+  margin-top: 0.8rem;
+  display: grid;
+  gap: 0.6rem;
+}
+
+.investment-fund-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem 1.2rem;
+}
+
+.investment-fund-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+/* =======
+   CHART
+   ======= */
+
+.investment__chart {
+  width: 100%;
+  min-height: 360px;
+
+  margin-top: 0.9rem;
+
+  border-radius: var(--radius-12, var(--border-radius-12));
+
+  background: color-mix(in srgb, var(--color-tarjeta) 92%, transparent);
+  border: 1px solid var(--color-borde-1);
+
+  padding: 0.6rem;
+  overflow: hidden;
+
+  box-sizing: border-box;
+}
+
+.investment__chart > div,
+.investment__chart canvas {
+  border-radius: inherit;
+}
+
+/* ==================
+   NOTA INFORMATIVA
+   ================== */
+
+.investment__note {
+  margin: 1rem 0 0;
+  padding: 0.95rem 1rem;
+
+  border-radius: var(--radius-12, var(--border-radius-12));
+  border: 1px solid var(--color-borde-1);
+
+  background: color-mix(in srgb, var(--color-tarjeta) 82%, transparent);
+
+  border-left-width: 4px;
+  border-left-style: solid;
+  border-left-color: color-mix(
+    in srgb,
+    var(--color-texto-principal) 30%,
+    transparent
+  );
+
+  color: var(--color-texto-secundario);
+  font-size: 1.25rem;
+  line-height: 1.6;
+  font-weight: 650;
+
+  box-shadow: none;
+}
+
+.investment__note,
+.investment__note-title,
+.investment__note-body {
+  overflow: visible;
+  white-space: normal;
+  text-overflow: unset;
+}
+
+.investment__note-body {
+  display: block;
+  max-height: none;
+  -webkit-line-clamp: unset;
+  -webkit-box-orient: unset;
+}
+
+/* ===========
+   DARK MODE
+   =========== */
+
+body[data-theme="dark"] .investment__chart {
+  background: color-mix(in srgb, var(--color-tarjeta) 88%, transparent);
+  border-color: var(--color-borde-1);
+}
+
+body[data-theme="dark"] .investment__note {
+  background: color-mix(in srgb, var(--color-tarjeta) 78%, transparent);
+  border-left-color: color-mix(
+    in srgb,
+    var(--color-texto-principal) 42%,
+    transparent
+  );
+}
+
+/* ======================
+   RESPONSIVE - TABLETS
+   ====================== */
+
+@media (max-width: 900px) {
+  .results #investment.results__full {
+    padding-top: 5rem;
+  }
+
+  .investment .card {
+    padding: 1.1rem 1.1rem;
+  }
+
+  .investment__title {
+    font-size: 1.95rem;
+  }
+
+  .investment__hint {
+    font-size: 1.3rem;
+  }
+
+  .investment__chart {
+    min-height: 340px;
+  }
+}
+
+@media (max-width: 768px) {
+  .results #investment.results__full {
+    padding-top: 4rem;
+  }
+
+  .investment .card {
+    padding: 1rem 1rem;
+  }
+
+  .investment__title {
+    font-size: 1.85rem;
+  }
+
+  .investment__hint {
+    font-size: 1.25rem;
+    max-width: 100%;
+  }
+
+  .investment__chart {
+    min-height: 320px;
+    padding: 0.5rem;
+  }
+
+  .investment__note {
+    padding: 0.85rem 0.9rem;
+    font-size: 1.2rem;
+  }
+}
+
+/* ======================
+   RESPONSIVE - MÓVILES
+   ====================== */
+
+@media (max-width: 560px) {
+  .results #investment.results__full {
+    padding-top: 3rem;
+  }
+
+  .investment .card {
+    padding: 0.95rem 0.95rem;
+  }
+
+  .investment__head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+  }
+
+  .investment__title {
+    font-size: 1.75rem;
+  }
+
+  .investment__hint {
+    font-size: 1.2rem;
+    margin-top: 0.3rem;
+  }
+
+  .investment-fund-list {
+    gap: 0.7rem 1rem;
+  }
+
+  .investment__chart {
+    min-height: 300px;
+    padding: 0.45rem;
+    margin-top: 0.8rem;
+  }
+
+  .investment__note {
+    padding: 0.8rem 0.85rem;
+    font-size: 1.15rem;
+    border-left-width: 3px;
+  }
+}
+
+@media (max-width: 420px) {
+  .results #investment.results__full {
+    padding-top: 2.5rem;
+  }
+
+  .investment .card {
+    padding: 0.9rem 0.9rem;
+  }
+
+  .investment__title {
+    font-size: 1.65rem;
+  }
+
+  .investment__hint {
+    font-size: 1.15rem;
+  }
+
+  .investment-fund-list {
+    gap: 0.6rem 0.9rem;
+  }
+
+  .investment__chart {
+    min-height: 280px;
+  }
+
+  .investment__note {
+    font-size: 1.1rem;
+    line-height: 1.5;
+  }
+}
+
+@media (max-width: 360px) {
+  .investment__title {
+    font-size: 1.6rem;
+  }
+
+  .investment__hint {
+    font-size: 1.1rem;
+  }
+
+  .investment__chart {
+    min-height: 260px;
+  }
+
+  .investment__note {
+    padding: 0.75rem 0.8rem;
+    font-size: 1.05rem;
+  }
+}

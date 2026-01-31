@@ -1,0 +1,367 @@
+/* assets/css/components/reintegro.css */
+
+.selection-card .selection-block {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.selection-row {
+  display: grid;
+  grid-template-columns: 9rem 1fr;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.selection-label {
+  color: var(--color-texto-secundario);
+  font-weight: 650;
+  font-size: var(--texto-14);
+}
+
+.selection-slots {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.slot {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-10);
+  border: 1px solid var(--color-borde-1);
+  background: color-mix(in srgb, var(--color-tarjeta) 92%, transparent);
+
+  display: grid;
+  place-items: center;
+
+  font-weight: 750;
+  font-size: var(--texto-14);
+  color: var(--color-texto-secundario);
+}
+
+.slot.is-filled {
+  background: var(--color-acento);
+  border-color: var(--color-acento);
+  color: var(--color-acento-text);
+  font-weight: 800;
+}
+
+.slot--star::before {
+  content: "";
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  transform: translate(-50%, -50%);
+
+  width: 20px;
+  height: 20px;
+
+  background: url("../../icons/euromill-star.png") no-repeat center / contain;
+
+  opacity: 0.95;
+  pointer-events: none;
+}
+
+.stars-btn,
+.star-btn {
+  position: relative;
+}
+
+.stars-btn::before,
+.star-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+
+  width: 20px;
+  height: 20px;
+
+  background: url("../../icons/euromill-star.png") no-repeat center / contain;
+
+  opacity: 0.95;
+  pointer-events: none;
+}
+
+:root {
+  --reintegro-size-min: 3.6rem;
+  --reintegro-size-max: 5.5rem;
+  --reintegro-gap: 0.8rem;
+}
+
+.reintegro-grid {
+  display: grid;
+  gap: var(--reintegro-gap);
+
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(
+      clamp(var(--reintegro-size-min), 6vw, var(--reintegro-size-max)),
+      clamp(var(--reintegro-size-min), 6vw, var(--reintegro-size-max))
+    )
+  );
+
+  justify-content: start;
+}
+
+.reintegro-btn {
+  width: clamp(var(--reintegro-size-min), 6vw, var(--reintegro-size-max));
+  height: clamp(var(--reintegro-size-min), 6vw, var(--reintegro-size-max));
+
+  border-radius: var(--radius-10);
+  border: 1px solid var(--color-borde-1);
+
+  background: color-mix(
+    in srgb,
+    var(--color-tarjeta) 86%,
+    var(--color-texto-principal) 4%
+  );
+  color: color-mix(
+    in srgb,
+    var(--color-texto-principal) 70%,
+    var(--color-texto-secundario)
+  );
+
+  display: grid;
+  place-items: center;
+
+  font-weight: 800;
+  font-size: 1.4rem;
+  cursor: pointer;
+  user-select: none;
+
+  transition:
+    transform 120ms ease,
+    background-color 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease,
+    box-shadow 160ms ease;
+
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+.reintegro-btn:hover {
+  background: color-mix(in srgb, var(--color-acento) 18%, var(--color-tarjeta));
+  border-color: color-mix(
+    in srgb,
+    var(--color-acento) 45%,
+    var(--color-borde-1)
+  );
+  color: var(--color-texto-principal);
+  transform: scale(1.045);
+  box-shadow: var(--shadow-sm);
+}
+
+.reintegro-btn.is-selected {
+  background: var(--color-acento);
+  border-color: var(--color-acento);
+  color: var(--color-acento-text);
+}
+
+.stars-btn,
+.star-btn {
+  width: clamp(var(--reintegro-size-min), 6vw, var(--reintegro-size-max));
+  height: clamp(var(--reintegro-size-min), 6vw, var(--reintegro-size-max));
+
+  border-radius: var(--radius-10);
+  border: 1px solid var(--color-borde-1);
+
+  background: color-mix(
+    in srgb,
+    var(--color-tarjeta) 86%,
+    var(--color-texto-principal) 4%
+  );
+  color: color-mix(
+    in srgb,
+    var(--color-texto-principal) 70%,
+    var(--color-texto-secundario)
+  );
+
+  display: grid;
+  place-items: center;
+
+  font-weight: 800;
+  font-size: 1.4rem;
+  cursor: pointer;
+  user-select: none;
+
+  transition:
+    transform 120ms ease,
+    background-color 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease,
+    box-shadow 160ms ease;
+
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+.stars-btn:hover,
+.star-btn:hover {
+  background: color-mix(in srgb, var(--color-acento) 18%, var(--color-tarjeta));
+  border-color: color-mix(
+    in srgb,
+    var(--color-acento) 45%,
+    var(--color-borde-1)
+  );
+  color: var(--color-texto-principal);
+  transform: scale(1.045);
+  box-shadow: var(--shadow-sm);
+}
+
+.stars-btn.is-selected,
+.star-btn.is-selected {
+  background: var(--color-acento);
+  border-color: var(--color-acento);
+  color: var(--color-acento-text);
+}
+
+/* ======================
+   RESPONSIVE - TABLETS
+   ====================== */
+
+@media (max-width: 768px) {
+  .selection-row {
+    grid-template-columns: 8rem 1fr;
+    gap: 1rem;
+  }
+
+  .selection-label {
+    font-size: 1.3rem;
+  }
+
+  .selection-slots {
+    gap: 0.7rem;
+  }
+
+  .slot {
+    width: 38px;
+    height: 38px;
+  }
+
+  :root {
+    --reintegro-size-min: 3.4rem;
+    --reintegro-size-max: 5.2rem;
+    --reintegro-gap: 0.7rem;
+  }
+
+  .reintegro-btn,
+  .stars-btn,
+  .star-btn {
+    font-size: 1.35rem;
+  }
+}
+
+/* ======================
+   RESPONSIVE - MÓVILES
+   ====================== */
+
+@media (max-width: 560px) {
+  .selection-row {
+    grid-template-columns: 1fr;
+    gap: 0.7rem;
+  }
+
+  .selection-label {
+    font-size: 1.25rem;
+  }
+
+  .selection-slots {
+    gap: 0.6rem;
+  }
+
+  .slot {
+    width: 36px;
+    height: 36px;
+    font-size: 1.3rem;
+  }
+
+  .slot--star::before,
+  .stars-btn::before,
+  .star-btn::before {
+    width: 18px;
+    height: 18px;
+  }
+
+  :root {
+    --reintegro-size-min: 3.2rem;
+    --reintegro-size-max: 5rem;
+    --reintegro-gap: 0.6rem;
+  }
+
+  .reintegro-grid {
+    justify-content: center;
+  }
+
+  .reintegro-btn,
+  .stars-btn,
+  .star-btn {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .selection-block {
+    gap: 1rem;
+  }
+
+  .selection-label {
+    font-size: 1.2rem;
+  }
+
+  .selection-slots {
+    gap: 0.5rem;
+  }
+
+  .slot {
+    width: 34px;
+    height: 34px;
+    font-size: 1.25rem;
+  }
+
+  :root {
+    --reintegro-size-min: 3rem;
+    --reintegro-size-max: 4.8rem;
+    --reintegro-gap: 0.5rem;
+  }
+
+  .reintegro-btn,
+  .stars-btn,
+  .star-btn {
+    font-size: 1.25rem;
+    border-radius: 0.8rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .slot {
+    width: 32px;
+    height: 32px;
+    font-size: 1.2rem;
+  }
+
+  .slot--star::before,
+  .stars-btn::before,
+  .star-btn::before {
+    width: 16px;
+    height: 16px;
+  }
+
+  :root {
+    --reintegro-size-min: 2.8rem;
+    --reintegro-size-max: 4.6rem;
+  }
+
+  .reintegro-btn,
+  .stars-btn,
+  .star-btn {
+    font-size: 1.2rem;
+  }
+}

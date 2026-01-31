@@ -1,0 +1,249 @@
+/* assets/css/base/global.css */
+
+/* =========================
+   BASE
+   ========================= */
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+:root {
+  --mobile-nav-open-height: 0px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--fuente-principal);
+  font-size: var(--tamano-texto-base);
+  color: var(--color-texto-principal);
+  background-color: var(--color-fondo-body);
+
+  overflow-x: hidden;
+}
+
+img,
+svg,
+video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+/* =========================
+   CONTENEDOR
+   ========================= */
+
+.container {
+  width: var(--container-width);
+  max-width: var(--container-max);
+  margin-inline: auto;
+}
+
+/* =========================
+   TIPOGRAFÍA BÁSICA
+   ========================= */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* =========================
+   UTILIDADES
+   ========================= */
+
+.card {
+  background: var(--color-tarjeta);
+  border: 1px solid var(--color-borde-1);
+  border-radius: var(--radius-12);
+  box-shadow: var(--shadow-sm);
+}
+
+.card--padded {
+  padding: 1.6rem 1.8rem;
+}
+
+.muted {
+  color: var(--color-texto-secundario);
+}
+
+/* =========================
+   MAIN / FOOTER
+   ========================= */
+
+main {
+  padding-top: calc(var(--header-height) + 2.4rem);
+  padding-bottom: 3rem;
+  background: transparent;
+
+  transition: padding-top 300ms ease;
+}
+
+.footer {
+  padding: 2rem 0 3rem;
+  color: var(--color-texto-secundario);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(
+    900px 500px at 20% -10%,
+    rgba(0, 0, 0, 0.06),
+    transparent 60%
+  );
+}
+
+body[data-theme="dark"]::before {
+  background: radial-gradient(
+    900px 500px at 20% -10%,
+    rgba(255, 255, 255, 0.05),
+    transparent 60%
+  );
+}
+
+/* =========================
+   MOBILE NAV
+   ========================= */
+
+html.is-nav-open {
+  overflow: hidden;
+  height: 100%;
+}
+
+body.is-nav-open {
+  overflow: hidden;
+  height: 100%;
+}
+
+body.is-nav-open main {
+  padding-top: calc(
+    var(--header-height) + 2.4rem + var(--mobile-nav-open-height)
+  );
+}
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media (max-width: 1200px) {
+  .container {
+    width: 95%;
+    padding-top: calc(var(--header-height) + 2.4rem);
+  }
+}
+
+@media (max-width: 900px) {
+  .container {
+    width: 95%;
+    padding-top: calc(var(--header-height) + 2.4rem);
+  }
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 60%;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 1.2rem;
+    padding-top: calc(var(--header-height) + 2.4rem);
+  }
+
+  html,
+  body {
+    overflow-x: hidden;
+  }
+
+  main {
+    padding-top: calc(var(--header-height) + 1.6rem);
+    padding-bottom: 2rem;
+  }
+
+  body.is-nav-open main {
+    padding-top: calc(
+      var(--header-height) + 1.6rem + var(--mobile-nav-open-height)
+    );
+  }
+
+  .card--padded {
+    padding: 1.2rem 1.4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 58%;
+  }
+
+  .container {
+    padding: 0 1rem;
+    padding-top: calc(var(--header-height) + 2.4rem);
+  }
+
+  main {
+    padding-top: calc(var(--header-height) + 1.4rem);
+    padding-bottom: 1.6rem;
+  }
+
+  body.is-nav-open main {
+    padding-top: calc(
+      var(--header-height) + 1.4rem + var(--mobile-nav-open-height)
+    );
+  }
+
+  .card--padded {
+    padding: 1rem 1.2rem;
+  }
+}
+
+@media (max-width: 360px) {
+  html {
+    font-size: 56%;
+  }
+
+  .container {
+    padding: 0 0.8rem;
+    padding-top: calc(var(--header-height) + 2.4rem);
+  }
+}

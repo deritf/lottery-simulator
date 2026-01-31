@@ -1,0 +1,257 @@
+/* assets/css/components/game-hero-modal.css */
+
+/* =====================================================
+   HERO EXPLAIN (preview) - coherente con cards del sitio
+   ===================================================== */
+
+.game-hero__explainTitle {
+  margin-top: 0.6rem;
+  margin-bottom: 0.8rem;
+
+  font-size: var(--texto-14);
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+
+  color: var(--color-texto-secundario);
+}
+
+.game-hero__explainPreview {
+  position: relative;
+  overflow: hidden;
+
+  max-height: 11.2rem;
+  padding: 1.2rem 1.4rem;
+
+  background: var(--color-tarjeta);
+  border: 1px solid var(--color-borde-1);
+  border-radius: var(--radius-12);
+  box-shadow: var(--shadow-sm);
+}
+
+.game-hero__explainPreview p {
+  margin: 0 0 0.8rem 0;
+  font-size: var(--texto-14);
+  line-height: 1.5;
+  color: var(--color-texto-secundario);
+}
+
+.game-hero__explainPreview p:last-child {
+  margin-bottom: 0;
+}
+
+.game-hero__explainFade {
+  pointer-events: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  height: 3.4rem;
+
+  background: linear-gradient(to bottom, transparent, var(--color-tarjeta) 70%);
+}
+
+.game-hero__explainActions {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+
+  margin-top: 0.9rem;
+}
+
+.game-hero__moreBtn {
+  height: 3.6rem;
+  padding: 0 1.2rem;
+
+  border-radius: var(--radius-10);
+  border: 1px solid var(--color-borde-1);
+
+  background: transparent;
+  color: var(--color-texto-secundario);
+
+  font-weight: 650;
+  font-size: var(--texto-14);
+
+  cursor: pointer;
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease,
+    transform 120ms ease;
+}
+
+.game-hero__moreBtn:hover {
+  background: var(--color-hover-suave);
+  border-color: var(--color-borde-2);
+  color: var(--color-texto-principal);
+  transform: translateY(-1px);
+}
+
+.game-hero__moreBtn:active {
+  transform: translateY(0);
+}
+
+.game-hero__moreBtn:focus-visible {
+  outline: 2px solid var(--color-acento);
+  outline-offset: 2px;
+}
+
+/* ===========
+   HERO MODAL 
+   =========== */
+
+.hero-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  font-family: var(--fuente-principal);
+  display: none;
+}
+
+.hero-modal.is-open {
+  display: block;
+}
+
+.hero-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.hero-modal__dialog {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  width: min(980px, calc(100% - 24px));
+  max-height: min(82vh, 760px);
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  background: var(--color-tarjeta);
+  color: var(--color-texto-principal);
+
+  border-radius: var(--radius-12);
+  border: 1px solid var(--color-borde-1);
+  box-shadow: var(--shadow-md);
+
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-borde-2) transparent;
+}
+
+.hero-modal__dialog::-webkit-scrollbar {
+  width: 10px;
+}
+.hero-modal__dialog::-webkit-scrollbar-track {
+  background: transparent;
+}
+.hero-modal__dialog::-webkit-scrollbar-thumb {
+  background: var(--color-borde-2);
+  border-radius: 999px;
+}
+.hero-modal__dialog::-webkit-scrollbar-thumb:hover {
+  background: var(--color-texto-terciario);
+}
+
+.hero-modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+
+  padding: 1.2rem 1.4rem;
+
+  position: sticky;
+  top: 0;
+
+  background: var(--color-tarjeta);
+  border-bottom: 1px solid var(--color-borde-1);
+}
+
+.hero-modal__title {
+  margin: 0;
+  font-size: var(--texto-16);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--color-texto-principal);
+}
+
+.hero-modal__close {
+  height: 3.6rem;
+  padding: 0 1.2rem;
+
+  border-radius: var(--radius-10);
+  border: 1px solid var(--color-borde-1);
+
+  background: var(--color-fondo);
+  color: var(--color-texto-principal);
+
+  font-weight: 750;
+  font-size: var(--texto-14);
+
+  cursor: pointer;
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease;
+}
+
+.hero-modal__close:hover {
+  background: var(--color-hover-suave);
+}
+
+.hero-modal__close:focus-visible {
+  outline: 2px solid var(--color-acento);
+  outline-offset: 2px;
+}
+
+.hero-modal__body {
+  padding: 1.4rem;
+}
+
+.hero-modal__body p {
+  margin: 0 0 0.9rem 0;
+  font-size: var(--texto-14);
+  line-height: 1.55;
+  color: var(--color-texto-secundario);
+}
+
+.hero-modal__body p:last-child {
+  margin-bottom: 0;
+}
+
+.hero-modal__sectionTitle {
+  margin: 1.2rem 0 0.8rem;
+  font-size: var(--texto-14);
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--color-texto-principal);
+}
+
+.hero-modal__divider {
+  height: 1px;
+  background: var(--color-borde-1);
+  margin: 1.2rem 0 1rem;
+}
+
+/* ===========
+   Responsive
+   =========== */
+
+@media (max-width: 680px) {
+  .game-hero__explainPreview {
+    padding: 1.1rem 1.2rem;
+    max-height: 12rem;
+  }
+
+  .hero-modal__header {
+    padding: 1.1rem 1.2rem;
+  }
+
+  .hero-modal__body {
+    padding: 1.2rem;
+  }
+}

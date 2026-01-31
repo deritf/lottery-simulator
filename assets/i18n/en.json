@@ -1,0 +1,693 @@
+{
+  "seo": {
+    "baseUrl": "https://derimantejera.dev/lottery/",
+    "siteName": "Lottery Simulator",
+    "default": {
+      "title": "Lottery Simulator (Spain) — Educational long-term simulations",
+      "description": "Educational lottery simulator. Long-term simulations based on official formats, probabilities and realistic prize models. No real bets, no gambling services."
+    },
+    "games": {
+      "primitiva": {
+        "title": "La Primitiva Simulator — Long-term educational simulation",
+        "description": "Simulate La Primitiva over years using official rules, probabilities and a realistic prize-pool model. Track spending, prizes and net balance."
+      },
+      "bonoloto": {
+        "title": "Bonoloto Simulator — Long-term educational simulation",
+        "description": "Simulate Bonoloto over time with realistic draw cadence, prize structure and estimated participation. Educational only, no real bets."
+      },
+      "euromillones": {
+        "title": "EuroMillions Simulator — Long-term educational simulation",
+        "description": "Simulate EuroMillions (plus Spain’s El Millón) over years with realistic economics and prize distribution. Educational only."
+      },
+      "gordo": {
+        "title": "El Gordo Simulator — Long-term educational simulation",
+        "description": "Simulate El Gordo de la Primitiva over time with official format and realistic category payouts. Educational only."
+      },
+      "eurodreams": {
+        "title": "EuroDreams Simulator — Long-term educational simulation",
+        "description": "Simulate EuroDreams over years using official format and a consistent prize model. Educational only."
+      },
+      "loteria-nacional": {
+        "title": "Spanish National Lottery Simulator — Educational simulation",
+        "description": "Simulate Spanish National Lottery draws (Thursday, Saturday, Christmas, El Niño). Educational only, no real tickets."
+      },
+      "quiniela": {
+        "title": "La Quiniela Simulator — Educational simulation",
+        "description": "Simulate La Quiniela results over time with estimated participation and prize pool logic. Educational only."
+      },
+      "lototurf": {
+        "title": "Lototurf Simulator — Educational simulation",
+        "description": "Simulate Lototurf with numbers + horse, realistic prize categories and participation model. Educational only."
+      },
+      "quinigol": {
+        "title": "El Quinigol Simulator — Educational simulation",
+        "description": "Simulate El Quinigol score predictions over time with a consistent prize-fund model. Educational only."
+      }
+    }
+  },
+
+  "games": {
+    "primitiva": {
+      "label": "La Primitiva",
+      "hero": {
+        "title": "La Primitiva Simulator",
+        "subtitle": "A long-term simulation based on official rules, probabilities, and realistic economic behavior.",
+        "explainTitle": "What is La Primitiva?",
+        "moreBtn": "Learn more",
+        "closeBtn": "Close",
+        "explain": [
+          "In La Primitiva you play one bet made of 6 different numbers (1–49) plus a Reintegro (0–9).",
+          "Each draw produces a winning combination (6 numbers + Reintegro). Your bet is compared against that winning combination.",
+          "Your prize category depends on how many main numbers you match and whether your Reintegro matches. The top prize is the jackpot (6 numbers + Reintegro).",
+          "For every draw, the simulator estimates worldwide participation (number of bets) and calculates a prize pool as a percentage of total sales, replicating how the game is financed.",
+          "If in a draw there are no winners in certain categories, part of that category’s pool is transferred according to roll-down/rollover rules, affecting future jackpots. This is why jackpots can grow over time.",
+          "The simulation advances draw by draw following the real schedule (Mon/Thu/Sat), tracking your spending, prizes, and net balance."
+        ],
+        "joker": {
+          "title": "Joker (optional)",
+          "explain": [
+            "Joker is an optional extra game. It uses a 7-digit number (0000000–9999999).",
+            "If you activate Joker, the simulator generates a Joker number for you in each draw and also generates the draw’s Joker number.",
+            "Prizes are determined by how many digits match from the start (prefix match). For example, if the first 4 digits match in the same order, you win the prize for 4 hits.",
+            "Joker prizes are fixed amounts by hit count (2–7 hits). You can win both a main-game prize and a Joker prize in the same draw.",
+            "In this model, Joker sales are accounted for separately and do not feed the main jackpot; Joker is treated as an independent prize system."
+          ]
+        }
+      }
+    },
+    "bonoloto": {
+      "label": "Bonoloto",
+      "hero": {
+        "title": "Bonoloto Simulator",
+        "subtitle": "A long-term simulation based on official rules and realistic economic behavior.",
+        "explainTitle": "What is Bonoloto?",
+        "moreBtn": "Learn more",
+        "closeBtn": "Close",
+        "explain": [
+          "In Bonoloto you play one bet made of 6 different numbers (1–49). In each draw, 6 winning numbers are drawn, plus a Complementary number and a Reintegro (0–9).",
+          "You can choose your numbers manually or use automatic random selection.",
+          "The price of one bet is €0.50, but tickets must cost at least €1.00. This means: if your ticket is for a single draw, it must include at least two bets; if it covers multiple draws, it can include a single bet and participate in several draws with the same combination.",
+          "There are two play modes: Simple bets (choose exactly 6 numbers) and Multiple bets (choose more than 6 numbers, up to 11). The cost of a multiple bet depends on how many combinations are generated.",
+          "Draws are held every day at 21:30 (Spain time). You can enter the next draw only, or several upcoming draws of the same week using the same combination.",
+          "You win a prize if you match at least 3 main numbers. The Complementary number upgrades the prize for those who match exactly 5 main numbers, and the Reintegro refunds the stake if it matches.",
+          "Approx. odds: 1st (6 hits) 1 in 13,983,816; 2nd (5 + Complementary) 1 in 2,330,636; 3rd (5) 1 in 55,491; 4th (4) 1 in 1,032; 5th (3) 1 in 57; Reintegro 1 in 10."
+        ]
+      }
+    },
+    "euromillones": {
+      "label": "EuroMillions",
+      "hero": {
+        "title": "EuroMillions Simulator",
+        "subtitle": "A long-term simulation based on official rules, probabilities, and realistic economic behavior.",
+        "explainTitle": "What is EuroMillions?",
+        "moreBtn": "Learn more",
+        "closeBtn": "Close",
+        "explain": [
+          "In EuroMillions you play one bet made of 5 different main numbers (1–50) plus 2 Stars (1–12).",
+          "Each draw produces a winning combination (5 main numbers + 2 Stars). Your bet is compared against that winning combination.",
+          "Your prize category depends on how many main numbers you match and how many Stars you match. The top prize is the jackpot (5 numbers + 2 Stars).",
+          "For every draw, the simulator estimates worldwide participation (number of bets) and calculates a prize pool as a percentage of total sales, replicating how the game is financed.",
+          "If in a draw there are no winners in certain categories, part of that category’s pool can be rolled down to other categories (and/or carried over according to the model), affecting payouts and future jackpots. This is why jackpots can grow over time.",
+          "The simulation advances draw by draw following the real schedule (Tue/Fri), tracking your spending, prizes, and net balance."
+        ],
+        "millon": {
+          "title": "El Millón",
+          "explain": [
+            "In Spain, EuroMillions includes a supplementary draw called “El Millón”: each played line receives a unique code (3 letters + 5 digits) automatically assigned for that draw.",
+            "One code is drawn as the winner and if your ticket’s code matches it exactly, you win a fixed prize of €1,000,000 (there are no partial-match prizes).",
+            "In Spain, El Millón is automatically included with every EuroMillions entry (no extra fee and no opt-in/opt-out). It is a separate prize that can be won in addition to any main-game prize."
+          ]
+        }
+      }
+    },
+    "gordo": {
+      "label": "El Gordo",
+      "hero": {
+        "title": "El Gordo Simulator",
+        "subtitle": "A long-term simulation based on official rules, probabilities, and realistic economic behavior.",
+        "explainTitle": "What is El Gordo?",
+        "moreBtn": "Learn more",
+        "closeBtn": "Close",
+        "explain": [
+          "In El Gordo you play one bet made of 5 different numbers (1–54) plus one Key number (0–9).",
+          "Each draw produces a winning combination (5 numbers + Key). Your bet is compared against that winning combination.",
+          "Prize categories are defined by how many main numbers you match and whether you match the Key number. The top prize is the jackpot (5 + Key).",
+          "In this lottery, the simulator models participation and a prize pool derived from sales, then distributes prizes by category using the configured rules.",
+          "The simulation advances draw by draw following the real schedule, tracking your spending, prizes, and net balance."
+        ]
+      }
+    },
+    "eurodreams": {
+      "label": "EuroDreams",
+      "hero": {
+        "title": "EuroDreams Simulator",
+        "subtitle": "A long-term simulation based on official rules, probabilities, and realistic economic behavior.",
+        "explainTitle": "What is EuroDreams?",
+        "moreBtn": "Learn more",
+        "closeBtn": "Close",
+        "explain": [
+          "In EuroDreams you play one bet made of 6 different main numbers (1–40) plus one Dream number (1–5).",
+          "Each draw produces a winning combination (6 main numbers + Dream). Your bet is compared against that winning combination.",
+          "Your prize category depends on how many main numbers you match and whether you match the Dream number. The top category is 6 main numbers + Dream.",
+          "For every draw, the simulator estimates worldwide participation (number of bets) and calculates total sales. A percentage of sales becomes the prize pool, replicating how the game is financed.",
+          "Under the official rules, 1st (6+Dream) and 2nd (6) category prizes are paid as monthly installments over several years. To simulate decades or centuries and keep results easy to compare, this simulator shows those prizes as a single lump-sum equivalent (the total of all installments), without modeling the real payment schedule.",
+          "EuroDreams does not use a classic rollover jackpot in this simulator. Instead, prizes are distributed by category using the configured rule-based pool shares for that draw. For reference, the simulator can display the amount allocated to the top category (6+Dream) as “in play”.",
+          "The simulation advances draw by draw following the schedule (Mon/Thu), tracking your spending, prizes, and net balance."
+        ]
+      }
+    },
+    "loteria-nacional": {
+      "label": "National Lottery",
+      "hero": {
+        "title": "Spanish National Lottery Simulator",
+        "subtitle": "Educational simulation based on official draw formats and realistic prize structures.",
+        "explainTitle": "How does the Spanish National Lottery work?",
+        "moreBtn": "Learn more",
+        "closeBtn": "Close",
+        "explain": [
+          "In the Spanish National Lottery you play a 5-digit number (00000–99999). Your ticket is called a “décimo”.",
+          "Draws are held regularly on Thursdays and Saturdays, plus special and extraordinary draws with different ticket prices and prize structures.",
+          "A draw does not produce only one winner: official results usually include a 1st prize number, a 2nd prize number, and additional winning endings (last 4/3/2 digits) and refund digits (“reintegros”), depending on the draw.",
+          "Some draws also pay for “approximations” (the numbers immediately before and after a major prize) and for numbers sharing the same hundred/series patterns, depending on the official format.",
+          "In this simulator you choose your 5-digit number (or let the system pick it) and the number of décimos (1–10). Each décimo is an independent ticket with the same number.",
+          "After each draw, your number is checked against the published prize categories and the simulator totals your payout for that draw (then multiplies it by your number of décimos).",
+          "The simulation advances draw by draw, tracking your spending, prizes, and net balance."
+        ],
+        "draws": {
+          "navidad": {
+            "title": "Christmas Draw (Lotería de Navidad)",
+            "explain": [
+              "The Christmas Draw is the most famous Spanish draw and takes place every year on 22 December.",
+              "You play a 5-digit number (00000–99999). The draw awards many prize tiers: 1st prize (“El Gordo”), 2nd, 3rd, two 4th prizes, several 5th prizes, and many smaller prizes such as “pedrea” (many numbers win the same fixed amount).",
+              "There are also refunds (“reintegros”) based on the last digit; in the real Christmas draw there are multiple refund digits.",
+              "Prizes are paid per décimo. If you buy multiple décimos of the same number, you multiply the prize accordingly.",
+              "This simulator models the Christmas draw using its characteristic structure (major prizes + fixed-tier prizes + refunds) and evaluates your selected number against each published result."
+            ]
+          },
+          "nino": {
+            "title": "El Niño Draw",
+            "explain": [
+              "El Niño is the second most popular extraordinary draw and takes place every year on 6 January.",
+              "You play a 5-digit number (00000–99999). The draw awards 1st, 2nd and 3rd prizes plus smaller categories such as refunds (last digit) and ending matches (last 2, 3 or 4 digits).",
+              "Prizes are paid per décimo and multiplied by the number of décimos you bought.",
+              "This simulator reproduces the main structure of the El Niño draw so your number can win either a major prize or one of the ending-based prizes."
+            ]
+          },
+          "jueves": {
+            "title": "Thursday Ordinary Draw",
+            "explain": [
+              "The ordinary Thursday draw is a regular weekly format with a lower ticket price than Saturday.",
+              "You play a 5-digit number (00000–99999). Official results typically include a 1st prize, a 2nd prize, several 4-digit / 3-digit / 2-digit endings, and refund digits based on the last digit.",
+              "Some Thursday draws also include approximations to the 1st/2nd prize and prizes for the same hundred, depending on the official format.",
+              "This simulator evaluates your number against these categories and totals your payout per décimo."
+            ]
+          },
+          "sabado": {
+            "title": "Saturday Ordinary Draw",
+            "explain": [
+              "The ordinary Saturday draw is a regular weekly format with a higher ticket price than Thursday.",
+              "You play a 5-digit number (00000–99999). Official results typically include a 1st prize, a 2nd prize, several 4-digit / 3-digit / 2-digit endings, and refund digits based on the last digit.",
+              "Depending on the specific Saturday draw (ordinary vs special/extraordinary), there can also be extra prize tiers, approximations, and other categories.",
+              "This simulator compares your number to the draw result and applies the corresponding categories to compute your prize per décimo."
+            ]
+          }
+        }
+      }
+    },
+    "quiniela": {
+      "label": "La Quiniela",
+      "hero": {
+        "title": "La Quiniela Simulator",
+        "subtitle": "A long-term simulation based on official rules, probabilities, and realistic economic behavior.",
+        "explainTitle": "What is La Quiniela?",
+        "moreBtn": "Learn more",
+        "closeBtn": "Close",
+        "explain": [
+          "In La Quiniela you predict the result of 14 football matches using: “1” (home win), “X” (draw), or “2” (away win).",
+          "You also play a 15th match called “Pleno al 15”, where you predict the exact score. In this model, 3 or more goals are represented with “M”.",
+          "Your prize category depends on how many of the 14 results you get right, and whether you get the Pleno al 15 right.",
+          "For every draw, the simulator estimates total participation and applies a prize pool derived from total sales, replicating the real financing logic.",
+          "Approx. odds (single bet): Pleno al 15: 1 in 76,527,504; 1st (14 hits): 1 in 4,782,969; 2nd (13 hits): 1 in 170,820; 3rd (12 hits): 1 in 13,140; 4th (11 hits): 1 in 1,643; 5th (10 hits): 1 in 299.",
+          "Extra: Elige8 can be added in the real game for an extra fee. This simulator may model it separately if enabled in the configuration."
+        ]
+      }
+    },
+    "lototurf": {
+      "label": "Lototurf",
+      "hero": {
+        "title": "Lototurf Simulator",
+        "subtitle": "A long-term simulation based on official rules, probabilities, and realistic economic behavior.",
+        "explainTitle": "What is Lototurf?",
+        "moreBtn": "Learn more",
+        "closeBtn": "Close",
+        "explain": [
+          "In Lototurf you play one bet made of 6 different numbers (1–31) plus one Horse number (1–12) linked to the winner of the 4th race of the associated Turf event.",
+          "You can pick the 6 numbers and the Horse yourself, or use automatic random selection.",
+          "Prize categories depend on how many main numbers you match and whether you also match the Horse. The top category is 6 hits + winning Horse.",
+          "For every draw, this simulator estimates participation (number of bets) and calculates a prize pool as a percentage of total sales, replicating how the game is financed.",
+          "If in a draw there are no winners in certain categories, part of that category’s pool can be carried over/rolled down according to the model, which can affect future prize levels.",
+          "Approx. odds: 1st (6 hits + Horse) 1 in 8,835,372; 2nd (6 hits) 1 in 803,216; 3rd (5 + Horse) 1 in 58,902; 4th (5) 1 in 5,355; 5th (4 + Horse) 1 in 1,963; 6th (4) 1 in 178; 7th (3 + Horse) 1 in 192; Reintegro 1 in 10."
+        ]
+      }
+    },
+    "quinigol": {
+      "label": "El Quinigol",
+      "hero": {
+        "title": "El Quinigol Simulator",
+        "subtitle": "A long-term simulation based on official rules, probabilities, and realistic economic behavior.",
+        "explainTitle": "What is El Quinigol?",
+        "moreBtn": "Learn more",
+        "closeBtn": "Close",
+        "explain": [
+          "In El Quinigol you predict the exact score of 6 football matches.",
+          "For each team you can choose 0, 1, 2 or M, where M means 3 or more goals.",
+          "Your prize category depends on how many match results you get exactly right: 6, 5, 4, 3 or 2.",
+          "For every draw, the simulator estimates total participation and uses 55% of gross sales as the prize fund, replicating the real financing logic.",
+          "If there are no winners in the top category, that fund is carried over as a jackpot (bote) for the next draw; other categories can roll down according to the official rules."
+        ]
+      }
+    }
+  },
+  "meta": {
+    "labels": {
+      "mainNumbers": "Main numbers",
+      "reintegro": "Reintegro",
+      "stars": "Stars",
+      "clave": "Key number",
+      "dream": "Dream",
+      "drawDays": "Draw days",
+      "pricePerDraw": "Price per draw",
+      "joker": "Joker (optional)",
+      "millon": "El Millón",
+      "prizePoolPercent": "Prize pool"
+    },
+    "days": {
+      "monday": "Monday",
+      "tuesday": "Tuesday",
+      "wednesday": "Wednesday",
+      "thursday": "Thursday",
+      "friday": "Friday",
+      "saturday": "Saturday",
+      "sunday": "Sunday"
+    }
+  },
+  "app": {
+    "title": "Lottery Simulator"
+  },
+  "ui": {
+    "projectInfo": {
+      "title": "About this project",
+      "body": "This website is an educational lottery simulator. Its purpose is purely informative and didactic. The simulations are based on the official rules, formats, and realistic prize structures of the lotteries represented.\n\nNo real money is involved, no bets are placed, and no gambling services are offered. The results shown are simulated and do not guarantee or predict real outcomes.\n\nThis project does not encourage gambling and should not be considered financial or betting advice.",
+      "accept": "I understand"
+    },
+    "topbar": {
+      "skipToMain": "Skip to main content",
+      "navAria": "Lottery game selector",
+      "prefsAria": "Preferences",
+      "langMenuAria": "Language",
+      "langEs": "Spanish",
+      "langEn": "English",
+      "themeToggleAria": "Toggle theme"
+    },
+    "sections": {
+      "yourSelection": "Your Selection",
+      "selectNumbers": "Select numbers",
+      "reintegro": "Refund Number",
+      "joker": "Joker",
+      "millon": "El Millón",
+      "clave": "Key number",
+      "runSimulation": "Run Simulation",
+      "stars": "Stars"
+    },
+    "labels": {
+      "numbers": "Numbers:",
+      "reintegro": "Refund:",
+      "key": "Key:",
+      "stars": "Stars:"
+    },
+    "millon": {
+      "hint": "Supplementary draw linked to EuroMillions (Spain). Fixed prize: €1,000,000."
+    },
+    "investment": {
+      "title": "Alternative investment (indices)",
+      "hint": "Invest the same money you spend on draws, month by month, into several simulated indices.",
+      "note": "Note: this chart is an educational simulation based on historical data and statistical models. It is not financial advice and does not predict or guarantee future results.",
+      "howToReadTitle": "How to read this chart",
+      "howToReadBody": "Amounts are not invested upfront. The “total spent” ({totalSpent}) is split into periodic contributions: each month, the money spent on draws during that month is added and invested as a contribution. That’s why the invested capital starts small and grows over time. Also, the historical segment uses real index returns and the future segment is a simulation based on that history: it is not a prediction and does not guarantee results.",
+      "series": {
+        "lotteryNet": "Lottery (net)",
+        "msciWorld": "MSCI World (EUR)",
+        "sp500HedgedEur": "S&P 500 (EUR hedged)",
+        "stoxx600": "STOXX Europe 600 (EUR)",
+        "euroStoxx50": "Euro Stoxx 50",
+        "ibex35TR": "IBEX 35 TR"
+      },
+      "seriesStatus": {
+        "historical": "historical",
+        "simulated": "simulated",
+        "historicalThenSimulated": "historical → simulated",
+        "loading": "loading data…",
+        "error": "data error",
+        "synthetic": "synthetic"
+      }
+    },
+    "buttons": {
+      "start": "Start",
+      "autoPick": "Automatic selection",
+      "clear": "Clear",
+      "yes": "YES",
+      "no": "NO",
+      "year1": "1 Year",
+      "year2": "2 Years",
+      "year5": "5 Years",
+      "year10": "10 Years",
+      "untilJackpot": "Simulate Until Jackpot"
+    },
+    "hints": {
+      "selectToStart": "Select the numbers and a reintegro to start",
+      "noscript": "This simulation needs JavaScript to generate the grid and run the logic."
+    },
+    "footer": {
+      "bmcButtonText": "Support the project",
+      "rights": "© {year} All rights reserved.",
+      "disclaimer": "Educational simulation. This project does not encourage gambling.",
+      "aboutProject": "About this project",
+      "iconsBy": "Icons by",
+      "and": "and",
+      "projectCreatedBy": "Project created by",
+      "authorName": "Derimán Tejera Fumero"
+    },
+    "cookies": {
+      "title": "Cookies",
+      "desc": "This site only uses strictly necessary technical cookies for its operation. We do not use advertising or third-party tracking cookies.",
+      "accept": "Accept",
+      "reject": "Reject"
+    },
+    "results": {
+      "filters": {
+        "all": "Show all",
+        "wins": "Only wins",
+        "jackpots": "Only jackpots",
+        "joker": "Only Joker"
+      },
+      "addSim": {
+        "title": "Add years to current simulation",
+        "hint": "Extend the current simulation using the same selection.",
+        "plus1": "+1 year",
+        "plus2": "+2 years",
+        "plus5": "+5 years",
+        "plus10": "+10 years"
+      }
+    },
+    "quiniela": {
+      "pleno15": "Exact score (match 15)",
+      "vs": "vs",
+      "home": "Home",
+      "away": "Away"
+    },
+    "lototurf": {
+      "numbersN": "Numbers ({n})",
+      "horseRace": "Horse (race winner)",
+      "horseLabel": "Horse:",
+      "reintegro": "Reintegro",
+      "reintegroLabel": "Refund:",
+      "horseSubstitutionHint": "If fewer than 12 horses run, missing numbers are considered withdrawn and your pick is substituted by the previous available number."
+    },
+    "quinigol": {
+      "title": "El Quinigol",
+      "hint": "Pick the exact score for each match. Each team score can be 0, 1, 2 or M (3+).",
+      "matchLabel": "Match {n}",
+      "multipleAllowed": "You can select multiple outcomes.",
+      "betsCount": "Bets: {n}",
+      "betsRange": "Range: {min}–{max}"
+    }
+  },
+  "results": {
+    "title": "Financial Overview",
+    "biggestPrizeTitle": "Biggest Prize Won",
+    "lastDrawTitle": "Latest draw",
+    "distributionTitle": "Win/Loss Distribution",
+    "disclaimer": "This simulation shows that lotteries are generally not a sustainable way to invest money. Long-term, diversified investment strategies tend to provide more stable results.",
+    "units": {
+      "yearOne": "year",
+      "yearOther": "years"
+    },
+    "kpis": {
+      "totalDraws": "Total Draws",
+      "timeElapsed": "Time Elapsed",
+      "currentDate": "Current Date",
+      "totalSpent": "Total Spent",
+      "totalWon": "Total Won",
+      "netBalance": "Net Balance",
+      "profitPerEuro": "Profit / Loss per € Invested",
+      "biggestPrize": "Biggest Prize Won",
+      "highlightDraw": "Highlight Draw",
+      "distribution": "Win / Loss Distribution",
+      "distributionPlaceholder": "Chart will be displayed here.",
+      "openHighlightDraw": "View draw",
+      "openCharts": "View charts"
+    },
+    "charts": {
+      "modalTitle": "Charts",
+      "common": {
+        "year": "Year",
+        "draws": "Draws",
+        "net": "Net",
+        "netBalance": "Net balance",
+        "spentCum": "Spent (cum.)",
+        "wonCum": "Won (cum.)",
+        "positive": "Positive",
+        "negative": "Negative",
+        "distribution": "Distribution"
+      },
+      "donut": {
+        "labelSpent": "Spent (€)",
+        "labelWon": "Won (€)"
+      },
+      "sections": {
+        "balanceTime": {
+          "title": "1) Net balance over time (cumulative)",
+          "desc": "Shows how your cumulative net balance (won minus spent) changes over the simulation. Above €0 means profit; below €0 means loss. Useful to spot streaks, large jumps from big prizes, and whether the trend recovers or keeps declining."
+        },
+        "cashflow": {
+          "title": "2) Spent vs won (cumulative)",
+          "desc": "Compares cumulative total spent and cumulative total won over time. If the won curve stays below the spent curve, you’re negative. If it catches up or surpasses it, you’re positive. Great to see whether prizes compensate spending."
+        },
+        "hist": {
+          "title": "3) Prize histogram (per draw)",
+          "desc": "Counts how many draws produced a prize within each range. Helps you see how common small prizes are versus medium/large prizes, which are much rarer.",
+          "toggleExclude": "Exclude €0",
+          "toggleInclude": "Include €0",
+          "zeroHidden": "€0: {n} draws hidden",
+          "noData": "No data for the current filter.",
+          "maxPrizeObserved": "Max prize observed: {v}."
+        },
+        "annualNet": {
+          "title": "4) Annual net balance",
+          "desc": "Adds up each year’s net result (year prizes minus estimated year spending). Bars up: “green” years. Bars down: “red” years. Useful to detect exceptional years or whether losses are consistently steady.",
+          "foot": "Tip: a very large prize can dominate the scale and make other years look small."
+        }
+      }
+    },
+    "drawlog": {
+      "title": "Draw Log",
+      "headers": {
+        "draw": "#",
+        "date": "Date",
+        "yours": "Your numbers",
+        "drawn": "Winning numbers",
+        "category": "Category",
+        "prize": "Prize"
+      },
+      "your": "Your",
+      "drawn": "Drawn",
+      "category": "Category",
+      "joker": "Joker",
+      "bets": "Bets",
+      "jackpot": "Jackpot",
+      "prize": "Prize",
+      "empty": "No draws to show"
+    },
+    "drawDetail": {
+      "prizeMain": "Main prize",
+      "netMain": "Main balance",
+      "prizeJoker": "Joker prize",
+      "netJoker": "Joker balance",
+      "prizeMillon": "El Millón prize",
+      "netMillon": "El Millón balance",
+      "totalPrize": "Total prize",
+      "totalNet": "Total balance",
+      "totalPrizeMainOnly": "Total prize (main)",
+      "totalNetMainOnly": "Total balance (main)",
+      "totalPrizeMainJoker": "Total prize (main + Joker)",
+      "totalNetMainJoker": "Total balance (main + Joker)",
+      "totalPrizeMainMillon": "Total prize (main + El Millón)",
+      "totalNetMainMillon": "Total balance (main + El Millón)",
+      "titlePrefix": "Draw",
+      "principal": "Main (standard bets)",
+      "jokerWorld": "Joker (world)",
+      "totalRevenue": "Total draw revenue",
+      "jackpotBalance": "Jackpot (balance)",
+      "combinations": "Combinations",
+      "yourCombination": "Your combination",
+      "winningCombination": "Winning combination",
+      "hits": "Hits",
+      "category": "Category",
+      "totalPrizeEuro": "Total prize (main + El Millón)",
+      "keyNumber": "Key number",
+      "jokerPlayer": "Joker (player)",
+      "jokerNotPlayed": "You didn’t play Joker in this draw.",
+      "yourJoker": "Your Joker",
+      "drawJoker": "Draw Joker",
+      "jokerHitsPrefix": "Hits (prefix)",
+      "jokerPrize": "Joker prize",
+      "betsTotal": "Total bets",
+      "mainRevenue": "Main revenue",
+      "prizePoolPercent": "Prize pool %",
+      "prizePool": "Prize pool",
+      "jokerEnabled": "Joker enabled",
+      "jokerBets": "Bets with Joker",
+      "jokerRevenue": "Joker revenue",
+      "jokerShare": "Approx. share",
+      "noteJokerNoJackpot": "Note: in this model, Joker revenue does not feed the main jackpot.",
+      "totalGenerated": "Total generated",
+      "jackpotInPlay": "Jackpot in play (today)",
+      "jackpotPrev": "Previous jackpot",
+      "jackpotBaseContribution": "Base contribution (this draw)",
+      "jackpotRollover": "Rollover (no-winner categories)",
+      "jackpotPaid": "Paid jackpot (if winner/s)",
+      "jackpotNext": "Next jackpot",
+      "jackpotWinnersWorld": "Jackpot winners (world)",
+      "jackpotWinnersWorldPlusYou": "Jackpot winners (world + you)",
+      "didacticWithWinner": "Since there was a 6R winner, today’s jackpot is paid out and the next draw usually starts with the rollover only.",
+      "didacticNoWinner": "Since there was no 6R winner, today’s jackpot is carried over and the rollover is added.",
+      "worldSuffix": "(world)",
+      "millonAlwaysOneWinner": "Winners (Spain)",
+      "millonWinningCode": "Winning code",
+      "millonFixedPrize": "Fixed prize",
+      "millonYourCode": "Your code",
+      "millonPrize": "Prize",
+      "millonNotPlayed": "You did not play El Millón in this draw.",
+      "millonWorldTitle": "El Millón (world)",
+      "millonCodesSpain": "Codes (Spain, approx.)",
+      "millonWinnersSpain": "Winners (Spain)",
+      "millonWinnersSpainPlusYou": "Winners (Spain + you)",
+      "millonWorldNote": "In Spain, one winning code is always drawn for El Millón.",
+      "tableHeaders": {
+        "category": "Category",
+        "winnersWorld": "Winners (world)",
+        "winners": "Winners (world + you)",
+        "prizePerWinner": "Prize / winner",
+        "totalPaid": "Total paid"
+      },
+      "categories": {
+        "6R": "Jackpot (6+R)",
+        "6": "1st (6)",
+        "5C": "2nd (5+R)",
+        "5": "3rd (5)",
+        "4": "4th (4)",
+        "3": "5th (3)",
+        "R": "Refund (R)"
+      },
+      "categoriesEuro": {
+        "5+2": "Jackpot (5+2)",
+        "5+1": "2nd (5+1)",
+        "5+0": "3rd (5+0)",
+        "4+2": "4th (4+2)",
+        "4+1": "5th (4+1)",
+        "3+2": "6th (3+2)",
+        "4+0": "7th (4+0)",
+        "2+2": "8th (2+2)",
+        "3+1": "9th (3+1)",
+        "3+0": "10th (3+0)",
+        "1+2": "11th (1+2)",
+        "2+1": "12th (2+1)",
+        "2+0": "13th (2+0)"
+      },
+      "categoriesGordo": {
+        "5+1": "Jackpot (5+Key)",
+        "5+0": "2nd (5)",
+        "4+1": "3rd (4+Key)",
+        "4+0": "4th (4)",
+        "3+1": "5th (3+Key)",
+        "3+0": "6th (3)",
+        "2+1": "7th (2+Key)",
+        "2+0": "8th (2)",
+        "R": "Refund (Key)"
+      },
+      "help": {
+        "modalTitle": "How to read this draw",
+        "sections": {
+          "prizePool": {
+            "title": "Prize pool",
+            "body": [
+              "The simulator estimates total sales (bets) for the draw.",
+              "A configured percentage becomes the prize pool, which is then distributed across categories.",
+              "If some categories have no winners, part of that pool may roll over or roll down depending on the game model."
+            ]
+          },
+          "winners": {
+            "title": "Winners and prizes",
+            "body": [
+              "“Winners (world)” are simulated estimates for all players.",
+              "“Winners (world + you)” includes your bet(s) on top of the simulated world winners.",
+              "“Prize / winner” is computed by splitting the category pool among winners (when applicable in the model)."
+            ]
+          },
+          "jackpot": {
+            "title": "Jackpot logic",
+            "body": [
+              "When the top category has winners, the jackpot is paid and the next draw usually starts from the rollover only.",
+              "When there are no top winners, the jackpot carries over and can grow according to the rollover rules.",
+              "This simulator applies a simplified but consistent rollover/roll-down model per game configuration."
+            ]
+          },
+          "millon": {
+            "title": "El Millón (Spain)",
+            "body": [
+              "In Spain, EuroMillions includes “El Millón”: each played line gets an automatically assigned code (3 letters + 5 digits).",
+              "Exactly one winning code is drawn in Spain; if your code matches, you win a fixed €1,000,000.",
+              "There are no partial-match prizes for El Millón."
+            ]
+          },
+          "joker": {
+            "title": "Joker (optional)",
+            "body": [
+              "Joker uses a 7-digit number.",
+              "Prizes depend on how many digits match from the start (prefix match).",
+              "In this simulator, Joker revenue is tracked separately and does not feed the main jackpot."
+            ]
+          }
+        }
+      },
+      "categoriesLoteriaNacional": {
+        "gordo": "1st prize",
+        "segundo": "2nd prize",
+        "tercero": "3rd prize",
+        "cuartos": "4th prizes (×2)",
+        "quintos": "5th prizes (×8)",
+        "pedreas": "Pedrea",
+        "approx_gordo": "Approx. 1st (±1)",
+        "approx_gordo_nino": "Approx. 1st (±1)",
+        "approx_2": "Approx. 2nd (±1)",
+        "approx_3": "Approx. 3rd (±1)",
+        "centenas": "Same hundreds",
+
+        "last_4": "Last 4 digits",
+        "last_3": "Last 3 digits",
+        "last_2": "Last 2 digits (1st)",
+
+        "ln_last_4": "Last 4 digits",
+        "ln_last_3": "Last 3 digits",
+        "ln_last_2": "Last 2 digits",
+        "ln_extract_4": "4-digit extraction",
+        "ln_extract_3": "3-digit extraction",
+        "ln_extract_2": "2-digit extraction",
+        "last_2_1st": "Last 2 digits (1st)",
+        "last_2_segundo": "Last 2 digits (2nd)",
+        "last_2_tercero": "Last 2 digits (3rd)",
+        "last_1": "Refund"
+      }
+    }
+  }
+}

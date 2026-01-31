@@ -1,0 +1,113 @@
+/* assets/css/layout/footer.css */
+
+.footer {
+  border-top: 1px solid var(--color-borde-1);
+  background: color-mix(in srgb, var(--color-tarjeta) 88%, transparent);
+  margin-top: 2rem;
+}
+
+.footer__inner {
+  padding: 2.2rem 0 2.8rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+
+  text-align: center;
+}
+
+.footer__bmc {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  min-height: 48px;
+}
+
+.bmc-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+
+  padding: 1.05rem 1.4rem;
+  border-radius: var(--radius-12);
+  border: 1px solid #000000;
+
+  background: #ffdd00;
+  color: #000000;
+
+  font-weight: 700;
+  line-height: 1;
+  text-decoration: none;
+
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.bmc-link:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
+}
+
+.bmc-link__icon {
+  line-height: 1;
+}
+
+body[data-theme="dark"] .bmc-link {
+  box-shadow: 0 0 0 2px rgba(255, 221, 0, 0.18);
+}
+
+.footer__rights {
+  font-size: var(--texto-14);
+  color: var(--color-texto-secundario);
+}
+
+.footer__disclaimer {
+  font-size: var(--texto-14);
+  color: var(--color-texto-secundario);
+}
+
+.footer__about {
+  font-size: var(--texto-14);
+  margin: 0;
+}
+
+.footer__about-link {
+  color: var(--color-texto-secundario);
+  text-decoration: underline;
+  cursor: pointer;
+
+  transition:
+    color 160ms ease,
+    text-decoration-color 160ms ease;
+}
+
+.footer__about-link:hover,
+.footer__about-link:focus-visible {
+  color: var(--color-texto-principal);
+  text-decoration-thickness: 2px;
+}
+
+.footer__credits {
+  font-size: var(--texto-14);
+  color: var(--color-texto-secundario);
+  margin: 0;
+}
+
+.footer__credits a {
+  color: inherit;
+  text-decoration: underline;
+  transition: color 160ms ease;
+}
+
+.footer__credits a:hover,
+.footer__credits a:focus-visible {
+  color: var(--color-texto-principal);
+}
+
+.footer__author {
+  font-weight: 500;
+}
