@@ -1,0 +1,60 @@
+/* assets/css/components/card-guide.css */
+
+.card {
+  position: relative;
+  border: 1px solid transparent;
+}
+
+.card.card--guide {
+  border-color: var(--color-acento);
+}
+
+.card.card--guide::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+
+  box-shadow:
+    inset 0 0 0 2px var(--color-acento),
+    inset 0 0 14px 2px color-mix(in srgb, var(--color-acento) 22%, transparent);
+
+  opacity: 0.35;
+  animation: cardGuidePulse 1.6s ease-in-out infinite;
+}
+
+.card.card--guide:hover::after,
+.card.card--guide:focus-within::after {
+  animation: none;
+  opacity: 0.9;
+  box-shadow:
+    inset 0 0 0 2px var(--color-acento),
+    inset 0 0 18px 3px color-mix(in srgb, var(--color-acento) 32%, transparent);
+}
+
+@keyframes cardGuidePulse {
+  0%,
+  100% {
+    opacity: 0.25;
+    box-shadow:
+      inset 0 0 0 2px color-mix(in srgb, var(--color-acento) 70%, transparent),
+      inset 0 0 10px 2px
+        color-mix(in srgb, var(--color-acento) 16%, transparent);
+  }
+
+  50% {
+    opacity: 0.95;
+    box-shadow:
+      inset 0 0 0 2px var(--color-acento),
+      inset 0 0 20px 4px
+        color-mix(in srgb, var(--color-acento) 40%, transparent);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card.card--guide::after {
+    animation: none;
+    opacity: 0.55;
+  }
+}

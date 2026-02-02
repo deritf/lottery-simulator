@@ -390,15 +390,12 @@ export function createLototurfEngine({
         ? horseParticipants[pickInt(0, horseParticipants.length - 1)]
         : pickInt(R.horseMin, R.horseMax);
 
-      // Jugador
       const yourNumbers = Array.isArray(player?.main) ? player.main : [];
       const yourHorseRaw =
         player?.horse !== null && player?.horse !== undefined
           ? Number(player.horse)
           : null;
 
-      // Reintegro del resguardo:
-      // Si el jugador no lo ha indicado (UI opcional), se asigna automáticamente (no se "pronostica").
       const ticketReintegro =
         player?.reintegro !== null &&
         player?.reintegro !== undefined &&

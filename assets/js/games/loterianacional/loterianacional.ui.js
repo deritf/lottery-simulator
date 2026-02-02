@@ -178,6 +178,23 @@ export class LoteriaNacionalUI {
     };
 
     this.gridEl.addEventListener("click", this._onGridClick);
+    this.paintSelection();
+  }
+
+  paintSelection() {
+    if (!this.gridEl) return;
+
+    const picked = new Set(
+      (this.digits || []).filter((v) => v !== null && v !== undefined),
+    );
+
+    this.gridEl.querySelectorAll("button.number-btn").forEach((btn) => {
+      const d = Number(btn.dataset.digit);
+      const on = picked.has(d);
+
+      btn.classList.toggle("is-selected", on);
+      btn.setAttribute("aria-pressed", on ? "true" : "false");
+    });
   }
 
   renderSlots() {
@@ -311,6 +328,7 @@ export class LoteriaNacionalUI {
     }
 
     this.updateSlots();
+    this.paintSelection();
     this.updateClearButtonState();
     this.emitSelectionState();
   }
@@ -363,6 +381,7 @@ export class LoteriaNacionalUI {
     this.activeReplaceIndex = null;
 
     this.updateSlots();
+    this.paintSelection();
     this.updateClearButtonState();
     this.emitSelectionState();
   }
@@ -373,6 +392,7 @@ export class LoteriaNacionalUI {
     this.activeReplaceIndex = null;
 
     this.updateSlots();
+    this.paintSelection();
     this.updateClearButtonState();
     if (emitEvent) this.emitSelectionState();
   }

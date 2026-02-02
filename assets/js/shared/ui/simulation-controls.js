@@ -111,12 +111,60 @@ export function initSimulationControls(gameManager) {
     return requiredKeys.every((k) => complete[k] === true);
   }
 
+  function getCardByTitleId(titleId) {
+    const titleEl = document.getElementById(titleId);
+    return titleEl ? titleEl.closest(".card, .lototurf__card") : null;
+  }
+
+  function updateGuidedCards() {
+    const gameId = document.body.dataset.game || "primitiva";
+
+    const keyToTitleId = {
+      main: "select-numbers-title",
+      digits: "select-numbers-title",
+      signs: "select-numbers-title",
+      matches: "select-numbers-title",
+
+      reintegro: "reintegro-title",
+
+      stars: "stars-title",
+      clave: "gordo-clave-title",
+      dream: "eurodreams-dream-title",
+      pleno: "pleno-title",
+      decimos: "decimos-title",
+      drawType: "drawtype-title",
+
+      horse: "horse-title",
+    };
+
+    if (gameId === "lototurf") {
+      keyToTitleId.horse = "lototurf-horse-title";
+      keyToTitleId.reintegro = "lototurf-reintegro-title";
+    }
+
+    document
+      .querySelectorAll(".card.card--guide, .lototurf__card.card--guide")
+      .forEach((c) => c.classList.remove("card--guide"));
+
+    for (const k of requiredKeys) {
+      if (complete[k] === true) continue;
+
+      const titleId = keyToTitleId[k];
+      if (!titleId) continue;
+
+      const card = getCardByTitleId(titleId);
+      if (card) card.classList.add("card--guide");
+    }
+  }
+
   function recompute() {
     const ready = isReady();
     setButtonsEnabled(ready);
 
     const hint = ready ? "" : getSelectionHint();
     setHint(hint);
+
+    updateGuidedCards();
   }
 
   function getSelectionHint() {

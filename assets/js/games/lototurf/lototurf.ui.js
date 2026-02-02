@@ -17,6 +17,9 @@ export class LototurfUI {
 
     this.mainGridContainer = null;
 
+    this.horseGridContainer = null;
+    this.reintegroGridContainer = null;
+
     // --- slots (Tu selección) ---
     this.slotsMainEl = null; // 6 slots
     this.slotsHorseEl = null; // 1 slot
@@ -39,10 +42,12 @@ export class LototurfUI {
       return;
     }
 
-    // Slots base existentes en el HTML
     this.slotsMainEl = document.getElementById("slots-main");
 
     this.setAccentColors();
+
+    this.ensurePickCards();
+
     this.ensureSelectionRows();
     this.renderSlots();
     this.renderBoard();
@@ -53,7 +58,6 @@ export class LototurfUI {
     EventBus.on("ui:autoPick", this.onAutoPick);
     EventBus.on("ui:clear", this.onClear);
 
-    // Re-render al cambiar idioma (porque esta UI se genera por JS)
     EventBus.on("lang:changed", this.onLangChanged);
   }
 
@@ -68,16 +72,28 @@ export class LototurfUI {
     if (this.slotsHorseEl) this.slotsHorseEl.innerHTML = "";
     if (this.slotsReintegroEl) this.slotsReintegroEl.innerHTML = "";
 
+    if (this.horseGridContainer) this.horseGridContainer.innerHTML = "";
+    if (this.reintegroGridContainer) this.reintegroGridContainer.innerHTML = "";
+
+    document.getElementById("lototurf-horse-section")?.remove();
+    document.getElementById("lototurf-reintegro-section")?.remove();
+
+    this.horseGridContainer = null;
+    this.reintegroGridContainer = null;
+
     this.numbers = [];
     this.horse = null;
     this.reintegro = null;
   }
 
   onLangChanged() {
+    this.ensurePickCards();
+    this.updatePickCardTitles();
     this.ensureSelectionRows();
     this.updateSelectionRowLabels();
     this.renderBoard();
     this.paintSelection();
+    this.updateSlots();
   }
 
   setAccentColors() {
@@ -95,6 +111,108 @@ export class LototurfUI {
     }
   }
 
+  ensurePickCards() {
+    const mainSection = this.mainGridContainer?.closest("section");
+    if (!mainSection || !mainSection.parentElement) return;
+
+    // ---------- CABALLO ----------
+    let horseSection = document.getElementById("lototurf-horse-section");
+    if (!horseSection) {
+      horseSection = document.createElement("section");
+      horseSection.id = "lototurf-horse-section";
+      horseSection.className = "card card--padded";
+      horseSection.setAttribute("data-game-only", "lototurf");
+      horseSection.setAttribute("aria-labelledby", "lototurf-horse-title");
+
+      const title = document.createElement("h2");
+      title.id = "lototurf-horse-title";
+      title.className = "card-title";
+      title.textContent = t(
+        "ui.lototurf.horseRace",
+        "Caballo (ganador de la carrera)",
+      );
+
+      const grid = document.createElement("div");
+      grid.id = "lototurf-horse-grid";
+      grid.className = "number-grid";
+
+      const hint = document.createElement("p");
+      hint.className = "muted";
+      hint.textContent = t(
+        "ui.lototurf.horseSubstitutionHint",
+        "Si en la carrera participan menos de 12 caballos, los que faltan se consideran retirados y tu pronóstico se sustituye por el número anterior disponible.",
+      );
+
+      horseSection.appendChild(title);
+      horseSection.appendChild(grid);
+      horseSection.appendChild(hint);
+
+      mainSection.parentElement.insertBefore(
+        horseSection,
+        mainSection.nextSibling,
+      );
+    }
+
+    // ---------- REINTEGRO ----------
+    let reinSection = document.getElementById("lototurf-reintegro-section");
+    if (!reinSection) {
+      reinSection = document.createElement("section");
+      reinSection.id = "lototurf-reintegro-section";
+      reinSection.className = "card card--padded";
+      reinSection.setAttribute("data-game-only", "lototurf");
+      reinSection.setAttribute("aria-labelledby", "lototurf-reintegro-title");
+
+      const title = document.createElement("h2");
+      title.id = "lototurf-reintegro-title";
+      title.className = "card-title";
+      title.textContent = t("ui.lototurf.reintegro", "Reintegro");
+
+      const grid = document.createElement("div");
+      grid.id = "lototurf-reintegro-grid";
+      grid.className = "reintegro-grid";
+
+      const hint = document.createElement("p");
+      hint.className = "muted";
+      hint.textContent = t(
+        "ui.lototurf.reintegroOptionalHint",
+        "Opcional: si no lo eliges, el reintegro del resguardo se asigna automáticamente.",
+      );
+
+      reinSection.appendChild(title);
+      reinSection.appendChild(grid);
+      reinSection.appendChild(hint);
+
+      const after =
+        document.getElementById("lototurf-horse-section") || mainSection;
+      after.parentElement.insertBefore(reinSection, after.nextSibling);
+    }
+
+    this.horseGridContainer = document.getElementById("lototurf-horse-grid");
+    this.reintegroGridContainer = document.getElementById(
+      "lototurf-reintegro-grid",
+    );
+
+    this.updatePickCardTitles();
+  }
+
+  updatePickCardTitles() {
+    const horseTitle = document.getElementById("lototurf-horse-title");
+    if (horseTitle) {
+      horseTitle.textContent = t(
+        "ui.lototurf.horseRace",
+        "Caballo (ganador de la carrera)",
+      );
+    }
+
+    const reinTitle = document.getElementById("lototurf-reintegro-title");
+    if (reinTitle) {
+      reinTitle.textContent = t("ui.lototurf.reintegro", "Reintegro");
+    }
+  }
+
+  // =========================
+  // Selection rows (Tu selección)
+  // =========================
   ensureSelectionRows() {
     const selectionBlock = document.querySelector(".selection-block");
     if (!selectionBlock) return;
@@ -241,27 +359,13 @@ export class LototurfUI {
     }
   }
 
+  // =========================
+  // TABLEROS (cards)
+  // =========================
   renderBoard() {
     this.mainGridContainer.innerHTML = "";
 
-    const wrap = document.createElement("div");
-    wrap.className = "lototurf";
-
-    const lang = document.body?.dataset?.lang || "es";
-
-    // =========================
-    // NÚMEROS 1..31 (6)
-    // =========================
-    const numbersCard = document.createElement("div");
-    numbersCard.className = "lototurf__card";
-
-    const numbersTitle = document.createElement("div");
-    numbersTitle.className = "lototurf__title";
-    numbersTitle.textContent = t(
-      "ui.lototurf.numbersN",
-      "Números ({n})",
-    ).replace("{n}", "6");
-
+    // Recupera el grid y clases originales de Lototurf (CSS)
     const numbersGrid = document.createElement("div");
     numbersGrid.className = "lototurf__grid";
 
@@ -276,89 +380,43 @@ export class LototurfUI {
       numbersGrid.appendChild(b);
     }
 
-    numbersCard.appendChild(numbersTitle);
-    numbersCard.appendChild(numbersGrid);
+    this.mainGridContainer.appendChild(numbersGrid);
 
-    // =========================
-    // CABALLO 1..12 (ganador carrera)
-    // =========================
-    const horseCard = document.createElement("div");
-    horseCard.className = "lototurf__card";
+    // Caballo y reintegro en SUS cards
+    this.renderHorseBoard();
+    this.renderReintegroBoard();
+  }
 
-    const horseTitle = document.createElement("div");
-    horseTitle.className = "lototurf__title";
-
-    const horseTitleRaw = t(
-      "ui.lototurf.horseRace",
-      lang === "en" ? "Horse (race winner)" : "Caballo (ganador de la carrera)",
-    );
-    horseTitle.textContent = horseTitleRaw;
-
-    const horseGrid = document.createElement("div");
-    horseGrid.className = "lototurf__grid lototurf__grid--horse";
+  renderHorseBoard() {
+    if (!this.horseGridContainer) return;
+    this.horseGridContainer.innerHTML = "";
 
     for (let h = 1; h <= 12; h++) {
       const b = document.createElement("button");
       b.type = "button";
-      b.className = "lototurf__btn lototurf__btn--horse";
+      b.className = "reintegro-btn";
       b.dataset.kind = "horse";
       b.dataset.value = String(h);
       b.textContent = String(h);
       b.addEventListener("click", () => this.setHorse(h));
-      horseGrid.appendChild(b);
+      this.horseGridContainer.appendChild(b);
     }
+  }
 
-    const horseHint = document.createElement("div");
-    horseHint.className = "lototurf__hint";
-    horseHint.textContent = t(
-      "ui.lototurf.horseSubstitutionHint",
-      "Si en la carrera participan menos de 12 caballos, los que faltan se consideran retirados y tu pronóstico se sustituye por el número anterior disponible.",
-    );
-
-    horseCard.appendChild(horseTitle);
-    horseCard.appendChild(horseGrid);
-    horseCard.appendChild(horseHint);
-
-    // =========================
-    // REINTEGRO 0..9 (opcional)
-    // =========================
-    const reinCard = document.createElement("div");
-    reinCard.className = "lototurf__card";
-
-    const reinTitle = document.createElement("div");
-    reinTitle.className = "lototurf__title";
-    reinTitle.textContent = t("ui.lototurf.reintegro", "Reintegro");
-
-    const reinGrid = document.createElement("div");
-    reinGrid.className = "lototurf__grid lototurf__grid--reintegro";
+  renderReintegroBoard() {
+    if (!this.reintegroGridContainer) return;
+    this.reintegroGridContainer.innerHTML = "";
 
     for (let r = 0; r <= 9; r++) {
       const b = document.createElement("button");
       b.type = "button";
-      b.className = "lototurf__btn lototurf__btn--reintegro";
+      b.className = "reintegro-btn";
       b.dataset.kind = "reintegro";
       b.dataset.value = String(r);
       b.textContent = String(r);
       b.addEventListener("click", () => this.setReintegro(r));
-      reinGrid.appendChild(b);
+      this.reintegroGridContainer.appendChild(b);
     }
-
-    const reinHint = document.createElement("div");
-    reinHint.className = "lototurf__hint";
-    reinHint.textContent = t(
-      "ui.lototurf.reintegroOptionalHint",
-      "Opcional: si no lo eliges, el reintegro del resguardo se asigna automáticamente.",
-    );
-
-    reinCard.appendChild(reinTitle);
-    reinCard.appendChild(reinGrid);
-    reinCard.appendChild(reinHint);
-
-    wrap.appendChild(numbersCard);
-    wrap.appendChild(horseCard);
-    wrap.appendChild(reinCard);
-
-    this.mainGridContainer.appendChild(wrap);
   }
 
   toggleNumber(n) {
@@ -391,27 +449,33 @@ export class LototurfUI {
   }
 
   paintSelection() {
-    const root = this.mainGridContainer;
+    const roots = [
+      this.mainGridContainer,
+      this.horseGridContainer,
+      this.reintegroGridContainer,
+    ].filter(Boolean);
 
-    root.querySelectorAll('[data-kind="num"]').forEach((b) => {
-      const n = Number(b.dataset.value);
-      const on = this.numbers.includes(n);
-      b.classList.toggle("is-selected", on);
-      b.setAttribute("aria-pressed", on ? "true" : "false");
-    });
+    roots.forEach((root) => {
+      root.querySelectorAll('[data-kind="num"]').forEach((b) => {
+        const n = Number(b.dataset.value);
+        const on = this.numbers.includes(n);
+        b.classList.toggle("is-selected", on);
+        b.setAttribute("aria-pressed", on ? "true" : "false");
+      });
 
-    root.querySelectorAll('[data-kind="horse"]').forEach((b) => {
-      const h = Number(b.dataset.value);
-      const on = this.horse === h;
-      b.classList.toggle("is-selected", on);
-      b.setAttribute("aria-pressed", on ? "true" : "false");
-    });
+      root.querySelectorAll('[data-kind="horse"]').forEach((b) => {
+        const h = Number(b.dataset.value);
+        const on = this.horse === h;
+        b.classList.toggle("is-selected", on);
+        b.setAttribute("aria-pressed", on ? "true" : "false");
+      });
 
-    root.querySelectorAll('[data-kind="reintegro"]').forEach((b) => {
-      const r = Number(b.dataset.value);
-      const on = this.reintegro === r;
-      b.classList.toggle("is-selected", on);
-      b.setAttribute("aria-pressed", on ? "true" : "false");
+      root.querySelectorAll('[data-kind="reintegro"]').forEach((b) => {
+        const r = Number(b.dataset.value);
+        const on = this.reintegro === r;
+        b.classList.toggle("is-selected", on);
+        b.setAttribute("aria-pressed", on ? "true" : "false");
+      });
     });
   }
 
@@ -419,8 +483,6 @@ export class LototurfUI {
     this.numbers = pickUnique(6, 1, 31).sort((a, b) => a - b);
     this.horse = pickInt(1, 12);
 
-    // El reintegro es opcional: si quieres que el autopick lo rellene, deja esto.
-    // Si prefieres que siempre lo asigne el engine, ponlo a null.
     this.reintegro = pickInt(0, 9);
 
     this.paintSelection();
@@ -439,7 +501,6 @@ export class LototurfUI {
   }
 
   emitSelectionState() {
-    // Importante: el reintegro no bloquea el “Simular” (es opcional).
     const isComplete =
       Array.isArray(this.numbers) &&
       this.numbers.length === 6 &&

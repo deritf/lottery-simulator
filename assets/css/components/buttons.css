@@ -270,6 +270,60 @@ body[data-theme="dark"] .sim-btn:hover {
   transform: none;
 }
 
+/* =========================================
+   BOTÓN INICIAR - LATIDO DE ACENTO (solo cuándo se ha habilitado)
+   ========================================= */
+
+.sim-btn[data-run="run"] {
+  position: relative;
+}
+
+.sim-btn[data-run="run"]:not(:disabled):not(.is-running) {
+  animation: simAccentPulse 1.6s ease-in-out infinite;
+}
+
+.sim-btn[data-run="run"]:not(:disabled):not(.is-running):hover {
+  animation: none;
+}
+
+.sim-btn.is-active,
+.sim-btn.is-running {
+  animation: none;
+}
+
+@keyframes simAccentPulse {
+  0%,
+  100% {
+    background: color-mix(
+      in srgb,
+      var(--color-tarjeta) 85%,
+      var(--color-acento) 15%
+    );
+    border-color: color-mix(
+      in srgb,
+      var(--color-borde-1) 65%,
+      var(--color-acento) 35%
+    );
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  }
+
+  50% {
+    background: color-mix(
+      in srgb,
+      var(--color-tarjeta) 55%,
+      var(--color-acento) 45%
+    );
+    border-color: var(--color-acento);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.12);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sim-btn[data-run="run"]:not(:disabled):not(.is-running) {
+    animation: none;
+  }
+}
+
 /* =========================
    RESPONSIVE - MÓVIL
    ========================= */
