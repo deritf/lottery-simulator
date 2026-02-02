@@ -26,7 +26,6 @@ body {
   font-size: var(--tamano-texto-base);
   color: var(--color-texto-principal);
   background-color: var(--color-fondo-body);
-
   overflow-x: hidden;
 }
 
@@ -110,7 +109,7 @@ main {
   padding-top: calc(var(--header-height) + 2.4rem);
   padding-bottom: 3rem;
   background: transparent;
-
+  min-height: 100vh;
   transition: padding-top 300ms ease;
 }
 
