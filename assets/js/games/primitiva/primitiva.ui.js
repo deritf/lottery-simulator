@@ -4,10 +4,6 @@ import { PrimitivaConfig } from "./primitiva.config.js";
 import { EventBus } from "../../shared/utils/events.js";
 import { randInt, pickUniqueRandom } from "../../shared/utils/random.js";
 
-/**
- * UI específica de La Primitiva
- * Extraída y adaptada de numbers-ui.js original
- */
 export class PrimitivaUI {
   constructor() {
     this.config = PrimitivaConfig;
@@ -27,6 +23,12 @@ export class PrimitivaUI {
     // Obtener elementos del DOM
     this.gridEl = document.getElementById("number-grid");
     this.reintegroGridEl = document.getElementById("reintegro-grid");
+    if (this.reintegroGridEl) {
+      this.reintegroGridEl.classList.add(
+        "reintegro-grid",
+        "reintegro-grid--center-wrap",
+      );
+    }
     this.slotsMainEl = document.getElementById("slots-main");
     this.slotsReintegroEl = document.getElementById("slots-reintegro");
 

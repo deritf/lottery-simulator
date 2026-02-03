@@ -93,6 +93,8 @@
   --reintegro-size-min: 3.6rem;
   --reintegro-size-max: 5.5rem;
   --reintegro-gap: 0.8rem;
+  --reintegro-justify: start;
+  --reintegro-justify-sm: center;
 }
 
 .reintegro-grid {
@@ -107,7 +109,7 @@
     )
   );
 
-  justify-content: start;
+  justify-content: var(--reintegro-justify);
 }
 
 .reintegro-btn {
@@ -297,7 +299,7 @@
   }
 
   .reintegro-grid {
-    justify-content: center;
+    justify-content: var(--reintegro-justify-sm);
   }
 
   .reintegro-btn,
@@ -364,4 +366,12 @@
   .star-btn {
     font-size: 1.2rem;
   }
+}
+
+.reintegro-grid.reintegro-grid--center-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: flex-start;
+  gap: var(--reintegro-gap);
 }

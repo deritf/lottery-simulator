@@ -2,6 +2,11 @@
 
 body[data-game="primitiva"] {
   --color-acento: var(--color-primitiva);
+
+  --reintegro-size-min: 50px;
+  --reintegro-size-max: 58px;
+
+  --reintegro-justify: center;
 }
 
 /* =====

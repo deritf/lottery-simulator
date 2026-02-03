@@ -2,13 +2,16 @@
 
 body[data-game="eurodreams"] {
   --color-acento: var(--color-eurodreams);
+  --size-number-button: 5.8rem;
 }
 
 body[data-game="eurodreams"] .dream-btn {
   position: relative;
 
-  width: clamp(var(--reintegro-size-min), 6vw, var(--reintegro-size-max));
-  height: clamp(var(--reintegro-size-min), 6vw, var(--reintegro-size-max));
+  width: var(--size-number-button);
+  height: var(--size-number-button);
+  min-width: var(--size-number-button);
+  min-height: var(--size-number-button);
 
   border-radius: var(--radius-10);
   border: 1px solid var(--color-borde-1);
@@ -91,11 +94,11 @@ body[data-game="eurodreams"] .dream-btn.is-selected::before {
 }
 
 body[data-game="eurodreams"] #dream-grid {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, var(--size-number-button));
+  justify-content: center;
+  justify-items: center;
   gap: 0.8rem;
-  justify-content: flex-start;
-  align-content: flex-start;
 }
 
 body[data-game="eurodreams"] .slot--dream {

@@ -2,13 +2,16 @@
 
 body[data-game="gordo"] {
   --color-acento: var(--color-gordo);
+  --clave-size: clamp(50px, 9vw, 58px);
 }
 
-body[data-game="gordo"] .clave-btn {
+body[data-game="gordo"] #gordo-clave-grid .reintegro-btn {
   position: relative;
 
-  width: clamp(var(--reintegro-size-min), 6vw, var(--reintegro-size-max));
-  height: clamp(var(--reintegro-size-min), 6vw, var(--reintegro-size-max));
+  width: var(--clave-size);
+  height: var(--clave-size);
+  min-width: var(--clave-size);
+  min-height: var(--clave-size);
 
   border-radius: var(--radius-10);
   border: 1px solid var(--color-borde-1);
@@ -45,7 +48,7 @@ body[data-game="gordo"] .clave-btn {
   touch-action: manipulation;
 }
 
-body[data-game="gordo"] .clave-btn:hover {
+body[data-game="gordo"] .reintegro-btn:hover {
   background: color-mix(in srgb, var(--color-acento) 18%, var(--color-tarjeta));
   border-color: color-mix(
     in srgb,
@@ -57,29 +60,21 @@ body[data-game="gordo"] .clave-btn:hover {
   box-shadow: var(--shadow-sm);
 }
 
-body[data-game="gordo"] .clave-btn:active {
+body[data-game="gordo"] .reintegro-btn:active {
   transform: scale(1.02);
 }
 
-body[data-game="gordo"] .clave-btn.is-selected {
+body[data-game="gordo"] .reintegro-btn.is-selected {
   background: var(--color-acento);
   border-color: var(--color-acento);
   color: var(--color-acento-text);
   box-shadow: var(--shadow-sm);
 }
 
-body[data-game="gordo"] .clave-btn.is-selected:hover {
+body[data-game="gordo"] .reintegro-btn.is-selected:hover {
   background: var(--color-acento);
   border-color: var(--color-acento);
   transform: scale(1.03);
-}
-
-body[data-game="gordo"] #clave-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.8rem;
-  justify-content: flex-start;
-  align-content: flex-start;
 }
 
 body[data-game="gordo"] .slot--clave {
@@ -92,11 +87,11 @@ body[data-game="gordo"] .slot--clave {
     margin: 1.8rem 0 2.4rem;
   }
 
-  body[data-game="gordo"] .clave-btn {
+  body[data-game="gordo"] .reintegro-btn {
     font-size: 1.5rem;
   }
 
-  body[data-game="gordo"] #clave-grid {
+  body[data-game="gordo"] #gordo-clave-grid {
     gap: 0.7rem;
   }
 }
@@ -110,11 +105,11 @@ body[data-game="gordo"] .slot--clave {
     padding: 0;
   }
 
-  body[data-game="gordo"] .clave-btn {
+  body[data-game="gordo"] .reintegro-btn {
     font-size: 1.4rem;
   }
 
-  body[data-game="gordo"] #clave-grid {
+  body[data-game="gordo"] #gordo-clave-grid {
     gap: 0.6rem;
     justify-content: center;
   }
@@ -125,11 +120,11 @@ body[data-game="gordo"] .slot--clave {
     margin: 1.4rem 0 1.8rem;
   }
 
-  body[data-game="gordo"] .clave-btn {
+  body[data-game="gordo"] .reintegro-btn {
     font-size: 1.35rem;
   }
 
-  body[data-game="gordo"] #clave-grid {
+  body[data-game="gordo"] #gordo-clave-grid {
     gap: 0.5rem;
   }
 }

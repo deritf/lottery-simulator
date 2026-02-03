@@ -1,6 +1,4 @@
 // assets/js/games/gordo/gordo.ui.js
-// VERSIÓN ADAPTADA PARA USAR CONTENEDORES EXISTENTES DEL HTML
-// Slots idénticos a otros sorteos: <div class="slot" role="listitem">—</div>
 
 import { EventBus } from "../../shared/utils/events.js";
 import { getCurrentI18nDict } from "../../app/i18n.js";
@@ -50,7 +48,8 @@ export class GordoUI {
       this.claveContainer = document.createElement("div");
       this.claveContainer.id = "gordo-clave-grid";
 
-      this.claveContainer.className = "reintegro-grid";
+      this.claveContainer.className =
+        "reintegro-grid reintegro-grid--center-wrap";
 
       claveSection.appendChild(title);
       claveSection.appendChild(this.claveContainer);
