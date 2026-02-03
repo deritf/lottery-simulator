@@ -78,16 +78,33 @@ function translateSeriesName(rawName) {
   return typeof v === "string" && v.trim() ? v : rawName;
 }
 
+let resizeObserver = null;
+
+function hasSize(el) {
+  if (!el) return false;
+  return el.clientWidth > 0 && el.clientHeight > 0;
+}
+
 function ensureChart() {
   const el = document.getElementById("investment-line-race");
   if (!el) return null;
 
+  if (!hasSize(el)) return null;
+
   if (!chart) {
     chart = echarts.init(el);
+    chart.resize();
 
     window.addEventListener("resize", () => {
       if (chart) chart.resize();
     });
+
+    if (typeof ResizeObserver !== "undefined") {
+      resizeObserver = new ResizeObserver(() => {
+        if (chart) chart.resize();
+      });
+      resizeObserver.observe(el);
+    }
   }
   return chart;
 }
@@ -214,9 +231,26 @@ function applyZoomState(c, zoom) {
   } catch {}
 }
 
+let pendingRaf = 0;
+
 function render(payload) {
+  const el = document.getElementById("investment-line-race");
   const c = ensureChart();
-  if (!c) return;
+
+  if (!c) {
+    const results = document.getElementById("results");
+    const resultsHidden = results?.hasAttribute("hidden");
+
+    if (resultsHidden) return;
+
+    if (el && pendingRaf < 5) {
+      pendingRaf += 1;
+      requestAnimationFrame(() => render(payload));
+    }
+    return;
+  }
+
+  pendingRaf = 0;
 
   const labels = payload?.labels || [];
   const visibleSeries = getVisibleSeries(payload);
@@ -382,3 +416,22 @@ EventBus.on("lang:changed", () => {
   if (!chart) return;
   render(lastPayload);
 });
+
+function observeResultsVisibility() {
+  const results = document.getElementById("results");
+  if (!results) return;
+
+  const mo = new MutationObserver(() => {
+    const isHidden = results.hasAttribute("hidden");
+    if (!isHidden) {
+      requestAnimationFrame(() => {
+        if (chart) chart.resize();
+        render(lastPayload);
+      });
+    }
+  });
+
+  mo.observe(results, { attributes: true, attributeFilter: ["hidden"] });
+}
+
+document.addEventListener("DOMContentLoaded", observeResultsVisibility);
