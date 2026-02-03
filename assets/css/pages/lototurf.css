@@ -53,24 +53,10 @@ body[data-game="lototurf"]
   );
 }
 
-body[data-game="lototurf"] .lototurf__grid--horse {
-  grid-template-columns: repeat(
-    auto-fit,
-    minmax(var(--size-number-button), 1fr)
-  );
-}
-
-body[data-game="lototurf"] .lototurf__grid--reintegro {
-  grid-template-columns: repeat(
-    auto-fit,
-    minmax(var(--size-number-button), 1fr)
-  );
-}
-
 body[data-game="lototurf"] .lototurf__btn {
   width: 100%;
   height: var(--size-number-button);
-  min-width: 0;
+  min-width: 3.6rem;
 
   border-radius: var(--radius-10);
   border: 1px solid var(--color-borde-1);
@@ -276,13 +262,6 @@ body[data-game="lototurf"] .slot--horse.is-filled::before {
     gap: 0.5rem;
   }
 
-  body[data-game="lototurf"]
-    .lototurf__grid:not(.lototurf__grid--horse):not(.lototurf__grid--reintegro),
-  body[data-game="lototurf"] .lototurf__grid--horse,
-  body[data-game="lototurf"] .lototurf__grid--reintegro {
-    grid-template-columns: repeat(auto-fit, minmax(4.2rem, 1fr));
-  }
-
   body[data-game="lototurf"] .lototurf__btn {
     font-size: 1.25rem;
   }
@@ -303,4 +282,25 @@ body[data-game="lototurf"] .slot--horse.is-filled::before {
     width: 18px;
     height: 18px;
   }
+}
+
+body[data-game="lototurf"] #lototurf-horse-grid.lototurf__grid--horse,
+body[data-game="lototurf"] #lototurf-reintegro-grid.lototurf__grid--reintegro {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, var(--size-number-button));
+  justify-content: center;
+  justify-items: center;
+}
+
+body[data-game="lototurf"] #lototurf-reintegro-grid.lototurf__grid--reintegro {
+  gap: 0.8rem;
+}
+
+body[data-game="lototurf"]
+  #lototurf-reintegro-grid.lototurf__grid--reintegro
+  > button {
+  width: var(--size-number-button);
+  height: var(--size-number-button);
+  min-width: 3.6rem;
+  min-height: 3.6rem;
 }

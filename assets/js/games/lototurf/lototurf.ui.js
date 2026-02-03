@@ -134,7 +134,7 @@ export class LototurfUI {
 
       const grid = document.createElement("div");
       grid.id = "lototurf-horse-grid";
-      grid.className = "number-grid";
+      grid.className = "lototurf__grid lototurf__grid--horse";
 
       const hint = document.createElement("p");
       hint.className = "muted";
@@ -169,7 +169,7 @@ export class LototurfUI {
 
       const grid = document.createElement("div");
       grid.id = "lototurf-reintegro-grid";
-      grid.className = "reintegro-grid";
+      grid.className = "lototurf__grid lototurf__grid--reintegro";
 
       const hint = document.createElement("p");
       hint.className = "muted";
@@ -394,7 +394,8 @@ export class LototurfUI {
     for (let h = 1; h <= 12; h++) {
       const b = document.createElement("button");
       b.type = "button";
-      b.className = "reintegro-btn";
+      b.className = "lototurf__btn lototurf__btn--horse number";
+
       b.dataset.kind = "horse";
       b.dataset.value = String(h);
       b.textContent = String(h);
