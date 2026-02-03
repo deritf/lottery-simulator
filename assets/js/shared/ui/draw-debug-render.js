@@ -1402,6 +1402,27 @@ function renderCombinaciones(
   `;
 }
 
+function computeTotalPaid({ winners, prizePerWinner, payoutProvided }) {
+  const w = num(winners);
+  const p = num(prizePerWinner);
+  const provided = num(payoutProvided);
+
+  const computed = w > 0 && p > 0 ? w * p : 0;
+
+  if (provided > 0) {
+    const tol = Math.max(0.01, computed * 0.005);
+    const diff = Math.abs(provided - computed);
+
+    if (computed === 0) return provided;
+
+    if (diff > tol) return computed;
+
+    return provided;
+  }
+
+  return computed;
+}
+
 function renderWinnersTable(
   winnersEffective,
   prizePerWinner,
@@ -1432,7 +1453,12 @@ function renderWinnersTable(
 
       const winners = num(winnersEffective?.[key]);
       const prize = num(prizePerWinner?.[key]);
-      const payout = num(payoutsTotal?.[key]);
+
+      const payout = computeTotalPaid({
+        winners,
+        prizePerWinner: prize,
+        payoutProvided: payoutsTotal?.[key],
+      });
 
       const k = String(r?.key || "").toLowerCase();
       const label = String(r?.label || "").toLowerCase();
